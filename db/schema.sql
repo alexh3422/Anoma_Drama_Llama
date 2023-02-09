@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS llama_db;
+
+CREATE DATABASE llama_db;
+
