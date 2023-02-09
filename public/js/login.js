@@ -1,8 +1,8 @@
-document.querySelector("#loginForm").addEventListener("submit", (e) => {
+document.querySelector(".loginForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const loginObj = {
-    email: document.querySelector("#loginEmail").value,
-    password: document.querySelector("#loginPassword").value,
+    email: document.querySelector(".loginEmail").value,
+    password: document.querySelector(".loginPassword").value,
   };
   console.log(loginObj);
   fetch("/api/users/login", {
@@ -18,4 +18,11 @@ document.querySelector("#loginForm").addEventListener("submit", (e) => {
       alert("Error");
     }
   });
+});
+
+const createAccount = document.getElementById("signUpBttn");
+
+createAccount.addEventListener("click", function () {
+  location.replace("/signup");
+  console.log("Test");
 });
