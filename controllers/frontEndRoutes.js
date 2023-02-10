@@ -30,13 +30,18 @@ router.get("/signup", (req, res) => {
 
 router.get("/home", (req, res) => {
   res.render("home");
-})
+});
 
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
   } else {
-    res.render("profile");
+    Users.findByPk(req.session.userId, {
+      include: [Posts],
+    }).then((userData) => {
+      const hbsUser = userData.toJSON();
+      res.render("profile", { user: hbsUser });
+    });
   }
 });
 
