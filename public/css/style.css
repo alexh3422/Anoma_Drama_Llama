@@ -90,6 +90,8 @@ header button {
 
 main{
   background-color: black;
+  position: relative;
+  top: 10vh;
 }
 
 #rightSide{
@@ -214,11 +216,6 @@ footer{
   flex: 1;
 }
 
-.bodypos {
-  position: relative;
-  top: 10vh;
-}
-
 .journal {
   background: forestgreen;
   display: flex;
@@ -227,7 +224,6 @@ footer{
   margin: 3% 3% 0% 3%;
   min-height: 15vh;
   border-radius: 20px;
-  top: 0;
 }
 
 #post-input {
