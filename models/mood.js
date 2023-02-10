@@ -1,18 +1,20 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Comments extends Model {}
+class Mood extends Model {}
 
-Comments.init(
+Mood.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    comment: {
+    mood: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    private: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
   },
@@ -21,8 +23,8 @@ Comments.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "comments",
+    modelName: "mood",
   }
 );
 
-module.exports = Comments;
+module.exports = Mood;
