@@ -32,6 +32,10 @@ router.get("/home", (req, res) => {
   res.render("home");
 })
 
+router.get("/mood", (req, res) => {
+  res.render("mood");
+})
+
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
