@@ -26,14 +26,3 @@ createAccount.addEventListener("click", function () {
   location.replace("/signup");
   console.log("Test");
 });
-
-// function hideHeaderFooter() {
-//   const header = document.getElementById("header");
-//   const aside = document.getElementById("aside");
-//   const footer = document.getElementById("footer");
-//   header.classList.add("hide");
-//   aside.classList.add("hide");
-//   footer.classList.add("hide");
-// }
-
-// hideHeaderFooter();
