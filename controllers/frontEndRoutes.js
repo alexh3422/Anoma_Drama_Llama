@@ -14,18 +14,18 @@ router.get("/", (req, res) => {
       console.log("==============================");
       console.log(hbsPost);
       res.render("home", {
-        allPosts: hbsPost, 
+        allPosts: hbsPost,
       });
     });
   }
 });
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { layout: "main2" });
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { layout: "main2" });
 });
 
 router.get("/home", (req, res) => {

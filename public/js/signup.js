@@ -20,12 +20,3 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     }
   });
 });
-
-function hideHeaderFooter() {
-  const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
-  header.classList.add("hide");
-  footer.classList.add("hide");
-}
-
-hideHeaderFooter();
