@@ -110,14 +110,6 @@ a:hover {
   flex: 1;
 }
 
-.nav {
-  background: lightgray;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  min-height: 100vh;
-}
-
 .journal {
   background: forestgreen;
   display: flex;
