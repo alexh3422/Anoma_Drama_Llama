@@ -1,29 +1,19 @@
-{{! Username }}
-{{! mood tracker entry }}
-
-{{! user's journal history }}
-{{! mood history }}
-{{! bookmarks }}
-{{! comments }}
-
 <div>
   <div class="row">
     <div class="column">
       <div id="profileUsername">
-        <p>{{username}}</p>
+        <h2>{{user.username}}</h2>
       </div>
 
-      <main class="journal">
+      <div class="column">
+      <div class="journal">
         <form id="new-post-form">
-          <textarea
-            id="post-input"
-            placeholder="how are you feeling, right now?"
-          ></textarea>
+          <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
         </form>
         <button>woosaahh</button>
-      </main>
+      </div>
 
-      <main class="userPosts">
+      <main class="allPosts">
         <h2>Your Drama</h2>
         {{#each user.Posts}}
           <div class="post-box">

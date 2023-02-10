@@ -1,0 +1,27 @@
+<div>
+  <div class="row">
+    <div class="column">
+
+      <main class="journal">
+        <form id="new-post-form">
+          <textarea
+            id="post-input"
+            placeholder="how are you feeling, right now?"
+          ></textarea>
+        </form>
+        <button>woosaahh</button>
+      </main>
+
+      <main class="userPosts">
+        <h2>Your Journal</h2>
+        {{#each user.Posts}}
+          <div class="post-box">
+            {{!-- <p id="username">{{User.username}}'s drama:</p> --}}
+            <p id="text">{{post}}</p>
+            <p id="date">{{createdAt}}</p>
+          </div>
+        {{/each}}
+      </main>
+    </div>
+  </div>
+</div>
