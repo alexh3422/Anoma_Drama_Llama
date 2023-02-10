@@ -1,10 +1,21 @@
 const router = require("express").Router();
-const { Users, Posts } = require("../models");
+const { Users, Posts, Comments } = require("../models");
 const bcrypt = require("bcrypt");
 
 router.get("/", (req, res) => {
-  Users.findAll()
-    .then((dbUserData) => res.json(dbUserData))
+  Users.findAll({
+    include: [
+      {
+        model: Posts,
+        attributes: ["id", "mood", "text", "userId", "createdAt"],
+      },
+      {
+        model: Comments,
+        attributes: ["id", "comment", "userId", "postId", "createdAt"],
+      },
+    ],
+  })
+    .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -16,7 +27,7 @@ router.get("/logout", (req, res) => {
   res.send("logged out");
 });
 
-router.post("/", (req, res) => {
+router.post("/signup", (req, res) => {
   Users.create({
     username: req.body.username,
     email: req.body.email,
@@ -35,7 +46,7 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     attributes: { exclude: ["password"] },
-    include: [Posts],
+    include: [Posts, Comments],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -53,7 +64,7 @@ router.get("/:id", (req, res) => {
 router.post("/login", (req, res) => {
   Users.findOne({
     where: {
-      username: req.body.username,
+      email: req.body.email,
     },
   })
     .then((userData) => {
@@ -71,7 +82,7 @@ router.post("/login", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json({ msg: "oh noes!", err });
+      res.status(500).json({ msg: "Try Again!", err });
     });
 });
 
@@ -81,7 +92,7 @@ router.post("/signup", (req, res) => {
     password: req.body.password,
   }).catch((err) => {
     console.log(err);
-    res.status(500).json({ msg: "oh noes!", err });
+    res.status(500).json({ msg: "Try Again!", err });
   });
 });
 
