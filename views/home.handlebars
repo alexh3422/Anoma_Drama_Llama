@@ -1,14 +1,13 @@
 <div>
-  <div class="row">
-    <div class="column">
-      <main class="journal">
+    <div class="column bodypos">
+      <div class="journal">
         <form id="new-post-form">
           <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
         </form>
         <button>woosaahh</button>
-      </main>
+      </div>
 
-      <main class="allPosts">
+      <div class="allPosts">
         <h2>drama from other llamas</h2>
         {{#each Posts}}
         <div class="post-box">
@@ -17,8 +16,7 @@
           <p id="date">{{createdAt}}</p>
         </div>
         {{/each}}
-      </main>
+      </div>
     </div>
-  </div>
 </div>
   

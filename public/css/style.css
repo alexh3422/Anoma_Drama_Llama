@@ -214,7 +214,7 @@ footer{
   flex: 1;
 }
 
-main {
+.bodypos {
   position: relative;
   top: 10vh;
 }
