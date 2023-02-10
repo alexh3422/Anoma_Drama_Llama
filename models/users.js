@@ -1,7 +1,3 @@
-// username
-// email
-// password
-
 const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
@@ -38,7 +34,7 @@ Users.init(
       },
     },
 
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "users",
