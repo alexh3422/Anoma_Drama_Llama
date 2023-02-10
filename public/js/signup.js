@@ -1,8 +1,8 @@
 document.querySelector("#signupForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const signupObj = {
-    
     email: document.querySelector("#signupEmail").value,
+    username: document.querySelector("#signupUserName").value,
     password: document.querySelector("#signupPassword").value,
   };
   console.log(signupObj);
@@ -14,7 +14,7 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     },
   }).then((res) => {
     if (res.ok) {
-      location.href = "/login";
+      location.href = "/home";
     } else {
       alert("Error");
     }

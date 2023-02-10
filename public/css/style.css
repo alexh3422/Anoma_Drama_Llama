@@ -90,6 +90,8 @@ header button {
 
 main{
   background-color: black;
+  position: relative;
+  top: 10vh;
 }
 
 #rightSide{
@@ -98,6 +100,7 @@ main{
   position: fixed;
   right: 0;
   height: 100%;
+  z-index: 10;
 }
 
 footer{
@@ -107,6 +110,10 @@ footer{
   width: 100%;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  bottom: 0;
+  padding-right: 250px;
+  left: 50px;
 }
 
 .loginBody {
@@ -195,15 +202,6 @@ footer{
 }
 
 /* feli's CSS */
-a {
-  text-decoration: none;
-  color: black;
-}
-
-a:hover {
-  color: white;
-}
-
 .row {
   display: flex;
   flex-direction: row;
@@ -243,21 +241,9 @@ a:hover {
   margin: 3% 3% 3% 3%;
   height: 100%;
   border-radius: 20px;
+  top: 0;
 }
 
 .allPosts h2 {
-  text-align: center;
-}
-
-.avatar {
-  background: burlywood;
-  /* display: flex;
-  flex-direction: column; */
-  padding: 10px;
-  margin: 3% 3% 3% 0;
-  border-radius: 20px;
-}
-
-.avatar h2 {
   text-align: center;
 }
