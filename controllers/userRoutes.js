@@ -1,23 +1,11 @@
 const router = require("express").Router();
 const { Users, Posts, Comments, Mood } = require("../models");
 const bcrypt = require("bcrypt");
+const { Op } = require("sequelize");
 
 router.get("/", (req, res) => {
   Users.findAll({
-    include: [
-      {
-        model: Posts,
-        attributes: ["id", "mood", "text", "userId", "createdAt"],
-      },
-      {
-        model: Comments,
-        attributes: ["id", "comment", "userId", "postId", "createdAt"],
-      },
-      {
-        model: Mood,
-        attributes: ["id", "mood", "text", "userId", "createdAt"],
-      },
-    ],
+    include: [Posts, Comments, Mood]
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -28,7 +16,7 @@ router.get("/", (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.session.destroy();
-  res.send("logged out");
+  res.redirect("/login");
 });
 
 router.post("/", (req, res) => {
@@ -37,8 +25,12 @@ router.post("/", (req, res) => {
     email: req.body.email,
     password: req.body.password,
   })
-    .then((dbUserData) => res.json(dbUserData))
-    .catch((err) => {
+    .then((dbUserData) => {
+      req.session.userId = dbUserData.id;
+      req.session.userUsername = dbUserData.username;
+      req.session.userEmail = dbUserData.email;
+      res.json(dbUserData)
+    }).catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -65,11 +57,11 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/login", (req, res) => {
   Users.findOne({
     where: {
-      email: req.body.email,
-    },
+      [Op.or]: [{ username: req.body.login }, [{ email: req.body.login }]]
+    }
   })
     .then((userData) => {
       if (!userData) {
@@ -78,6 +70,7 @@ router.post("/", (req, res) => {
         if (bcrypt.compareSync(req.body.password, userData.password)) {
           req.session.userId = userData.id;
           req.session.userUsername = userData.username;
+          req.session.userEmail = userData.email;
           return res.json(userData);
         } else {
           return res.status(401).json({ msg: "incorrect email or password" });
