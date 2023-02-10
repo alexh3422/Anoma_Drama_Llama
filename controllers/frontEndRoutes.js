@@ -32,6 +32,19 @@ router.get("/home", (req, res) => {
   res.render("home");
 });
 
+router.get("/journal", (req, res) => {
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    Users.findByPk(req.session.userId, {
+      include: [Posts],
+    }).then((userData) => {
+      const hbsUser = userData.toJSON();
+      res.render("profile", { user: hbsUser });
+    });
+  }
+});
+
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
