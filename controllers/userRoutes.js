@@ -27,7 +27,7 @@ router.get("/logout", (req, res) => {
   res.send("logged out");
 });
 
-router.post("/signup", (req, res) => {
+router.post("/", (req, res) => {
   Users.create({
     username: req.body.username,
     email: req.body.email,
@@ -61,7 +61,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/", (req, res) => {
   Users.findOne({
     where: {
       email: req.body.email,
@@ -84,16 +84,6 @@ router.post("/login", (req, res) => {
       console.log(err);
       res.status(500).json({ msg: "Try Again!", err });
     });
-});
-
-router.post("/signup", (req, res) => {
-  User.create({
-    username: req.body.username,
-    password: req.body.password,
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json({ msg: "Try Again!", err });
-  });
 });
 
 module.exports = router;
