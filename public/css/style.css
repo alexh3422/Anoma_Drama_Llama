@@ -60,7 +60,7 @@ footer{
   border-radius: 8px;
   background-color: #839788;
   width: 40vmin;
-  min-height: 25vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,12 +80,14 @@ footer{
 
 .loginEmail,
 .loginPassword,
+.userName,
 .loginBttn {
   margin: 8px;
 }
 
 .loginEmail,
-.loginPassword {
+.loginPassword,
+.userName {
   width: 80%;
 }
 

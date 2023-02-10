@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
     res.redirect("/login");
   } else {
     Posts.findAll({
-      include: [User],
+      include: [Users],
     }).then((PostData) => {
       console.log(PostData);
       const hbsPost = PostData.map((Post) => Post.toJSON());
