@@ -19,3 +19,7 @@ document.querySelector(".loginForm").addEventListener("submit", (e) => {
     }
   });
 });
+
+document.querySelector("#signUpBttn").addEventListener("click", () =>{
+  location.href = "/signup"
+})
