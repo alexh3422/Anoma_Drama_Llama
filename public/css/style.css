@@ -7,7 +7,7 @@
 * {
   box-sizing: border-box;
   margin: 0%;
-  font-family: "Segoe UI", sans-serif
+  font-family: "Manrope", sans-serif
 }
 
 a {
@@ -23,7 +23,7 @@ body{
 #baseSection{
   width: 100%;
   display: flex;
-  background-color: aqua;
+  /* background-color: aqua; */
   justify-content: space-between;
 }
 
@@ -66,7 +66,7 @@ body{
 
 #mainSection {
   width: 100%;
-  background-color: aqua;
+  /* background-color: aqua; */
   margin-left: 50px;
   margin-right: 200px;
 }
@@ -89,7 +89,7 @@ header button {
 }
 
 main{
-  background-color: black;
+  /* background-color: black; */
   position: relative;
   top: 10vh;
 }
@@ -217,7 +217,7 @@ footer{
 }
 
 .journal {
-  background: forestgreen;
+  background: var(--light);
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -234,7 +234,7 @@ footer{
 }
 
 .allPosts {
-  background: forestgreen;
+  background: var(--light);
   /* display: flex;
   flex-direction: column; */
   padding: 10px;
