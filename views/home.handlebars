@@ -1,13 +1,13 @@
 <div>
   <div class="row">
     <div class="column">
-      <aside class"nav">
-        <h2>Home</h2>
-        <h2>Journal</h2>
-        <h2>My Llama</h2>
-        <h2>The Herd</h2>
-        <h2>Bookmarked Entries</h2>
-        <h2>Logout</h2>
+      <aside class="nav">
+        <a href="/"><h2>Home</h2></a>
+        <a href="/posts"><h2>Journal</h2></a>
+        <a href="/llama"><h2>My Llama</h2></a>
+        <a href="/herd"><h2>The Herd</h2></a>
+        <a href="/bookmarks"><h2>Bookmarked Entries</h2></a>
+        <a href="/logout"><h2>Logout</h2></a>
       </aside>
     </div>
 
@@ -18,6 +18,7 @@
         </form>
         <button>woosaahh</button>
       </main>
+
       <main class="allPosts">
         <h2>drama from other llamas</h2>
         {{#each Posts}}
@@ -32,7 +33,7 @@
 
     <div class="column">
       <aside class="avatar">
-        <h2>{{username}}'s Llamatar</h2>
+        <h2>{{username}}'s llama</h2>
       </aside>
     </div>
   </div>

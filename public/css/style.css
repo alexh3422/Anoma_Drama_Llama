@@ -85,3 +85,79 @@
 .hide {
   display: none;
 }
+
+/* feli's CSS */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
+.nav {
+  background: lightgray;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.journal {
+  background: forestgreen;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 3% 3% 0% 3%;
+  min-height: 30vh;
+  border-radius: 20px;
+}
+
+#post-input {
+  border-radius: 10px;
+  width: 100%;
+  height: 20vh;
+  resize: none;
+}
+
+.allPosts {
+  background: forestgreen;
+  /* display: flex;
+  flex-direction: column; */
+  padding: 10px;
+  margin: 3% 3% 3% 3%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.allPosts h2 {
+  text-align: center;
+}
+
+.avatar {
+  background: burlywood;
+  /* display: flex;
+  flex-direction: column; */
+  padding: 10px;
+  margin: 3% 3% 3% 0;
+  border-radius: 20px;
+}
+
+.avatar h2 {
+  text-align: center;
+}
