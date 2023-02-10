@@ -1,13 +1,13 @@
 :root {
-  --light: #EEE0CB;
-  --p1: #BAA898;
+  --light: #eee0cb;
+  --p1: #baa898;
   --p2: #839788;
 }
 
 * {
   box-sizing: border-box;
   margin: 0%;
-  font-family: "Segoe UI", sans-serif
+  font-family: "Segoe UI", sans-serif;
 }
 
 a {
@@ -15,19 +15,18 @@ a {
   color: black;
 }
 
-body{
+body {
   display: flex;
   flex-wrap: wrap;
 }
 
-#baseSection{
+#baseSection {
   width: 100%;
   display: flex;
-  background-color: aqua;
   justify-content: space-between;
 }
 
-#leftSide{
+#leftSide {
   display: flex;
   flex-direction: column;
   width: 50px;
@@ -52,26 +51,25 @@ body{
   text-align: center;
 }
 
-#leftSide:hover{
+#leftSide:hover {
   width: 200px;
 }
 
-#leftSide:hover a{
+#leftSide:hover a {
   display: block;
 }
 
-#leftSide:hover p{
+#leftSide:hover p {
   display: none;
 }
 
 #mainSection {
   width: 100%;
-  background-color: aqua;
   margin-left: 50px;
   margin-right: 200px;
 }
 
-header{
+header {
   background-color: #bfd7ea;
   height: 10vh;
   display: flex;
@@ -88,13 +86,12 @@ header button {
   width: 120px;
 }
 
-main{
-  background-color: black;
+main {
   position: relative;
   top: 10vh;
 }
 
-#rightSide{
+#rightSide {
   width: 200px;
   background-color: #839788;
   position: fixed;
@@ -103,10 +100,9 @@ main{
   z-index: 10;
 }
 
-footer{
+footer {
   height: 5vh;
   display: flex;
-  background-color: aqua;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -200,6 +196,21 @@ footer{
 .hide {
   display: none;
 }
+
+/* =============================Profile CSS=========================== */
+
+#profileUsername {
+  background: forestgreen;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 3% 3% 0% 3%;
+  min-height: 5vh;
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* =================================================================== */
 
 /* feli's CSS */
 .row {

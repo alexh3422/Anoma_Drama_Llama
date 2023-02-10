@@ -1,20 +1,19 @@
 <div>
   <div class="row">
     <div class="column">
-      <div id="profileUsername">
-        <h2>{{user.username}}</h2>
-      </div>
 
-      <div class="column">
-      <div class="journal">
+      <main class="journal">
         <form id="new-post-form">
-          <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
+          <textarea
+            id="post-input"
+            placeholder="how are you feeling, right now?"
+          ></textarea>
         </form>
         <button>woosaahh</button>
-      </div>
+      </main>
 
-      <main class="allPosts">
-        <h2>Your Drama</h2>
+      <main class="userPosts">
+        <h2>Your Journal</h2>
         {{#each user.Posts}}
           <div class="post-box">
             {{!-- <p id="username">{{User.username}}'s drama:</p> --}}
