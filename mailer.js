@@ -15,15 +15,6 @@ async function main() {
     },
   });
 
-$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->Host = 'smtp.ethereal.email';
-$mail->SMTPAuth = true;
-$mail->Username = 'leif.reichert40@ethereal.email';
-$mail->Password = 'ZTZjQ13KpnuG4qxAbw';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
-
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Fred Foo 👻" <leif.reichert40@ethereal.email>', // sender address
