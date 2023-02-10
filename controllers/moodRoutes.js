@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { Users, Posts, Comments } = require("../models");
+const { Users, Mood, Comments } = require("../models");
 
 router.get("/", (req, res) => {
-  Posts.findAll({
+  Mood.findAll({
     include: [
       {
         model: Users,
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  Posts.findOne({
+  Mood.findOne({
     where: {
       id: req.params.id,
     },
@@ -43,7 +43,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Posts.create({
+  Mood.create({
     mood: req.body.mood,
     text: req.body.text,
     private: req.body.private,
@@ -58,7 +58,7 @@ router.post("/", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  Posts.destroy({
+  Mood.destroy({
     where: {
       id: req.params.id,
     },
