@@ -27,11 +27,13 @@ createAccount.addEventListener("click", function () {
   console.log("Test");
 });
 
-function hideHeaderFooter() {
-  const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
-  header.classList.add("hide");
-  footer.classList.add("hide");
-}
+// function hideHeaderFooter() {
+//   const header = document.getElementById("header");
+//   const aside = document.getElementById("aside");
+//   const footer = document.getElementById("footer");
+//   header.classList.add("hide");
+//   aside.classList.add("hide");
+//   footer.classList.add("hide");
+// }
 
-hideHeaderFooter();
+// hideHeaderFooter();
