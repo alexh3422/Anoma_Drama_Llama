@@ -1,8 +1,8 @@
 document.querySelector(".loginForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const loginObj = {
-    email: document.querySelector(".loginEmail").value,
-    password: document.querySelector(".loginPassword").value,
+    email: document.querySelector("#loginEmail").value,
+    password: document.querySelector("#loginPassword").value,
   };
   console.log(loginObj);
   fetch("/api/users/login", {
@@ -26,3 +26,12 @@ createAccount.addEventListener("click", function () {
   location.replace("/signup");
   console.log("Test");
 });
+
+function hideHeaderFooter() {
+  const header = document.getElementById("header");
+  const footer = document.getElementById("footer");
+  header.classList.add("hide");
+  footer.classList.add("hide");
+}
+
+hideHeaderFooter();
