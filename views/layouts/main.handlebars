@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -9,32 +8,33 @@
     <title>Anoma Drama Llama</title>
   </head>
 
-<body>
+  <body>
     <section id="baseSection">
-        <aside id="leftSide">
-            <P>≡</P>
-            <a href="/profile">Profile</a>
-            <a href="/Llama">Llama</a>
-            <a href="/bookmarks">Bookmars</a>
-            <a href="/api/users/logout">Logout</a>
-        </aside>
-        <section id="mainSection">
-            <header>
-                <button>All Posts</button>
-                <button>Your Journal</button>
-                <button>Your moods</button>
-            </header>
-            <main>
-                {{{body}}}
-            </main>
-        </section>
-        <aside id="rightSide">
-            <p>Your Drama Llama is comming soon...</p>
-        </aside>
+      <aside id="leftSide">
+        <P>≡</P>
+        <a href="/profile">Profile</a>
+        <a href="/Llama">Llama</a>
+        <a href="/bookmarks">Bookmars</a>
+        <a href="/api/users/logout">Logout</a>
+      </aside>
+      <section id="mainSection">
+        <header>
+          <button id="allPostsBttn">All Posts</button>
+          <button id="journalBttn">Your Journal</button>
+          <button id="moodsBttn">Your moods</button>
+        </header>
+        <main>
+          {{{body}}}
+        </main>
+      </section>
+      <aside id="rightSide">
+        <p>Your Drama Llama is comming soon...</p>
+      </aside>
     </section>
     <footer>
       <p>&copy; Andy Barringer, Alex Hall, Feliclare De Jesus, Maya Lynn Cohen</p>
     </footer>
+    <script src="/js/main.js"></script>
   </body>
 
 </html>
