@@ -3,6 +3,41 @@
   margin: 0%;
 }
 
+body{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#leftSide{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  background-color: antiquewhite;
+}
+
+#mainSection {
+  width: 60%;
+  background-color: aqua;
+}
+
+header{
+  background-color: #bfd7ea;
+  height: 10vh;
+}
+
+main{
+  background-color: black;
+}
+
+#rightSide{
+  width: 20%;
+  background-color: #839788;
+}
+
+footer{
+  height: 5vh;
+}
+
 .loginBody {
   width: 100%;
   height: 100vmin;
