@@ -1,0 +1,40 @@
+<div>
+  <div class="row">
+    <div class="column">
+      <aside class"nav">
+        <h2>Home</h2>
+        <h2>Journal</h2>
+        <h2>My Llama</h2>
+        <h2>The Herd</h2>
+        <h2>Bookmarked Entries</h2>
+        <h2>Logout</h2>
+      </aside>
+    </div>
+
+    <div class="column">
+      <main class="journal">
+        <form id="new-post-form">
+          <textarea id="post-input" placeholder="how are you feeling today?"></textarea>
+        </form>
+        <button>woosaahh</button>
+      </main>
+      <main class="allPosts">
+        <h2>drama from other llamas</h2>
+        {{#each Posts}}
+        <div class="post-box">
+          <p id="username">{{User.username}}'s drama:</p>
+          <p id="text">{{post}}</p>
+          <p id="date">{{createdAt}}</p>
+        </div>
+        {{/each}}
+      </main>
+    </div>
+
+    <div class="column">
+      <aside class="avatar">
+        <h2>{{username}}'s Llamatar</h2>
+      </aside>
+    </div>
+  </div>
+</div>
+  
