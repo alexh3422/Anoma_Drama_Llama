@@ -23,9 +23,15 @@ router.get("/", (req, res) => {
 router.get("/login", (req, res) => {
   res.render("login", { layout: "main2" });
 });
+
 router.get("/signup", (req, res) => {
   res.render("signup", { layout: "main2" });
 });
+
+router.get("/home", (req, res) => {
+  res.render("home");
+})
+
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");

@@ -19,10 +19,3 @@ document.querySelector(".loginForm").addEventListener("submit", (e) => {
     }
   });
 });
-
-const createAccount = document.getElementById("signUpBttn");
-
-createAccount.addEventListener("click", function () {
-  location.replace("/signup");
-  console.log("Test");
-});
