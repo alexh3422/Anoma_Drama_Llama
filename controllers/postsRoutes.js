@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
       },
       {
         model: Comments,
-        attributes: ["id", "comment", "userId", "postId", "createdAt"],
+        attributes: ["id", "comment_text", "userId", "postId", "createdAt"],
       }
     ],
   })
