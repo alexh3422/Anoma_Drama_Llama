@@ -3,9 +3,10 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
   const signupObj = {
     email: document.querySelector("#signupEmail").value,
     password: document.querySelector("#signupPassword").value,
+    username: document.querySelector("#signupUserName").value,
   };
   console.log(signupObj);
-  fetch("/api/users", {
+  fetch("/api/users/signup", {
     method: "POST",
     body: JSON.stringify(signupObj),
     headers: {
@@ -13,18 +14,20 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     },
   }).then((res) => {
     if (res.ok) {
-      location.href = "/login";
+      location.href = "/home";
     } else {
       alert("Error");
     }
   });
 });
 
-function hideHeaderFooter() {
-  const header = document.getElementById("header");
-  const footer = document.getElementById("footer");
-  header.classList.add("hide");
-  footer.classList.add("hide");
-}
+// function hideHeaderFooter() {
+//   const header = document.getElementById("header");
+//   const aside = document.getElementById("aside");
+//   const footer = document.getElementById("footer");
+//   header.classList.add("hide");
+//   aside.classList.add("hide");
+//   footer.classList.add("hide");
+// }
 
-hideHeaderFooter();
+// hideHeaderFooter();
