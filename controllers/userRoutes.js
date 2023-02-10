@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Users, Posts, Comments } = require("../models");
+const { Users, Posts, Comments, Mood } = require("../models");
 const bcrypt = require("bcrypt");
 
 router.get("/", (req, res) => {
@@ -12,6 +12,10 @@ router.get("/", (req, res) => {
       {
         model: Comments,
         attributes: ["id", "comment", "userId", "postId", "createdAt"],
+      },
+      {
+        model: Mood,
+        attributes: ["id", "mood", "text", "userId", "createdAt"],
       },
     ],
   })
