@@ -18,6 +18,25 @@ class Emotion {
         })
     }
 
+    makesingleSelection(allEmotions) {
+        document.querySelector(`#${this.name}`).addEventListener("click", () => {
+            const color = document.querySelector(`.${this.color}`)
+            allEmotions.forEach(emotion => {
+                if(emotion.name!=this.name){
+                    document.querySelector(`.${emotion.color}`).style.opacity = "30%";
+                    emotion.selected = false;
+                }
+            })
+            if (!this.selected) {
+                color.style.opacity = "100%";
+                this.selected = true;
+            } else {
+                color.style.opacity = "30%"
+                this.selected = false;
+            }
+        })
+    }
+
     nameOnhover() {
         document.querySelector(`#${this.name}`).addEventListener("mouseover", () =>{
             document.querySelector(`#moodName`).textContent = this.name
@@ -44,7 +63,23 @@ const emotions = [
     new Emotion("annoyed", "color16")
 ] 
 
-emotions.forEach(emotion => {
-    emotion.makeSelection();
-    emotion.nameOnhover();
-})
+
+const moodWheel = document.querySelector("#moodWheel")
+
+if(moodWheel.getAttribute("wheelMode")==="single"){
+    emotions.forEach(emotion => {
+        emotion.makesingleSelection(emotions);
+        emotion.nameOnhover();
+    })
+} else if(moodWheel.getAttribute("wheelMode")==="multiple"){
+    emotions.forEach(emotion => {
+        emotion.makeSelection();
+        emotion.nameOnhover();
+    })
+}
+
+const backgroundCover = document.querySelector("#backgroundCover")
+
+backgroundCover.addEventListener("click", () => {
+    moodWheel.style.display = "none";
+});
