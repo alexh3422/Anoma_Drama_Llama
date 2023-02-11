@@ -11,7 +11,7 @@ Mood.init(
     },
     text: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     private: {
       type: DataTypes.BOOLEAN,

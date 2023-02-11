@@ -1,28 +1,71 @@
 <div>
-  <div class="row">
-    <div class="column">
-      <div id="profileUsername">
-        <h2>{{user.username}}</h2>
-      </div>
-
-      <div class="column">
-      <div class="journal">
-        <form id="new-post-form">
-          <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
-        </form>
-        <button>woosaahh</button>
-      </div>
-
-      <main class="allPosts">
-        <h2>Your Drama</h2>
-        {{#each user.Posts}}
-          <div class="post-box">
-            {{!-- <p id="username">{{User.username}}'s drama:</p> --}}
-            <p id="text">{{post}}</p>
-            <p id="date">{{createdAt}}</p>
-          </div>
-        {{/each}}
-      </main>
+  <div class="column">
+    <div id="profileUsername">
+      <h2>{{user.username}}</h2>
     </div>
+
+    <div id="moodWheel">
+      <div id="Border">
+          <div id="center"></div>
+        </div>
+      <div id="innerWheel">
+        <p id="moodName" class="moodMiddle">Mood</p>
+        <p id="happy" class="moodMiddle">😀</p>
+        <p id="sad" class="moodMiddle">😢</p>
+        <p id="annoyed" class="moodMiddle">😒</p>
+        <p id="embarrassed" class="moodMiddle">😳</p>
+        <p id="tired" class="moodMiddle">😴</p>
+        <p id="calm" class="moodMiddle">😌</p>
+        <p id="Bored" class="moodMiddle">😐</p>
+        <p id="disappointed" class="moodMiddle">😕</p>
+        <p id="mischievous" class="moodMiddle">😈</p>
+        <p id="angry" class="moodMiddle">😡</p>
+        <p id="flirty" class="moodMiddle">😘</p>
+        <p id="anxious" class="moodMiddle">😟</p>
+        <p id="silly" class="moodMiddle">😛</p>
+        <p id="scared" class="moodMiddle">😧</p>
+        <p id="frustrated" class="moodMiddle">😫</p>
+        <p id="shocked" class="moodMiddle">😱</p>
+        <div id="colorWheel">
+          <span class="color01"></span>
+          <span class="color02"></span>
+          <span class="color03"></span>
+          <span class="color04"></span>
+          <span class="color05"></span>
+          <span class="color06"></span>
+          <span class="color07"></span>
+          <span class="color08"></span>
+          <span class="color09"></span>
+          <span class="color10"></span>
+          <span class="color11"></span>
+          <span class="color12"></span>
+          <span class="color13"></span>
+          <span class="color14"></span>
+          <span class="color15"></span>
+          <span class="color16"></span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="journal">
+      <form id="new-post-form">
+        <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
+      </form>
+      <button>woosaahh</button>
+    </div>
+
+    <main class="allPosts">
+      <h2>Your Drama</h2>
+      {{#each user.Posts}}
+      <div class="post-box">
+        {{!-- <p id="username">{{User.username}}'s drama:</p> --}}
+        <p id="text">{{post}}</p>
+        <p id="date">{{createdAt}}</p>
+      </div>
+      {{/each}}
+    </main>
   </div>
-</div>
+<script src="/js/emotion.js"></script>
+<script src="/js/moodWheel.js"></script>
