@@ -1,44 +1,46 @@
-const llamaBrown01 = "images/pixel-llamas/llama-brown-01.png";
-const llamaBrown02 = "images/pixel-llamas/llama-brown-02.png";
-const llamaBrown03 = "images/pixel-llamas/llama-brown-03.png";
-const llamaBrown04 = "images/pixel-llamas/llama-brown-04.png";
+const llamaGrey = "images/pixel-llamas/llama01.png";
+const llamaBrown = "images/pixel-llamas/llama02.png";
+const llamaWhite = "images/pixel-llamas/llama03.png";
 
-const llamaGrey01 = "images/pixel-llamas/llama-grey-01.png";
-const llamaGrey02 = "images/pixel-llamas/llama-grey-02.png";
-const llamaGrey03 = "images/pixel-llamas/llama-grey-03.png";
-const llamaGrey04 = "images/pixel-llamas/llama-grey-04.png";
+const hatCowboy = "images/pixel-llamas/hat01.png";
+const hatCrown = "images/pixel-llamas/hat02.png";
+const hatWizard = "images/pixel-llamas/hat03.png";
 
-const llamaWhite01 = "images/pixel-llamas/llama-white-01.png";
-const llamaWhite02 = "images/pixel-llamas/llama-white-02.png";
-const llamaWhite03 = "images/pixel-llamas/llama-white-03.png";
-const llamaWhite04 = "images/pixel-llamas/llama-white-04.png";
+const llama = document.querySelector("#llamaImage");
+const hat = document.querySelector("#hatImage");
+const colorOption = document.querySelector(".colorSelect");
+const hatOption = document.querySelector(".hatSelect");
 
-function back() {
-  const llama = document.getElementById("llamaImage");
-
-  if (llama.src == llamaBrown01) {
-    llama.src = llamaWhite04;
-  } else if (llama.src == llamaBrown02) {
-    llama.src = llamaBrown01;
-  } else if (llama.src == llamaBrown03) {
-    llama.src = llamaBrown02;
-  } else if (llama.src == llamaBrown04) {
-    llama.src = llamaBrown03;
-  } else if (llama.src == llamaGrey01) {
-    llama.src = llamaBrown04;
-  } else if (llama.src == llamaGrey02) {
-    llama.src = llamaGrey01;
-  } else if (llama.src == llamaGrey03) {
-    llama.src = llamaGrey02;
-  } else if (llama.src == llamaGrey04) {
-    llama.src = llamaGrey03;
-  } else if (llama.src == llamaWhite01) {
-    llama.src = llamaGrey04;
-  } else if (llama.src == llamaWhite02) {
-    llama.src = llamaWhite01;
-  } else if (llama.src == llamaWhite03) {
-    llama.src = llamaWhite02;
-  } else if (llama.src == llamaWhite04) {
-    llama.src = llamaWhite03;
+function chooseLlama() {
+  if (colorOption.value == "grey") {
+    llama.src = llamaGrey;
+  } else if (colorOption.value == "brown") {
+    llama.src = llamaBrown;
+  } else if (colorOption.value == "white") {
+    llama.src = llamaWhite;
+  } else {
+    console.log("no such color");
   }
 }
+
+function chooseHat() {
+  if (hatOption.value == "cowboy") {
+    hat.src = hatCowboy;
+  } else if (hatOption.value == "crown") {
+    hat.src = hatCrown;
+  } else if (hatOption.value == "wizard") {
+    hat.src = hatWizard;
+  } else if (hatOption.value == "none") {
+    document.querySelector("#hatImage").style.display("none");
+  }
+}
+
+colorOption.addEventListener("change", function () {
+  chooseLlama();
+  console.log(colorOption.value);
+});
+
+hatOption.addEventListener("change", function () {
+  chooseHat();
+  console.log(hatOption.value);
+});

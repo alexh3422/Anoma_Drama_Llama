@@ -7,7 +7,7 @@
 * {
   box-sizing: border-box;
   margin: 0%;
-  font-family: "Manrope", sans-serif
+  font-family: "Manrope", sans-serif;
 }
 
 a {
@@ -112,7 +112,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  background: var(--p2)
+  background: var(--p2);
 }
 
 .loginBody {
@@ -268,9 +268,26 @@ footer {
   text-align: center;
 }
 
+/* =============== Llama Select ===================== */
+#llamaSelect {
+  display: flex;
+  flex-direction: column;
+  /* border: black solid 5px; */
+}
+
+#llamaCard {
+  width: 400px;
+  height: 450px;
+  /* border: black solid 5px; */
+  position: relative;
+}
+
+#llamaCard img {
+  position: absolute;
+}
 /* ================================================== */
 /* Mood Wheel */
-#moodWheel{
+#moodWheel {
   margin: 50px;
   display: flex;
   justify-content: center;
@@ -282,7 +299,7 @@ footer {
   border-radius: 50%;
 }
 
-#innerWheel{
+#innerWheel {
   height: 50%;
   width: 50%;
   margin: 50px;
@@ -290,11 +307,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position:absolute;
+  position: absolute;
 }
 
-.moodMiddle{
-  position:absolute;
+.moodMiddle {
+  position: absolute;
   font-size: 5vh;
   border-radius: 50%;
   z-index: 5;
@@ -312,7 +329,7 @@ footer {
   align-items: center;
 }
 
-#center{
+#center {
   height: 60%;
   width: 60%;
   background-color: var(--light);
@@ -395,7 +412,7 @@ footer {
 #shocked {
   top: 35%;
   left: -40%;
-} 
+}
 
 #colorWheel {
   height: 20%;
@@ -425,7 +442,6 @@ footer {
   border-width: 28vh 5.6vh;
   box-sizing: border-box;
 }
-
 
 #colorWheel span.color01 {
   opacity: 30%;
@@ -577,7 +593,6 @@ footer {
   border-color: #2d319f transparent transparent transparent;
 }
 
-
 #colorWheel span.color16 {
   opacity: 30%;
   -webkit-transform: rotate(337.5deg);
@@ -587,328 +602,6 @@ footer {
   transform: rotate(337.5deg);
   border-color: #2d559f transparent transparent transparent;
 }
-
-
-/* ================================================== */
-/* Mood Wheel */
-#moodWheel{
-  margin: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 58vh;
-  width: 58vh;
-  background-color: var(--p1);
-  border-radius: 50%;
-}
-
-#innerWheel{
-  height: 50%;
-  width: 50%;
-  margin: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position:absolute;
-}
-
-.moodMiddle{
-  position:absolute;
-  font-size: 5vh;
-  border-radius: 50%;
-  z-index: 5;
-  cursor: pointer;
-}
-
-#Border {
-  height: 58vh;
-  width: 58vh;
-  border: var(--light) 20px solid;
-  border-radius: 50%;
-  z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#center{
-  height: 60%;
-  width: 60%;
-  background-color: var(--light);
-  border-radius: 50%;
-}
-
-#happy {
-  top: -40%;
-}
-
-#sad {
-  top: -32%;
-  right: 5%;
-}
-
-#annoyed {
-  top: -32%;
-  left: 5%;
-}
-
-#embarrassed {
-  top: -15%;
-  right: -20%;
-}
-
-#tired {
-  top: -15%;
-  left: -20%;
-}
-
-#calm {
-  top: 8%;
-  right: -35%;
-}
-
-#Bored {
-  top: 8%;
-  left: -35%;
-}
-
-#disappointed {
-  top: 35%;
-  right: -40%;
-}
-
-#mischievous {
-  bottom: -40%;
-}
-
-#angry {
-  bottom: -32%;
-  right: 5%;
-}
-
-#flirty {
-  bottom: -32%;
-  left: 5%;
-}
-
-#anxious {
-  bottom: -15%;
-  right: -20%;
-}
-
-#silly {
-  bottom: -15%;
-  left: -20%;
-}
-
-#scared {
-  bottom: 12%;
-  right: -35%;
-}
-
-#frustrated {
-  bottom: 12%;
-  left: -35%;
-}
-
-#shocked {
-  top: 35%;
-  left: -40%;
-} 
-
-#colorWheel {
-  height: 20%;
-  width: 20%;
-  position: absolute;
-  top: -45%;
-  left: 30%;
-  -webkit-transform-origin: 50px 250px;
-  -moz-transform-origin: 50px 250px;
-  -ms-transform-origin: 50px 250px;
-  -o-transform-origin: 50px 250px;
-  transform-origin: 50px 250px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-}
-#colorWheel span {
-  position: absolute;
-  border-style: solid;
-  border-width: 28vh 5.6vh;
-  box-sizing: border-box;
-}
-
-
-#colorWheel span.color01 {
-  opacity: 30%;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  border-color: #43b4cd transparent transparent transparent;
-}
-
-#colorWheel span.color02 {
-  opacity: 30%;
-  -webkit-transform: rotate(22.5deg);
-  -moz-transform: rotate(22.5deg);
-  -ms-transform: rotate(22.5deg);
-  -o-transform: rotate(22.5deg);
-  transform: rotate(22.5deg);
-  border-color: #479b79 transparent transparent transparent;
-}
-
-#colorWheel span.color03 {
-  opacity: 30%;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  border-color: #47c14d transparent transparent transparent;
-}
-
-#colorWheel span.color04 {
-  opacity: 30%;
-  -webkit-transform: rotate(67.5deg);
-  -moz-transform: rotate(67.5deg);
-  -ms-transform: rotate(67.5deg);
-  -o-transform: rotate(67.5deg);
-  transform: rotate(67.5deg);
-  border-color: #a5e23b transparent transparent transparent;
-}
-
-#colorWheel span.color05 {
-  opacity: 30%;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-  border-color: #e1f71e transparent transparent transparent;
-}
-
-#colorWheel span.color06 {
-  opacity: 30%;
-  -webkit-transform: rotate(112.5deg);
-  -moz-transform: rotate(112.5deg);
-  -ms-transform: rotate(112.5deg);
-  -o-transform: rotate(112.5deg);
-  transform: rotate(112.5deg);
-  border-color: #baa72e transparent transparent transparent;
-}
-
-#colorWheel span.color07 {
-  opacity: 30%;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -ms-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-  border-color: #9a621d transparent transparent transparent;
-}
-
-#colorWheel span.color08 {
-  opacity: 30%;
-  -webkit-transform: rotate(157.5deg);
-  -moz-transform: rotate(157.5deg);
-  -ms-transform: rotate(157.5deg);
-  -o-transform: rotate(157.5deg);
-  transform: rotate(157.5deg);
-  border-color: #6c422a transparent transparent transparent;
-}
-
-#colorWheel span.color09 {
-  opacity: 30%;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  transform: rotate(180deg);
-  border-color: #662727 transparent transparent transparent;
-}
-
-#colorWheel span.color10 {
-  opacity: 30%;
-  -webkit-transform: rotate(202.5deg);
-  -moz-transform: rotate(202.5deg);
-  -ms-transform: rotate(202.5deg);
-  -o-transform: rotate(202.5deg);
-  transform: rotate(202.5deg);
-  border-color: #9f2d5b transparent transparent transparent;
-}
-
-#colorWheel span.color11 {
-  opacity: 30%;
-  -webkit-transform: rotate(225deg);
-  -moz-transform: rotate(225deg);
-  -ms-transform: rotate(225deg);
-  -o-transform: rotate(225deg);
-  transform: rotate(225deg);
-  border-color: #9f2d7b transparent transparent transparent;
-}
-
-#colorWheel span.color12 {
-  opacity: 30%;
-  -webkit-transform: rotate(247.5deg);
-  -moz-transform: rotate(247.5deg);
-  -ms-transform: rotate(247.5deg);
-  -o-transform: rotate(247.5deg);
-  transform: rotate(247.5deg);
-  border-color: #842d9f transparent transparent transparent;
-}
-
-#colorWheel span.color13 {
-  opacity: 30%;
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg);
-  border-color: #712d9f transparent transparent transparent;
-}
-
-#colorWheel span.color14 {
-  opacity: 30%;
-  -webkit-transform: rotate(292.5deg);
-  -moz-transform: rotate(292.5deg);
-  -ms-transform: rotate(292.5deg);
-  -o-transform: rotate(292.5deg);
-  transform: rotate(292.5deg);
-  border-color: #4f2d9f transparent transparent transparent;
-}
-
-#colorWheel span.color15 {
-  opacity: 30%;
-  -webkit-transform: rotate(315deg);
-  -moz-transform: rotate(315deg);
-  -ms-transform: rotate(315deg);
-  -o-transform: rotate(315deg);
-  transform: rotate(315deg);
-  border-color: #2d319f transparent transparent transparent;
-}
-
-
-#colorWheel span.color16 {
-  opacity: 30%;
-  -webkit-transform: rotate(337.5deg);
-  -moz-transform: rotate(337.5deg);
-  -ms-transform: rotate(337.5deg);
-  -o-transform: rotate(337.5deg);
-  transform: rotate(337.5deg);
-  border-color: #2d559f transparent transparent transparent;
-}
-
 
 .journal button {
   width: 20vw;
