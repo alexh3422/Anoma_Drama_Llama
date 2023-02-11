@@ -45,6 +45,10 @@ router.get("/journal", (req, res) => {
   }
 });
 
+router.get("/mood", (req, res) => {
+  res.render("mood");
+})
+
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
