@@ -239,9 +239,8 @@ footer {
   flex-direction: column;
   padding: 10px;
   margin: 1% 1% 0% 1%;
-  min-height: 15vh;
+  min-height: 10vh;
   border-radius: 10px;
-  border-radius: 20px;
   width: 90%;
 }
 
