@@ -5,3 +5,7 @@ document.querySelector("#allPostsBttn").addEventListener("click", () => {
 document.querySelector("#journalBttn").addEventListener("click", () => {
   location.href = "/journal";
 });
+
+document.querySelector("#moodsBttn").addEventListener("click", () => {
+  location.href = "/mood";
+});
