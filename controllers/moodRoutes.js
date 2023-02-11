@@ -3,16 +3,7 @@ const { Users, Mood, Comments } = require("../models");
 
 router.get("/", (req, res) => {
   Mood.findAll({
-    include: [
-      {
-        model: Users,
-        attributes: ["username"],
-      },
-      {
-        model: Comments,
-        attributes: ["id", "comment", "userId", "postId", "createdAt"],
-      },
-    ],
+    include: [Users, Comments],
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
