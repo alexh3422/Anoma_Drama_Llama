@@ -12,7 +12,7 @@ class Emotion {
                 color.style.opacity = "100%";
                 this.selected = true;
             } else {
-                color.style.opacity = "50%"
+                color.style.opacity = "30%"
                 this.selected = false;
             }
         })

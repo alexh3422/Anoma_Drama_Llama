@@ -273,6 +273,10 @@ footer {
   justify-content: center;
   align-items: center;
   position: relative;
+  height: 58vh;
+  width: 58vh;
+  background-color: var(--p1);
+  border-radius: 50%;
 }
 
 #innerWheel{
@@ -288,15 +292,15 @@ footer {
 
 .moodMiddle{
   position:absolute;
-  font-size: 50px;
+  font-size: 5vh;
   border-radius: 50%;
   z-index: 5;
   cursor: pointer;
 }
 
 #Border {
-  height: 525px;
-  width: 525px;
+  height: 58vh;
+  width: 58vh;
   border: var(--light) 20px solid;
   border-radius: 50%;
   z-index: 4;
@@ -306,8 +310,8 @@ footer {
 }
 
 #center{
-  height: 50%;
-  width: 50%;
+  height: 60%;
+  width: 60%;
   background-color: var(--light);
   border-radius: 50%;
 }
@@ -391,10 +395,11 @@ footer {
 } 
 
 #colorWheel {
-  height: 100px;
-  width: 100px;
+  height: 20%;
+  width: 20%;
   position: absolute;
   top: -45%;
+  left: 30%;
   -webkit-transform-origin: 50px 250px;
   -moz-transform-origin: 50px 250px;
   -ms-transform-origin: 50px 250px;
@@ -414,13 +419,13 @@ footer {
 #colorWheel span {
   position: absolute;
   border-style: solid;
-  border-width: 250px 50px;
+  border-width: 28vh 5.6vh;
   box-sizing: border-box;
 }
 
 
 #colorWheel span.color01 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
@@ -430,7 +435,7 @@ footer {
 }
 
 #colorWheel span.color02 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(22.5deg);
   -moz-transform: rotate(22.5deg);
   -ms-transform: rotate(22.5deg);
@@ -440,7 +445,7 @@ footer {
 }
 
 #colorWheel span.color03 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -450,7 +455,7 @@ footer {
 }
 
 #colorWheel span.color04 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(67.5deg);
   -moz-transform: rotate(67.5deg);
   -ms-transform: rotate(67.5deg);
@@ -460,7 +465,7 @@ footer {
 }
 
 #colorWheel span.color05 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
@@ -470,7 +475,7 @@ footer {
 }
 
 #colorWheel span.color06 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(112.5deg);
   -moz-transform: rotate(112.5deg);
   -ms-transform: rotate(112.5deg);
@@ -480,7 +485,7 @@ footer {
 }
 
 #colorWheel span.color07 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
@@ -490,7 +495,7 @@ footer {
 }
 
 #colorWheel span.color08 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(157.5deg);
   -moz-transform: rotate(157.5deg);
   -ms-transform: rotate(157.5deg);
@@ -500,7 +505,7 @@ footer {
 }
 
 #colorWheel span.color09 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -510,7 +515,7 @@ footer {
 }
 
 #colorWheel span.color10 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(202.5deg);
   -moz-transform: rotate(202.5deg);
   -ms-transform: rotate(202.5deg);
@@ -520,7 +525,7 @@ footer {
 }
 
 #colorWheel span.color11 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(225deg);
   -moz-transform: rotate(225deg);
   -ms-transform: rotate(225deg);
@@ -530,7 +535,7 @@ footer {
 }
 
 #colorWheel span.color12 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(247.5deg);
   -moz-transform: rotate(247.5deg);
   -ms-transform: rotate(247.5deg);
@@ -540,7 +545,7 @@ footer {
 }
 
 #colorWheel span.color13 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(270deg);
   -moz-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
@@ -550,7 +555,7 @@ footer {
 }
 
 #colorWheel span.color14 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(292.5deg);
   -moz-transform: rotate(292.5deg);
   -ms-transform: rotate(292.5deg);
@@ -560,7 +565,7 @@ footer {
 }
 
 #colorWheel span.color15 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(315deg);
   -moz-transform: rotate(315deg);
   -ms-transform: rotate(315deg);
@@ -571,7 +576,7 @@ footer {
 
 
 #colorWheel span.color16 {
-  opacity: 50%;
+  opacity: 30%;
   -webkit-transform: rotate(337.5deg);
   -moz-transform: rotate(337.5deg);
   -ms-transform: rotate(337.5deg);
