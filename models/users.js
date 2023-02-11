@@ -9,13 +9,13 @@ Users.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique:true
+      unique: true,
     },
 
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique:true
+      unique: true,
     },
 
     password: {
@@ -24,6 +24,10 @@ Users.init(
       validate: {
         len: [8],
       },
+    },
+    currentMood: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
   },
 
