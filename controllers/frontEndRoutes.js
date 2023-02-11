@@ -40,7 +40,7 @@ router.get("/journal", (req, res) => {
       include: [Posts],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
-      res.render("profile", { user: hbsUser });
+      res.render("journal", { user: hbsUser });
     });
   }
 });
@@ -56,6 +56,11 @@ router.get("/profile", (req, res) => {
       res.render("profile", { user: hbsUser });
     });
   }
+});
+
+// ==========Llama route====================
+router.get("/llama", (req, res) => {
+  res.render("llama");
 });
 
 module.exports = router;
