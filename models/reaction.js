@@ -1,16 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Posts extends Model {}
+class Reaction extends Model {}
 
-Posts.init(
+Reaction.init(
   {
-    post: {
+    reaction: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    private: {
-      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
   },
@@ -20,8 +16,8 @@ Posts.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "posts",
+    modelName: "reaction",
   }
 );
 
-module.exports = Posts;
+module.exports = Reaction;
