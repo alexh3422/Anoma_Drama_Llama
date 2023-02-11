@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 50px;
-  background-color: antiquewhite;
+  background-color: var(--p2);
   padding-top: 10vh;
   position: fixed;
   height: 100%;
@@ -65,13 +65,13 @@ body {
 
 #mainSection {
   width: 100%;
-  background-color: aqua;
+  /* background-color: aqua; */
   margin-left: 50px;
   margin-right: 200px;
 }
 
 header {
-  background-color: #bfd7ea;
+  background-color: var(--p1);
   height: 10vh;
   display: flex;
   justify-content: space-evenly;
@@ -94,7 +94,7 @@ main {
 
 #rightSide {
   width: 200px;
-  background-color: #839788;
+  background-color: var(--light);
   position: fixed;
   right: 0;
   height: 100%;
@@ -111,6 +111,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
+  background: var(--p2)
 }
 
 .loginBody {
@@ -258,4 +259,9 @@ footer {
 
 .allPosts h2 {
   text-align: center;
+}
+
+.journal button {
+  width: 20vw;
+  align-self: center;
 }
