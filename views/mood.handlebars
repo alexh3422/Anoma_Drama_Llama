@@ -1,8 +1,17 @@
 <div class="column">
+  <div id="userInfo" userId="{{user.id}}"></div>
+
+  {{> mood-wheel}}
+
   <div class="allPosts">
         <h2>my mood tracker</h2>
-        {{#each Moods}}
-        
+        {{#each userPosts}}
+        <div class="post-box">
+        <p>You were feeling {{moodText}}</p>
+        <p id="title">{{title}}</p>
+        <p id="text">{{text}}</p>
+        <p id="date">{{dateFormat createdAt}}</p>
+      </div>
         {{/each}}
       </div>
     </div>

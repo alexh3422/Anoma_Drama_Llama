@@ -305,6 +305,9 @@ footer {
   display: none;
 }
 /* ================================================== */
+#validateBtn{
+  display: none;
+}
 /* Mood Wheel */
 #moodWheel {
   margin: 50px;
