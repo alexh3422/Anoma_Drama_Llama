@@ -100,7 +100,7 @@ function disappointed() {
 )};
 
 //mischievous
-function mischievous() {
+function misch() {
   request.get({
   url: 'https://api.api-ninjas.com/v1/quotes?category=cool',
   headers: {
@@ -140,3 +140,59 @@ function scared() {
   else console.log(body)
   }
 )};
+
+function quotes() {
+  console.log(currentMood)
+  switch (currentMood) {
+    case 'happy':
+      happiness();
+      break;
+    case 'calm':
+      happiness();
+      break;
+    case 'sad':
+      sad();
+      break;
+    case 'frustrated':
+      sad();
+      break;
+    case 'annoyed':
+      annoyed();
+      break;
+    case 'embarrassed':
+      embarrassed();
+      break;
+    case 'tired':
+      tired();
+      break;
+    case 'anxious':
+      tired();
+      break;
+    case 'bored':
+      bored();
+      break;
+    case 'silly':
+      bored();
+      break;
+    case 'disappointed':
+      disappointed();
+      break;
+    case 'angry':
+      disappointed();
+      break;
+    case 'michievous':
+      misch();
+      break;
+    case 'flirty':
+      flirty();
+      break;
+    case 'scared':
+      scared();
+      break;
+    case 'shocked':
+      scared();
+      break;
+  }
+}
+
+quotes();
