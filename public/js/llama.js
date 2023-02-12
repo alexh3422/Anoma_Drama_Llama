@@ -21,8 +21,8 @@ const editLlama = document.querySelector("#llamaEdit");
 const userLlamaName = document.querySelector("#userLlamaName");
 
 function onLoad() {
-  if (!userLlamaName) {
-    editLlama.setAttribute("display", "flex");
+  if (!userLlamaName.innerHTML) {
+    editLlama.style.display = "block";
   }
 }
 
@@ -62,6 +62,8 @@ hatOption.addEventListener("change", function () {
   console.log(hatOption.value);
 });
 
+const userId = userLlamaName.getAttribute("userId");
+
 submit.addEventListener("click", (event) => {
   event.preventDefault();
   const userLlama = {
@@ -71,6 +73,19 @@ submit.addEventListener("click", (event) => {
     happiness: 5,
     userId: userId,
   };
+  fetch("api/llamas", {
+    method: "POST",
+    body: JSON.stringify(userLlama),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    if (res.ok) {
+      console.log(userLlama);
+    } else {
+      alert("trumpet sound");
+    }
+  });
 });
 
 // fetch("/sessions", {
