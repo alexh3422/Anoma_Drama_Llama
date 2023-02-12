@@ -7,7 +7,7 @@
 * {
   box-sizing: border-box;
   margin: 0%;
-  font-family: "Manrope", sans-serif
+  font-family: "Manrope", sans-serif;
 }
 
 a {
@@ -68,6 +68,7 @@ body {
   /* background-color: aqua; */
   margin-left: 50px;
   margin-right: 200px;
+  margin-bottom: 50px;
 }
 
 header {
@@ -90,7 +91,8 @@ header button {
 
 main {
   position: relative;
-  top: 10vh;
+  top: 7vh;
+  margin-bottom: 100px;
 }
 
 #rightSide {
@@ -112,7 +114,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  background: var(--p2)
+  /* background: var(--p2); */
 }
 
 .loginBody {
@@ -268,9 +270,32 @@ footer {
   text-align: center;
 }
 
+/* =============== Llama Select ===================== */
+#llamaSelect {
+  display: flex;
+  flex-direction: column;
+  /* border: black solid 5px; */
+  /* margin-bottom: 50px; */
+}
+
+#llamaCard {
+  width: 400px;
+  height: 450px;
+  /* border: black solid 5px; */
+  position: relative;
+}
+
+#llamaCard img {
+  position: absolute;
+}
+
+#llamaEdit,
+#userLlamaPage {
+  display: none;
+}
 /* ================================================== */
 /* Mood Wheel */
-#moodWheel{
+#moodWheel {
   margin: 50px;
   /* display: flex; */
   display: none;
@@ -283,7 +308,7 @@ footer {
   border-radius: 50%;
 }
 
-#innerWheel{
+#innerWheel {
   height: 50%;
   width: 50%;
   margin: 50px;
@@ -291,11 +316,11 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position:absolute;
+  position: absolute;
 }
 
-.moodMiddle{
-  position:absolute;
+.moodMiddle {
+  position: absolute;
   font-size: 5vh;
   border-radius: 50%;
   z-index: 20;
@@ -313,14 +338,14 @@ footer {
   align-items: center;
 }
 
-#center{
+#center {
   height: 60%;
   width: 60%;
   background-color: var(--light);
   border-radius: 50%;
 }
 
-#backgroundCover{
+#backgroundCover {
   height: 100vh;
   width: 100vw;
   z-index: 18;
@@ -407,7 +432,7 @@ footer {
 #shocked {
   top: 35%;
   left: -40%;
-} 
+}
 
 #colorWheel {
   height: 20%;
@@ -438,7 +463,6 @@ footer {
   border-width: 28vh 5.6vh;
   box-sizing: border-box;
 }
-
 
 #colorWheel span.color01 {
   opacity: 30%;
@@ -589,7 +613,6 @@ footer {
   transform: rotate(315deg);
   border-color: #2d319f transparent transparent transparent;
 }
-
 
 #colorWheel span.color16 {
   opacity: 30%;
