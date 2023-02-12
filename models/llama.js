@@ -1,8 +1,8 @@
-const {Model , DataTypes} = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
-class Llama extends Model {}
+class Llama extends Model { }
 
 Llama.init(
     {
@@ -21,18 +21,18 @@ Llama.init(
         happiness: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                max: 10
+            }
         },
-
     },
     {
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'llama',
+        modelName: "llama",
     }
 );
 
 module.exports = Llama;
-    
-

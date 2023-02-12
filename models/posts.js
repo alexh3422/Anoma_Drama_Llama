@@ -5,21 +5,38 @@ class Posts extends Model {}
 
 Posts.init(
   {
-    post: {
+    moodText: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    private: {
-      type: DataTypes.BOOLEAN,
+    title: {
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
+    text: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        isIn: [['journal', 'mood-entry']]
+      }
+    },
+    visibility: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate:{
+        isIn: [['private', 'anonymous', 'public']]
+      }
+    }
   },
 
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
-    underscored: true,
     modelName: "posts",
   }
 );
