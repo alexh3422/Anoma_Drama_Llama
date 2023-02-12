@@ -14,6 +14,7 @@ router.get("/login", (req, res) => {
   res.render("login", { layout: "main2" });
 });
 
+
 router.get("/signup", (req, res) => {
   res.render("signup", { layout: "main2" });
 });
@@ -97,6 +98,14 @@ router.get("/llama", (req, res) => {
       const hbsUser = userData.toJSON();
       res.render("llama", { user: hbsUser });
     });
+  }
+});
+
+router.get("/bookmarks", (req, res) => {
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    res.render("bookmarks");
   }
 });
 
