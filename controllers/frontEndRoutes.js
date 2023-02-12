@@ -47,38 +47,40 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [{
-      model: Posts,
-      where: {
-        type:'mood-entry'
-      }
-    },Mood],
+    include: [
+      {
+        model: Posts,
+        where: {
+          type: "mood-entry",
+        },
+      },
+      Mood,
+    ],
   }).then((userData) => {
     const hbsUser = userData.toJSON();
-    const allUserPosts = hbsUser.posts.reverse()
-    res.render("mood", { 
+    const allUserPosts = hbsUser.posts.reverse();
+    res.render("mood", {
       user: hbsUser,
-      userPosts:allUserPosts 
+      userPosts: allUserPosts,
     });
   });
 });
 
 router.get("/profile", (req, res) => {
-  if (!req.session.userId) {
-    res.redirect("/login");
-  } else {
-    Users.findByPk(req.session.userId, {
-      include: [Posts],
-    }).then((userData) => {
-      const hbsUser = userData.toJSON();
-      const allUserPosts = hbsUser.posts.reverse()
-      console.log(allUserPosts);
-      res.render("profile", { 
-        user: hbsUser,
-        userPosts:allUserPosts
-      });
+  Users.findByPk(req.session.userId, {
+    include: [
+      {
+        model: Posts,
+      },
+    ],
+  }).then((userData) => {
+    const hbsUser = userData.toJSON();
+    const allUserPosts = hbsUser.posts.reverse();
+    res.render("profile", {
+      user: hbsUser,
+      userPosts: allUserPosts,
     });
-  }
+  });
 });
 
 // ==========Llama route====================
