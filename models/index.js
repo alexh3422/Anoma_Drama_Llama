@@ -49,6 +49,8 @@ Llama.belongsTo(Users, {
   onDelete: "CASCADE",
 });
 
-
+Users.hasOne(Llama, {
+  onDelete: "CASCADE",
+});
 
 module.exports = { Users, Posts, Comments, Mood, Llama, Reaction };

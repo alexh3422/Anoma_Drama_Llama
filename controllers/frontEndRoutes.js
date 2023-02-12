@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Posts, Users } = require("../models");
+const { Posts, Users, Llama } = require("../models");
 
 router.get("/", (req, res) => {
   if (!req.session.userId) {
@@ -47,7 +47,7 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   res.render("mood");
-})
+});
 
 router.get("/profile", (req, res) => {
   if (!req.session.userId) {
@@ -64,7 +64,17 @@ router.get("/profile", (req, res) => {
 
 // ==========Llama route====================
 router.get("/llama", (req, res) => {
-  res.render("llama");
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    Users.findByPk(req.session.userId, {
+      include: [Llama],
+    }).then((userData) => {
+      const hbsUser = userData.toJSON();
+      console.log(hbsUser);
+      res.render("llama", { user: hbsUser });
+    });
+  }
 });
 
 module.exports = router;
