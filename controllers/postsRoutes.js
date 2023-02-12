@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Users, Posts, Comments } = require("../models");
+const { Users, Posts, Comments, Mood } = require("../models");
 
 router.get("/", (req, res) => {
   Posts.findAll({
-    include: [Users],
+    include: [Users, Mood],
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
