@@ -204,7 +204,7 @@ footer {
 
 /* =============================Profile CSS=========================== */
 
-#profileUsername {
+#profileUsername, #userInfo {
   background: var(--p2);
   display: flex;
   flex-direction: column;
@@ -259,7 +259,7 @@ footer {
   resize: none;
 }
 
-.allPosts {
+.allPosts, .userPosts {
   border: solid 2px var(--p2);
   /* display: flex;
   flex-direction: column; */
@@ -271,7 +271,7 @@ footer {
   width: 90%;
 }
 
-.allPosts h2 {
+.allPosts h2, .userPosts h2 {
   text-align: center;
 }
 
@@ -279,7 +279,6 @@ footer {
   width: 20vw;
   align-self: center;
 }
-
 
 /* =============== Llama Select ===================== */
 #llamaSelect {
@@ -304,10 +303,9 @@ footer {
 #userLlamaPage {
   display: none;
 }
+
 /* ================================================== */
-#validateBtn{
-  display: none;
-}
+
 /* Mood Wheel */
 #moodWheel {
   margin: 50px;
@@ -637,4 +635,3 @@ footer {
   transform: rotate(337.5deg);
   border-color: #2d559f transparent transparent transparent;
 }
-
