@@ -18,6 +18,10 @@ const userId = userLlamaPage.getAttribute("userId");
 const editLlama = document.querySelector("#llamaEdit");
 const toEditBttn = document.querySelector("#toEditBttn");
 const llamaId = userLlamaPage.getAttribute("llamaId");
+const userLlamaColor = document.querySelector("#userLlamaColor");
+const userLlamaSrc = userLlamaColor.getAttribute("src");
+const userLlamaHat = document.querySelector("#userLlamaHat");
+const userLlamaHatSrc = userLlamaHat.getAttribute("src");
 
 // if user doesn't have a Llama yet, direct to llama edit
 function onLoad() {
@@ -30,6 +34,9 @@ function onLoad() {
 
 toEditBttn.addEventListener("click", (event) => {
   event.preventDefault();
+  llamaName.value = userLlamaName.innerHTML;
+  llama.src = userLlamaSrc;
+  hat.src = userLlamaHatSrc;
   editLlama.style.display = "block";
   userLlamaPage.style.display = "none";
 });
