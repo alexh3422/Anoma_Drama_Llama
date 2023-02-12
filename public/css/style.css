@@ -635,3 +635,13 @@ footer {
   transform: rotate(337.5deg);
   border-color: #2d559f transparent transparent transparent;
 }
+
+#validateBtn{
+  display: none;
+}
+
+.post-box {
+  margin: 5px;
+  border: black solid 1px;
+  padding: 5px;
+}
