@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Posts, Users, Llama } = require("../models");
+const { Posts, Users, Llama, Mood } = require("../models");
 
 router.get("/", (req, res) => {
   if (!req.session.userId) {
@@ -46,7 +46,21 @@ router.get("/journal", (req, res) => {
 });
 
 router.get("/mood", (req, res) => {
-  res.render("mood");
+  Users.findByPk(req.session.userId, {
+    include: [{
+      model: Posts,
+      where: {
+        type:'mood-entry'
+      }
+    },Mood],
+  }).then((userData) => {
+    const hbsUser = userData.toJSON();
+    const allUserPosts = hbsUser.posts.reverse()
+    res.render("mood", { 
+      user: hbsUser,
+      userPosts:allUserPosts 
+    });
+  });
 });
 
 router.get("/profile", (req, res) => {
@@ -57,7 +71,12 @@ router.get("/profile", (req, res) => {
       include: [Posts],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
-      res.render("profile", { user: hbsUser });
+      const allUserPosts = hbsUser.posts.reverse()
+      console.log(allUserPosts);
+      res.render("profile", { 
+        user: hbsUser,
+        userPosts:allUserPosts
+      });
     });
   }
 });

@@ -105,11 +105,14 @@ const trackEmotions = () => {
 }
 
 const moodTitle = document.querySelector("#moodTitle")
-const userId = document.querySelector("#profileUsername").getAttribute("userId")
+const userId = document.querySelector("#userInfo").getAttribute("userId")
+const validateBtn = document.querySelector("#validateBtn")
+
+let feelings = emotionsToTrack[0]
 
 const changeTitle = () => {
     if (emotionsToTrack.length > 0) {
-        let feelings = emotionsToTrack[0]
+        
         if (emotionsToTrack.length > 2) {
             const feelingsArr = []
             for (let i = 0; i < emotionsToTrack.length - 2; i++) {
@@ -120,27 +123,62 @@ const changeTitle = () => {
         } else {
             feelings = emotionsToTrack.join(' and ');
         }
+
         moodTitle.textContent = `You are feeling ${feelings}`
         trackMoodBtn.textContent = "No, actually..."
-        if (document.querySelector("#validateBtn")==undefined) {
-            const validateBtn = document.createElement("button")
-            validateBtn.textContent = "Yep, add entry"
-            validateBtn.setAttribute("id", "validateBtn")
-            const moodEntry = document.querySelector("#moodEntry")
-            moodEntry.appendChild(validateBtn)
-            validateBtn.addEventListener("click", () =>{
-                emotionsToTrack.forEach()
-            })
-        }
+        validateBtn.style.display = "inline"
 
     } else {
         moodTitle.textContent = "How are you feeling right now?";
         trackMoodBtn.textContent = "Feed my llama some drama"
-        if(document.querySelector("#validateBtn")){
-            document.querySelector("#validateBtn").remove()
-        }
+        document.querySelector("#validateBtn").style.display = "none"
     }
+    
 }
+
+validateBtn.addEventListener("click", () => {
+    const postObj = {
+        moodText: feelings,
+        title: "Mood Entry",
+        text: "",
+        type: "mood-entry",
+        visibility: "public"
+    }
+    fetch('api/posts', {
+        method:"POST",
+        body:JSON.stringify(postObj),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>{
+        if(res.ok){
+           return res.json();
+        } else {
+            alert("trumpet sound")
+        }
+    }).then(post => {
+        console.log(post);
+        emotionsToTrack.forEach(emotion => {
+            const moodObj = {
+                mood: emotion,
+                postId: post.id
+            }
+            fetch('api/moods', {
+                method:"POST",
+                body:JSON.stringify(moodObj),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            }).then(res=>{
+                if(res.ok){
+                    location.href="/profile";
+                } else {
+                    alert("trumpet sound")
+                }
+            })
+        })
+    })
+})
 
 
 console.log(userId)
