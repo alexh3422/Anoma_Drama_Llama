@@ -7,7 +7,7 @@ Posts.init(
   {
     moodText: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING(50),
@@ -20,17 +20,17 @@ Posts.init(
     type: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
-        isIn: [['journal', 'mood-entry']]
-      }
+      validate: {
+        isIn: [["journal", "mood-entry"]],
+      },
     },
     visibility: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
-        isIn: [['private', 'anonymous', 'public']]
-      }
-    }
+      validate: {
+        isIn: [["private", "anonymous", "public"]],
+      },
+    },
   },
 
   {
