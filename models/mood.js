@@ -9,10 +9,6 @@ Mood.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    text: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     private: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
