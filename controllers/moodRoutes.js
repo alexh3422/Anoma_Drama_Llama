@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { Users, Mood, Comments } = require("../models");
+const { Users, Mood, Comments, Posts } = require("../models");
 
 router.get("/", (req, res) => {
   Mood.findAll({
-    include: [Users, Comments],
+    include: [Users, Posts]
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -36,10 +36,8 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   Mood.create({
     mood: req.body.mood,
-    text: req.body.text,
-    private: req.body.private,
     userId: req.session.userId,
-    username: req.session.username,
+    postId: req.body.postId
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {

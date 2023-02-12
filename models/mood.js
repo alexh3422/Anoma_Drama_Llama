@@ -7,12 +7,8 @@ Mood.init(
   {
     mood: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    private: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
+      allowNull: false
+    }
   },
   {
     sequelize,

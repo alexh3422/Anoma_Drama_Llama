@@ -3,16 +3,7 @@ const { Users, Posts, Comments } = require("../models");
 
 router.get("/", (req, res) => {
   Posts.findAll({
-    include: [
-      {
-        model: Users,
-        attributes: ["username"],
-      },
-      {
-        model: Comments,
-        attributes: ["id", "comment", "userId", "postId", "createdAt"],
-      },
-    ],
+    include: [Users],
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -26,7 +17,6 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: { exclude: ["password"] },
     include: [Users, Comments],
   })
     .then((dbPostData) => {
@@ -44,11 +34,12 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   Posts.create({
-    mood: req.body.mood,
+    moodText: req.body.moodText,
+    title: req.body.title,
     text: req.body.text,
-    private: req.body.private,
-    userId: req.session.userId,
-    username: req.session.username,
+    type: req.body.type,
+    visibility: req.body.visibility,
+    userId: req.session.userId
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
