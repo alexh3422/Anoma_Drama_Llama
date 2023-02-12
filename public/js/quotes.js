@@ -142,8 +142,8 @@ function scared() {
 )};
 
 function quotes() {
-  console.log(currentMood)
-  switch (currentMood) {
+  console.log(moods.mood)
+  switch (moods.mood) {
     case 'happy':
       happiness();
       break;
