@@ -639,3 +639,9 @@ footer {
 #validateBtn{
   display: none;
 }
+
+.post-box {
+  margin: 5px;
+  border: black solid 1px;
+  padding: 5px;
+}

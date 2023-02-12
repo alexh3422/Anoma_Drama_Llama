@@ -10,11 +10,13 @@
 
     <div class="allPosts">
       <h2>drama from other llamas</h2>
-      {{#each Posts}}
+      {{#each allPosts}}
       <div class="post-box">
-        <p id="username">{{User.username}}'s drama:</p>
-        <p id="text">{{post}}</p>
-        <p id="date">{{createdAt}}</p>
+        <p id="username">{{user.username}}'s drama:</p>
+        <p id="moodText">{{moodText}}</p>
+        <p id="title">{{title}}</p>
+        <p id="text">{{text}}</p>
+        <p id="date">{{dateFormat createdAt}}</p>
       </div>
       {{/each}}
     </div>

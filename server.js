@@ -45,11 +45,6 @@ Handlebars.registerHelper("dateFormat", function(dateData) {
   return dayjs(dateData).format("MMM DD YYYY")
 });
 
-Handlebars.registerHelper("filter", (posts, type) =>{
-  const filteredPosts = posts.filter(post => post.type === type);
-  return filteredPosts
-})
-
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Now listening at http://localhost:${PORT}`));
 });

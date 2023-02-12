@@ -2,24 +2,27 @@
   <div class="column">
     <div class="journal">
       <form id="new-post-form">
-        <textarea id="title-input" placeholder="title"></textarea>
+        {{> mood-wheel}}
+        <textarea id="title-input" placeholder="Journal entry title"></textarea>
         <textarea
           id="post-input"
-          placeholder="how are you feeling, right now?"
-        ></textarea>
+          placeholder="Let off some steam here!"></textarea>
+        <button id="submit">Feed my llama some drama</button>
     </form>
-    <button>woosaahh</button>
   </div>
 
   <div class="userPosts">
     <h2>Your Journal</h2>
-      {{#each user.Posts}}
-        <div class="post-box">
-        {{!-- <p id="username">{{User.username}}'s drama:</p> --}}
-        <p id="text">{{post}}</p>
-        <p id="date">{{createdAt}}</p>
-        </div>
+      {{#each userPosts}}
+      <div class="post-box">
+        <p id="moodText">You felt {{moodText}}</p>
+        <p id="title">{{title}}</p>
+        <p id="text">{{text}}</p>
+        <p id="date">{{dateFormat createdAt}}</p>
+      </div>
       {{/each}}
     </div>
   </div>
 </div>
+
+<script src="/js/journalEntry.js"></script>
