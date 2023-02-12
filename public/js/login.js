@@ -1,10 +1,18 @@
 document.querySelector(".loginForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  const login = document.querySelector("#login").value;
+  const password = document.querySelector("#loginPassword").value;
+
+  if (!login || !password) {
+    alert("Please enter your login and password.");
+    return;
+  } 
+
   const loginObj = {
-    login: document.querySelector("#login").value,
-    password: document.querySelector("#loginPassword").value,
+    login,
+    password,
   };
-  console.log(loginObj);
+
   fetch("/api/users/login", {
     method: "POST",
     body: JSON.stringify(loginObj),
@@ -15,11 +23,11 @@ document.querySelector(".loginForm").addEventListener("submit", (e) => {
     if (res.ok) {
       location.href = "/home";
     } else {
-      alert("Error");
+      alert("Incorrect login or password. Please try again.");
     }
   });
 });
 
-document.querySelector("#signUpBttn").addEventListener("click", () =>{
-  location.href = "/signup"
-})
+document.querySelector("#signUpBttn").addEventListener("click", () => {
+  location.href = "/signup";
+});
