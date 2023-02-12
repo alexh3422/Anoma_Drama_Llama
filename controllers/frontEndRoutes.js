@@ -47,18 +47,26 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [{
-      model: Posts,
-      where: {
-        type:'mood-entry'
-      }
-    },Mood],
+    include: [
+      {
+        model: Posts,
+        // where: {
+        //   type: "mood-entry",
+        // },
+      },
+      Mood,
+    ],
   }).then((userData) => {
+    if (!userData) {
+      res.render("error", { alert: "User not found" });
+      return;
+    }
+
     const hbsUser = userData.toJSON();
-    const allUserPosts = hbsUser.posts.reverse()
-    res.render("mood", { 
+    const allUserPosts = hbsUser.posts.reverse();
+    res.render("mood", {
       user: hbsUser,
-      userPosts:allUserPosts 
+      userPosts: allUserPosts,
     });
   });
 });
@@ -71,11 +79,11 @@ router.get("/profile", (req, res) => {
       include: [Posts],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
-      const allUserPosts = hbsUser.posts.reverse()
+      const allUserPosts = hbsUser.posts.reverse();
       console.log(allUserPosts);
-      res.render("profile", { 
+      res.render("profile", {
         user: hbsUser,
-        userPosts:allUserPosts
+        userPosts: allUserPosts,
       });
     });
   }
