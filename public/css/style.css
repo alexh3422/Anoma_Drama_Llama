@@ -114,7 +114,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  /* background: var(--p2); */
+  background: white;
 }
 
 .loginBody {
@@ -211,7 +211,7 @@ footer {
   padding: 10px;
   margin: 1% 1% 0% 1%;
   min-height: 5vh;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   width: 90%;
 }

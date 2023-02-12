@@ -128,7 +128,7 @@ function flirty() {
 )};
 
 //scared and shocked
-function happiness() {
+function scared() {
   request.get({
   url: 'https://api.api-ninjas.com/v1/quotes?category=fear',
   headers: {
@@ -140,4 +140,3 @@ function happiness() {
   else console.log(body)
   }
 )};
-
