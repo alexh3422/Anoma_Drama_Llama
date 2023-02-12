@@ -289,7 +289,8 @@ footer {
   position: absolute;
 }
 
-#llamaEdit {
+#llamaEdit,
+#userLlamaPage {
   display: none;
 }
 /* ================================================== */
@@ -344,7 +345,7 @@ footer {
   border-radius: 50%;
 }
 
-#backgroundCover{
+#backgroundCover {
   height: 100vh;
   width: 100vw;
   z-index: 18;

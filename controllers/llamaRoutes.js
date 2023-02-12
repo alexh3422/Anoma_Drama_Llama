@@ -39,6 +39,24 @@ router.post("/", (req, res) => {
     });
 });
 
+router.put("/:id", (req, res) => {
+  Llama.update(
+    {
+      name: req.body.name,
+      llama_image: req.body.llama_image,
+      llama_hat_image: req.body.llama_hat_image,
+      happiness: req.body.happiness,
+      userId: req.session.userId,
+    },
+    { where: { id: req.params.id } }
+  )
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.delete("/:id", (req, res) => {
   Llama.destroy({
     where: {

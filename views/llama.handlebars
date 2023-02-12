@@ -4,8 +4,24 @@
 
       <main>
 
-        <div>
-          <p id="userLlamaName" userId="{{user.id}}">{{user.llama.name}}</p>
+        <div
+          id="userLlamaPage"
+          userId="{{user.id}}"
+          llamaId="{{user.llama.id}}"
+        >
+          <p id="userLlamaName">{{user.llama.name}}</p>
+          <div id="llamaCard">
+            <img src="{{user.llama.llama_image}}" />
+            <img src="{{user.llama.llama_hat_image}}" />
+          </div>
+
+          {{! TODO: Create happiness meter to represent integer value }}
+          <div id="userLlamaHappiness">
+            {{user.llama.happiness}}
+          </div>
+
+          <button id="toEditBttn">Edit Llama</button>
+
         </div>
 
         <div id="llamaEdit">

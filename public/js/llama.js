@@ -1,32 +1,38 @@
 const llamaGrey = "images/pixel-llamas/llama01.png";
 const llamaBrown = "images/pixel-llamas/llama02.png";
 const llamaWhite = "images/pixel-llamas/llama03.png";
-
 const hatCowboy = "images/pixel-llamas/hat01.png";
 const hatCrown = "images/pixel-llamas/hat02.png";
 const hatWizard = "images/pixel-llamas/hat03.png";
 const hatNone = "images/pixel-llamas/no-hat.png";
-
 const llama = document.querySelector("#llamaImage");
 const hat = document.querySelector("#hatImage");
 const colorOption = document.querySelector(".colorSelect");
 const hatOption = document.querySelector(".hatSelect");
-
 // name given when creating/editing llama
 const llamaName = document.querySelector("#llamaName");
-
 const submit = document.querySelector("#submit");
-const editLlama = document.querySelector("#llamaEdit");
-
+const userLlamaPage = document.querySelector("#userLlamaPage");
 const userLlamaName = document.querySelector("#userLlamaName");
+const userId = userLlamaPage.getAttribute("userId");
+const editLlama = document.querySelector("#llamaEdit");
+const toEditBttn = document.querySelector("#toEditBttn");
+const llamaId = userLlamaPage.getAttribute("llamaId");
 
+// if user doesn't have a Llama yet, direct to llama edit
 function onLoad() {
   if (!userLlamaName.innerHTML) {
     editLlama.style.display = "block";
+  } else {
+    userLlamaPage.style.display = "block";
   }
 }
 
-onLoad();
+toEditBttn.addEventListener("click", (event) => {
+  event.preventDefault();
+  editLlama.style.display = "block";
+  userLlamaPage.style.display = "none";
+});
 
 function chooseLlama() {
   if (colorOption.value == "grey") {
@@ -62,68 +68,55 @@ hatOption.addEventListener("change", function () {
   console.log(hatOption.value);
 });
 
-const userId = userLlamaName.getAttribute("userId");
-
 submit.addEventListener("click", (event) => {
   event.preventDefault();
-  const userLlama = {
-    name: llamaName.value,
-    llama_image: llama.src,
-    llama_hat_image: hat.src,
-    happiness: 5,
-    userId: userId,
-  };
-  fetch("api/llamas", {
-    method: "POST",
-    body: JSON.stringify(userLlama),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((res) => {
-    if (res.ok) {
-      console.log(userLlama);
-    } else {
-      alert("trumpet sound");
-    }
-  });
+  if (!userLlamaName.innerHTML) {
+    let userLlama = {
+      name: llamaName.value,
+      llama_image: llama.src,
+      llama_hat_image: hat.src,
+      happiness: 5,
+      userId: userId,
+    };
+    fetch("api/llamas", {
+      method: "POST",
+      body: JSON.stringify(userLlama),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        console.log(userLlama);
+        editLlama.style.display = "none";
+        userLlamaPage.style.display = "block";
+        location.reload();
+      } else {
+        alert("trumpet sound");
+      }
+    });
+  } else {
+    let userLlama = {
+      name: llamaName.value,
+      llama_image: llama.src,
+      llama_hat_image: hat.src,
+    };
+    fetch(`api/llamas/${llamaId}`, {
+      method: "PUT",
+      body: JSON.stringify(userLlama),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        console.log(userLlama);
+        editLlama.style.display = "none";
+        userLlamaPage.style.display = "block";
+        location.reload();
+      } else {
+        alert("trumpet sound");
+      }
+    });
+  }
 });
 
-// fetch("/sessions", {
-//   method: "GET",
-// })
-//   .then((res) => {
-//     return res.json();
-//   })
-//   .then((data) => {
-// submit.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   const userLlama = {
-//     name: llamaName.value,
-//     llama_image: llama.src,
-//     llama_hat_image: hat.src,
-//     happiness: 5,
-//     userId: userId,
-//   };
-// });
-//       fetch(`api/llama/user/${userId}`, {
-//         method: "GET",
-//       }).then((res) => {
-//         return res.json();
-//       }).then((data)=>{
-
-//       })
-//       fetch("api/llamas", {
-//         method: "POST",
-//         body: JSON.stringify(userLlama),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       }).then((res) => {
-//         if (res.ok) {
-//           console.log(userLlama);
-//         } else {
-//           alert("trumpet sound");
-//         }
-//       });
-//     });
-//   });
+onLoad();
