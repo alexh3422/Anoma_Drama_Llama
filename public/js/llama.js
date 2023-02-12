@@ -98,7 +98,7 @@ submit.addEventListener("click", (event) => {
         userLlamaPage.style.display = "block";
         location.reload();
       } else {
-        alert("trumpet sound");
+        alert("Llama could not be created, please try again.");
       }
     });
   } else {
@@ -120,7 +120,7 @@ submit.addEventListener("click", (event) => {
         userLlamaPage.style.display = "block";
         location.reload();
       } else {
-        alert("trumpet sound");
+        alert("Llama could not be updated, please try again.");
       }
     });
   }
