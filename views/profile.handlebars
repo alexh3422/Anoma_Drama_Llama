@@ -6,7 +6,7 @@
 
     {{> mood-wheel}}
 
-    <main class="allPosts">
+    <div class="allPosts">
       <h2>Your Drama</h2>
       {{#each userPosts}}
       <div class="post-box">
@@ -16,5 +16,5 @@
         <p id="date">{{dateFormat createdAt}}</p>
       </div>
       {{/each}}
-    </main>
+    </div>
   </div>

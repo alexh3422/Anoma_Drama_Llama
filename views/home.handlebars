@@ -1,22 +1,23 @@
 <div>
-    <div class="column">
-      <div class="journal">
-        <form id="new-post-form">
-          <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
-        </form>
-        <button>woosaahh</button>
-      </div>
-
-      <div class="allPosts">
-        <h2>drama from other llamas</h2>
-        {{#each Posts}}
-        <div class="post-box">
-          <p id="username">{{User.username}}'s drama:</p>
-          <p id="text">{{post}}</p>
-          <p id="date">{{createdAt}}</p>
-        </div>
-        {{/each}}
-      </div>
+  <div class="column">
+    <div class="journal">
+      <form id="new-post-form">
+        <textarea id="title-input" placeholder="title"></textarea>
+        <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
+      </form>
+      <button>woosaahh</button>
     </div>
+
+    <div class="allPosts">
+      <h2>drama from other llamas</h2>
+      {{#each Posts}}
+      <div class="post-box">
+        <p id="username">{{User.username}}'s drama:</p>
+        <p id="text">{{post}}</p>
+        <p id="date">{{createdAt}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
   

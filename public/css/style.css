@@ -91,7 +91,7 @@ header button {
 
 main {
   position: relative;
-  top: 7vh;
+  top: 10vh;
   margin-bottom: 100px;
 }
 
@@ -114,7 +114,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  /* background: var(--p2); */
+  background: white;
 }
 
 .loginBody {
@@ -204,21 +204,20 @@ footer {
 
 /* =============================Profile CSS=========================== */
 
-#profileUsername {
+#profileUsername, #userInfo {
   background: var(--p2);
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin: 3% 3% 0% 3%;
+  margin: 1% 1% 0% 1%;
   min-height: 5vh;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   width: 90%;
 }
 
 /* =================================================================== */
 
-/* feli's CSS */
 /* .row {
   display: flex;
   flex-direction: row;
@@ -241,10 +240,16 @@ footer {
   flex-direction: column;
   padding: 10px;
   margin: 1% 1% 0% 1%;
-  min-height: 15vh;
+  min-height: 10vh;
   border-radius: 10px;
-  border-radius: 20px;
   width: 90%;
+}
+
+#title-input {
+  border-radius: 5px;
+  width: 100%;
+  height: 3vh;
+  resize: none;
 }
 
 #post-input {
@@ -254,7 +259,7 @@ footer {
   resize: none;
 }
 
-.allPosts {
+.allPosts, .userPosts {
   border: solid 2px var(--p2);
   /* display: flex;
   flex-direction: column; */
@@ -266,8 +271,13 @@ footer {
   width: 90%;
 }
 
-.allPosts h2 {
+.allPosts h2, .userPosts h2 {
   text-align: center;
+}
+
+.journal button {
+  width: 20vw;
+  align-self: center;
 }
 
 /* =============== Llama Select ===================== */
@@ -293,10 +303,9 @@ footer {
 #userLlamaPage {
   display: none;
 }
+
 /* ================================================== */
-#validateBtn{
-  display: none;
-}
+
 /* Mood Wheel */
 #moodWheel {
   margin: 50px;
@@ -625,9 +634,4 @@ footer {
   -o-transform: rotate(337.5deg);
   transform: rotate(337.5deg);
   border-color: #2d559f transparent transparent transparent;
-}
-
-.journal button {
-  width: 20vw;
-  align-self: center;
 }
