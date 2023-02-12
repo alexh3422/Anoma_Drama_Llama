@@ -33,11 +33,16 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    if (res.ok) {
-      location.href = "/home";
-    } else {
-      alert("Error");
-    }
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.createdAt && data.id) {
+        location.href = "/home";
+      } else if (data.original.errno === 1062 && data.fields.username) {
+        alert("Username already exists. Please choose another one.");
+      } else if (data.original.errno === 1062 && data.fields.email) {
+        alert("Email already exists. Please choose another one.");
+      }
+    });
 });
