@@ -91,7 +91,7 @@ header button {
 
 main {
   position: relative;
-  top: 7vh;
+  top: 10vh;
   margin-bottom: 100px;
 }
 
@@ -209,7 +209,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin: 3% 3% 0% 3%;
+  margin: 1% 1% 0% 1%;
   min-height: 5vh;
   border-radius: 20px;
   text-align: center;
