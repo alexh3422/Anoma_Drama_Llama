@@ -1,38 +1,35 @@
-const {Model , DataTypes} = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
 class Llama extends Model {}
 
 Llama.init(
-    {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        llama_image: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        llama_hat_image: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        happiness: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-
+  {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    {
-        sequelize,
-        timestamps: true,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'llama',
-    }
+    llama_image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    llama_hat_image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    happiness: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "llama",
+  }
 );
 
 module.exports = Llama;
-    
-
