@@ -50,13 +50,18 @@ router.get("/mood", (req, res) => {
     include: [
       {
         model: Posts,
-        where: {
-          type: "mood-entry",
-        },
+        // where: {
+        //   type: "mood-entry",
+        // },
       },
       Mood,
     ],
   }).then((userData) => {
+    if (!userData) {
+      res.render("error", { alert: "User not found" });
+      return;
+    }
+
     const hbsUser = userData.toJSON();
     const allUserPosts = hbsUser.posts.reverse();
     res.render("mood", {
@@ -67,20 +72,21 @@ router.get("/mood", (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  Users.findByPk(req.session.userId, {
-    include: [
-      {
-        model: Posts,
-      },
-    ],
-  }).then((userData) => {
-    const hbsUser = userData.toJSON();
-    const allUserPosts = hbsUser.posts.reverse();
-    res.render("profile", {
-      user: hbsUser,
-      userPosts: allUserPosts,
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    Users.findByPk(req.session.userId, {
+      include: [Posts],
+    }).then((userData) => {
+      const hbsUser = userData.toJSON();
+      const allUserPosts = hbsUser.posts.reverse();
+      console.log(allUserPosts);
+      res.render("profile", {
+        user: hbsUser,
+        userPosts: allUserPosts,
+      });
     });
-  });
+  }
 });
 
 // ==========Llama route====================
