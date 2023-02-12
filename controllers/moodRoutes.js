@@ -4,7 +4,7 @@ const { Users, Mood, Comments, Posts } = require("../models");
 router.get("/", (req, res) => {
   Mood.findAll({
     include: [Users, Posts]
-  })
+    })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
       console.log(err);
