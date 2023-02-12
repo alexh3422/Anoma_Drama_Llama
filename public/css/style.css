@@ -635,3 +635,7 @@ footer {
   transform: rotate(337.5deg);
   border-color: #2d559f transparent transparent transparent;
 }
+
+#validateBtn{
+  display: none;
+}

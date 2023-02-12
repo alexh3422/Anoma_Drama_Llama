@@ -47,26 +47,19 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [
-      {
-        model: Posts,
-        // where: {
-        //   type: "mood-entry",
-        // },
-      },
-      Mood,
-    ],
+    include: [Posts,Mood]
   }).then((userData) => {
     if (!userData) {
+      console.log(userData);
       res.render("error", { alert: "User not found" });
       return;
     }
-
     const hbsUser = userData.toJSON();
-    const allUserPosts = hbsUser.posts.reverse();
+    const userPostsReverse = hbsUser.posts.reverse();
+    const allMoodPosts = userPostsReverse.filter(post => post.type === 'mood-entry')
     res.render("mood", {
       user: hbsUser,
-      userPosts: allUserPosts,
+      userPosts: allMoodPosts,
     });
   });
 });
