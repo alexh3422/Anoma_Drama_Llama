@@ -1,11 +1,8 @@
 <div>
   <div class="column">
-    <div class="journal">
-      <form id="new-post-form">
-        <textarea id="title-input" placeholder="title"></textarea>
-        <textarea id="post-input" placeholder="how are you feeling, right now?"></textarea>
-      </form>
-      <button>woosaahh</button>
+    <div class="currentMood">
+      <h2>What is your current mood?</h2>
+      {{>mood-wheel}}
     </div>
 
     <div class="allPosts">
@@ -22,4 +19,5 @@
     </div>
   </div>
 </div>
-  
+
+<script src="js/currentMood.js"></script>

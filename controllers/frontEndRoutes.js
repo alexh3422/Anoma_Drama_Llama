@@ -14,6 +14,7 @@ router.get("/login", (req, res) => {
   res.render("login", { layout: "main2" });
 });
 
+
 router.get("/signup", (req, res) => {
   res.render("signup", { layout: "main2" });
 });
@@ -22,10 +23,7 @@ router.get("/home", (req, res) => {
   Posts.findAll({
     include: [Users],
   }).then((PostData) => {
-    console.log(PostData);
     const hbsPost = PostData.map((Post) => Post.toJSON());
-    console.log("==============================");
-    console.log(hbsPost);
     res.render("home", {
       allPosts: hbsPost.reverse(),
     });
@@ -40,7 +38,6 @@ router.get("/journal", (req, res) => {
       include: [Posts]
     }).then((userData) => {
       if (!userData) {
-        console.log(userData);
         res.render("error", { alert: "User not found" });
         return;
       }
@@ -60,7 +57,6 @@ router.get("/mood", (req, res) => {
     include: [Posts,Mood]
   }).then((userData) => {
     if (!userData) {
-      console.log(userData);
       res.render("error", { alert: "User not found" });
       return;
     }
@@ -83,7 +79,6 @@ router.get("/profile", (req, res) => {
     }).then((userData) => {
       const hbsUser = userData.toJSON();
       const allUserPosts = hbsUser.posts.reverse();
-      console.log(allUserPosts);
       res.render("profile", {
         user: hbsUser,
         userPosts: allUserPosts,
@@ -101,9 +96,16 @@ router.get("/llama", (req, res) => {
       include: [Llama],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
-      console.log(hbsUser);
       res.render("llama", { user: hbsUser });
     });
+  }
+});
+
+router.get("/bookmarks", (req, res) => {
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    res.render("bookmarks");
   }
 });
 
