@@ -68,6 +68,7 @@ body {
   /* background-color: aqua; */
   margin-left: 50px;
   margin-right: 200px;
+  margin-bottom: 50px;
 }
 
 header {
@@ -90,7 +91,8 @@ header button {
 
 main {
   position: relative;
-  top: 10vh;
+  top: 7vh;
+  margin-bottom: 100px;
 }
 
 #rightSide {
@@ -112,7 +114,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  background: var(--p2);
+  /* background: var(--p2); */
 }
 
 .loginBody {
@@ -273,6 +275,7 @@ footer {
   display: flex;
   flex-direction: column;
   /* border: black solid 5px; */
+  /* margin-bottom: 50px; */
 }
 
 #llamaCard {
@@ -284,6 +287,10 @@ footer {
 
 #llamaCard img {
   position: absolute;
+}
+
+#llamaEdit {
+  display: none;
 }
 /* ================================================== */
 /* Mood Wheel */
