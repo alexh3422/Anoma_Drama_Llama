@@ -36,7 +36,6 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       if (data.createdAt && data.id) {
         location.href = "/home";
       } else if (data.original.errno === 1062 && data.fields.username) {
