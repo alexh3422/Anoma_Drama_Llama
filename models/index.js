@@ -8,8 +8,8 @@ const Reaction = require("./Reaction");
 Users.hasMany(Posts);
 Users.hasMany(Comments);
 Users.hasMany(Mood);
+Posts.hasMany(Mood);
 Posts.hasMany(Comments);
-Mood.hasMany(Comments);
 Users.hasMany(Reaction);
 Comments.hasMany(Reaction);
 
@@ -33,6 +33,10 @@ Mood.belongsTo(Users, {
   onDelete: "CASCADE",
 });
 
+Mood.belongsTo(Posts, {
+  onDelete: "CASCADE",
+});
+
 Reaction.belongsTo(Users, {
   onDelete: "CASCADE",
 });
@@ -44,5 +48,7 @@ Reaction.belongsTo(Comments, {
 Llama.belongsTo(Users, {
   onDelete: "CASCADE",
 });
+
+
 
 module.exports = { Users, Posts, Comments, Mood, Llama, Reaction };

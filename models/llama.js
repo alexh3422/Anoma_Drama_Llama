@@ -21,6 +21,9 @@ Llama.init(
         happiness: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                max: 10
+            }
         },
 
     },
