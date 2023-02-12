@@ -37,35 +37,6 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.createdAt && data.id) {
-        // Import Nodemailer
-
-        // Define the SMTP transporter
-        let transporter = nodemailer.createTransport({
-          host: "smtp.gmail.com",
-          port: 587,
-          secure: false,
-          auth: {
-            user: "DramaLlamaCEO@gmail.com",
-            pass: "dramallama123!",
-          },
-        });
-
-        // Define the email options
-        let mailOptions = {
-          from: "DramaLlamaCEO@gmail.com",
-          to: email,
-          subject: "Account Creation Successful",
-          text: `Your account has been successfully created. Your username is ${username}.`,
-        };
-
-        // Send the email
-        transporter.sendMail(mailOptions, function (error, info) {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log("Email sent: " + info.response);
-          }
-        });
         location.href = "/home";
       } else if (data.original.errno === 1062 && data.fields.username) {
         alert("Username already exists. Please choose another one.");
