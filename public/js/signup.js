@@ -37,7 +37,7 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.createdAt && data.id) {
-        location.href = "/home";
+        location.href = "/llama";
       } else if (data.original.errno === 1062 && data.fields.username) {
         alert("Username already exists. Please choose another one.");
       } else if (data.original.errno === 1062 && data.fields.email) {
