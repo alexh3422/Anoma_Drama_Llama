@@ -1,10 +1,10 @@
-const llamaGrey = "images/pixel-llamas/llama01.gif";
-const llamaBrown = "images/pixel-llamas/llama02.gif";
-const llamaWhite = "images/pixel-llamas/llama03.gif";
-const hatCowboy = "images/pixel-llamas/hat01.gif";
-const hatCrown = "images/pixel-llamas/hat02.gif";
-const hatWizard = "images/pixel-llamas/hat03.gif";
-const hatNone = "images/pixel-llamas/no-hat.gif";
+const llamaGrey = "images/pixel-llamas/llama01.png";
+const llamaBrown = "images/pixel-llamas/llama02.png";
+const llamaWhite = "images/pixel-llamas/llama03.png";
+const hatCowboy = "images/pixel-llamas/hat01.png";
+const hatCrown = "images/pixel-llamas/hat02.png";
+const hatWizard = "images/pixel-llamas/hat03.png";
+const hatNone = "images/pixel-llamas/no-hat.png";
 const llama = document.querySelector("#llamaImage");
 const hat = document.querySelector("#hatImage");
 const colorOption = document.querySelector(".colorSelect");
@@ -22,7 +22,14 @@ const userLlamaSrc = userLlamaColor.getAttribute("src");
 const userLlamaHat = document.querySelector("#userLlamaHat");
 const userLlamaHatSrc = userLlamaHat.getAttribute("src");
 
-// if user doesn't have a Llama yet, direct to llama edit
+function gifSwitch() {
+  if (userLlamaSrc == "images/pixel-llamas/llama01.png") {
+    userLlamaSrc == "images/pixel-llamas/llama01.gif";
+  }
+}
+
+gifSwitch();
+
 function onLoad() {
   if (!userLlamaName.innerHTML) {
     editLlama.style.display = "block";
