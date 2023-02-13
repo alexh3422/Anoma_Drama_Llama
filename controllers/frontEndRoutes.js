@@ -23,8 +23,17 @@ router.get("/home", (req, res) => {
     include: [Users],
   }).then((PostData) => {
     const hbsPost = PostData.map((Post) => Post.toJSON());
+    const allPublicPosts = hbsPost.filter(
+      (post) => post.visibility === "public" || post.visibility === "anonymous"
+    );
+    allPublicPosts.map(post => {
+      if(post.visibility==="anonymous"){
+        post.user['username'] = "Someone"
+      }
+      console.log(post.user);
+    });
     res.render("home", {
-      allPosts: hbsPost.reverse(),
+      allPosts: allPublicPosts.reverse()
     });
   });
 });
