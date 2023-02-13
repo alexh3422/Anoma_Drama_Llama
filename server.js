@@ -15,7 +15,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-cron.schedule("*/120 * * * * ", () => {
+cron.schedule("*/120 * * * *", () => {
   Llama.findAll().then((llamas) => {
     llamas.forEach((llama) => {
       const updatedHappiness =
@@ -24,6 +24,8 @@ cron.schedule("*/120 * * * * ", () => {
     });
   });
 });
+
+
 
 // console.log(cron.validate("25  * * * * *"));
 
