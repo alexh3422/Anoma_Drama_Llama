@@ -1,19 +1,24 @@
 const APIKey= "+75hN0+XAdl4H2GVLy4zow==7126drTfAlvPR88W";
-const request= require('request');
+// const request= require('request');
+const currentMood= document.querySelector('moodText')
+
 
 //happy & calm
 function happiness() {
-  request.get({
-  url: 'https://api.api-ninjas.com/v1/quotes?category=happiness',
-  headers: {
-    'X-API-KEY': APIKey
-  }
-}, function(error, response, body) {
-  if(error) return console.error('Request failed:', error);
-  else if(response.statusCode != 200) return console.error('Error:', response.statusCode, body.toString('utf8'));
-  else console.log(body)
-  }
-)};
+  var category = 'happiness'
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+    headers: { 'X-Api-Key': APIKey},
+    contentType: 'application/json',
+    success: function(result) {
+        console.log(result);
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+};
 
 //sad and frustrated
 function sad() {
@@ -142,8 +147,8 @@ function scared() {
 )};
 
 function quotes() {
-  console.log(moods.mood)
-  switch (moods.mood) {
+  console.log(currentMood)
+  switch (currentMood) {
     case 'happy':
       happiness();
       break;
