@@ -1,10 +1,6 @@
 <div>
   <div class="column">
-    <div
-      id="userLlamaPage"
-      userId="{{user.id}}"
-      llamaId="{{user.llama.id}}"
-    >
+    <div id="userLlamaPage" userId="{{user.id}}" llamaId="{{user.llama.id}}">
       <p id="userLlamaName">{{user.llama.name}}</p>
       <div id="llamaCard">
         <img id="userLlamaColor" src="{{user.llama.llama_image}}" />
@@ -37,7 +33,6 @@
         <br />
         <label for="llamaHat">Choose a hat:</label>
         <select name="hats" class="hatSelect">
-          <option value=""></option>
           <option value="none">None</option>
           <option value="cowboy">Cowboy Hat</option>
           <option value="crown">Crown</option>

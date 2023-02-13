@@ -14,7 +14,6 @@ router.get("/login", (req, res) => {
   res.render("login", { layout: "main2" });
 });
 
-
 router.get("/signup", (req, res) => {
   res.render("signup", { layout: "main2" });
 });
@@ -35,7 +34,7 @@ router.get("/journal", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts]
+      include: [Posts],
     }).then((userData) => {
       if (!userData) {
         res.render("error", { alert: "User not found" });
@@ -43,7 +42,9 @@ router.get("/journal", (req, res) => {
       }
       const hbsUser = userData.toJSON();
       const userPostsReverse = hbsUser.posts.reverse();
-      const allJournalPosts = userPostsReverse.filter(post => post.type === 'journal')
+      const allJournalPosts = userPostsReverse.filter(
+        (post) => post.type === "journal"
+      );
       res.render("journal", {
         user: hbsUser,
         userPosts: allJournalPosts,
@@ -54,7 +55,7 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [Posts,Mood]
+    include: [Posts, Mood],
   }).then((userData) => {
     if (!userData) {
       res.render("error", { alert: "User not found" });
@@ -62,7 +63,9 @@ router.get("/mood", (req, res) => {
     }
     const hbsUser = userData.toJSON();
     const userPostsReverse = hbsUser.posts.reverse();
-    const allMoodPosts = userPostsReverse.filter(post => post.type === 'mood-entry')
+    const allMoodPosts = userPostsReverse.filter(
+      (post) => post.type === "mood-entry"
+    );
     res.render("mood", {
       user: hbsUser,
       userPosts: allMoodPosts,

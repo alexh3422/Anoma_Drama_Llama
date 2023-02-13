@@ -204,7 +204,8 @@ footer {
 
 /* =============================Profile CSS=========================== */
 
-#profileUsername, #userInfo {
+#profileUsername,
+#userInfo {
   background: var(--p2);
   display: flex;
   flex-direction: column;
@@ -259,7 +260,8 @@ footer {
   resize: none;
 }
 
-.allPosts, .userPosts {
+.allPosts,
+.userPosts {
   border: solid 2px var(--p2);
   /* display: flex;
   flex-direction: column; */
@@ -271,7 +273,8 @@ footer {
   width: 90%;
 }
 
-.allPosts h2, .userPosts h2 {
+.allPosts h2,
+.userPosts h2 {
   text-align: center;
 }
 
@@ -280,7 +283,7 @@ footer {
   align-self: center;
 }
 
-/* =============== Llama Select ===================== */
+/* =============== Llama ===================== */
 #llamaSelect {
   display: flex;
   flex-direction: column;
@@ -295,13 +298,19 @@ footer {
   position: relative;
 }
 
-#llamaCard img {
+#llamaCard img,
+#sideLlamaCard img {
   position: absolute;
 }
 
 #llamaEdit,
 #userLlamaPage {
   display: none;
+}
+
+#sideLlamaCard img {
+  width: 200px;
+  bottom: 10;
 }
 
 /* ================================================== */
@@ -636,7 +645,7 @@ footer {
   border-color: #2d559f transparent transparent transparent;
 }
 
-#validateBtn{
+#validateBtn {
   display: none;
 }
 
