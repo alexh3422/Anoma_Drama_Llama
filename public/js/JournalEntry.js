@@ -106,6 +106,7 @@ const trackEmotions = () => {
 }
 
 const moodTitle = document.querySelector("#moodTitle")
+const privacySetting = document.querySelector('#privacySelect')
 
 let feelings = emotionsToTrack[0]
 
@@ -125,10 +126,12 @@ const changeTitle = () => {
 
         moodTitle.textContent = `You are feeling ${feelings}`
         trackMoodBtn.textContent = "No, actually..."
+        privacySetting.style.display = "block"
 
     } else {
         moodTitle.textContent = "How are you feeling right now?";
         trackMoodBtn.textContent = "Add emotions"
+        privacySetting.style.display = "none"
     }
 
 }
@@ -141,19 +144,26 @@ sumbitBtn.addEventListener("click", (e) => {
     const title = document.querySelector('#title-input').value
     const text = document.querySelector('#post-input').value
 
-    if(emotionsToTrack.length<1){
+    if (emotionsToTrack.length < 1) {
         alert("Please add at least 1 emotion")
-    } else if(!title){
-        alert('Please add a title'); 
-    } else if(!text){
-        alert('Please add some text'); 
+    } else if (!title) {
+        alert('Please add a title');
+    } else if (!text) {
+        alert('Please add some text');
     } else {
+        const values = document.getElementsByName('privacy')
+        let privacyChoice;
+        values.forEach(choice => {
+            if (choice.checked) {
+                privacyChoice = choice
+            }
+        })
         const postObj = {
             moodText: feelings,
             title: title,
             text: text,
             type: "journal",
-            visibility: "public"
+            visibility: privacyChoice.id
         }
         fetch('api/posts', {
             method: "POST",
