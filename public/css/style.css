@@ -178,7 +178,6 @@ header button {
   background-color: var(--light);
   border-radius: 12px;
   color: black;
-  font-weight: bold;
   padding: 10px 15px;
   border: 0;
   font-size: 16px;
@@ -222,7 +221,6 @@ header button:not(:disabled):focus {
   width: 90%;
 }
 
-
 /* ============================= journal/posts =========================== */
 .row {
   display: flex;
@@ -252,7 +250,7 @@ header button:not(:disabled):focus {
 }
 
 .journal button {
-  width: 20vw;
+  width: 25vw;
   align-self: center;
 }
 
@@ -288,7 +286,16 @@ header button:not(:disabled):focus {
   text-align: center;
 }
 
+.post-box {
+  margin: 5px;
+  border: black solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+}
 
+#title {
+  font-weight: bold;
+}
 
 /* =============== Llama ===================== */
 #llamaSelect {
@@ -692,8 +699,4 @@ header button:not(:disabled):focus {
   display: none;
 }
 
-.post-box {
-  margin: 5px;
-  border: black solid 1px;
-  padding: 5px;
-}
+

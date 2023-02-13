@@ -3,12 +3,14 @@
     <div class="journal">
       <form id="new-post-form">
         <h3>How are you feeling right now?</h3>
+        <div class="row">
           {{> mood-wheel}}
+          <button id="submit-post">Feed Llama</button></div>
         <textarea id="title-input" placeholder="Journal entry title"></textarea>
         <textarea
           id="post-input"
           placeholder="Let off some steam here!"></textarea>
-        <button id="submit-post">Feed my llama some drama</button>
+        
     </form>
   </div>
 
@@ -16,8 +18,8 @@
     <h2>Your Journal</h2>
       {{#each userPosts}}
       <div class="post-box">
-        <p id="moodText">You felt {{moodText}}</p>
-        <p id="title">{{title}}</p>
+        <p id="moodText">Mood: {{moodText}}</p>
+        <p id="title">"{{title}}"</p>
         <p id="text">{{text}}</p>
         <p id="date">{{dateFormat createdAt}}</p>
       </div>
