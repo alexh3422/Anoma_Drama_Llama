@@ -22,7 +22,14 @@ const userLlamaSrc = userLlamaColor.getAttribute("src");
 const userLlamaHat = document.querySelector("#userLlamaHat");
 const userLlamaHatSrc = userLlamaHat.getAttribute("src");
 
-// if user doesn't have a Llama yet, direct to llama edit
+function gifSwitch() {
+  if (userLlamaSrc == "images/pixel-llamas/llama01.png") {
+    userLlamaSrc == "images/pixel-llamas/llama01.gif";
+  }
+}
+
+gifSwitch();
+
 function onLoad() {
   if (!userLlamaName.innerHTML) {
     editLlama.style.display = "block";
