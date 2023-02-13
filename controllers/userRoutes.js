@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
       req.session.userId = dbUserData.id;
       req.session.userUsername = dbUserData.username;
       req.session.userEmail = dbUserData.email;
-      email(req.body.email);
+      email(req.body.email, req.body.username);
       res.json(dbUserData);
     })
     .catch((err) => {
