@@ -6,12 +6,12 @@
     </div>
 
     <div class="allPosts">
-      <h2>drama from other llamas</h2>
+      <h2>Drama from all Llamas</h2>
       {{#each allPosts}}
       <div class="post-box">
         <p id="username">{{user.username}}'s drama:</p>
-        <p id="moodText">{{moodText}}</p>
-        <p id="title">{{title}}</p>
+        <p id="moodText"><bold>Mood: {{moodText}}</bold></p>
+        <p id="title">"{{title}}"</p>
         <p id="text">{{text}}</p>
         <p id="date">{{dateFormat createdAt}}</p>
       </div>

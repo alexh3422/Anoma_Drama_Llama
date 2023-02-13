@@ -133,7 +133,7 @@ const changeTitle = () => {
 
 }
 
-const sumbitBtn = document.querySelector('#submit')
+const sumbitBtn = document.querySelector('#submit-post')
 
 sumbitBtn.addEventListener("click", (e) => {
     e.preventDefault()
