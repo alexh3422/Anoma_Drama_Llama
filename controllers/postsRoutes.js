@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
     text: req.body.text,
     type: req.body.type,
     visibility: req.body.visibility,
-    userId: req.session.userId
+    userId: req.session.userId,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
