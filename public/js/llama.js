@@ -102,7 +102,7 @@ submit.addEventListener("click", (event) => {
         console.log(userLlama);
         editLlama.style.display = "none";
         userLlamaPage.style.display = "block";
-        llamaHappiness();
+
         location.reload();
       } else {
         alert("Llama could not be created, please try again.");
@@ -133,29 +133,5 @@ submit.addEventListener("click", (event) => {
     });
   }
 });
-
-//console.log llama happiness level
-function llamaHappiness() {
-  if (userLlamaName.innerHTML) {
-    let llamaHappiness = {
-      happiness: 0,
-    };
-    fetch(`api/llamas/${llamaId}`, {
-      method: "PUT",
-      body: JSON.stringify(llamaHappiness),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        console.log(llamaHappiness);
-      } else {
-        alert("Llama could not be updated, please try again.");
-      }
-    });
-  }
-}
-
-//console.log llama happiness level
 
 onLoad();
