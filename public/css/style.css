@@ -699,4 +699,7 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+#privacySelect {
+  display: none;
+}
 
