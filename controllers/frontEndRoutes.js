@@ -121,22 +121,4 @@ router.get("/bookmarks", (req, res) => {
   }
 });
 
-setInterval(() => {
-  router.get("/llama"),
-    (req, res) => {
-      Llama.findAll().then((llamas) => {
-        llamas.forEach((llama) => {
-          let updatedHappiness = llama.happiness - 2;
-          fetch(`api/llamas/${llama.id}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ happiness: updatedHappiness }),
-          });
-        });
-      });
-    };
-}, 10000);
-
 module.exports = router;
