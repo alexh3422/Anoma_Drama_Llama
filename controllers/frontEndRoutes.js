@@ -19,21 +19,12 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  Promise.all([
-    Users.findAll({
-      include: [Posts, Llama],
-    }),
-    req.session.userId
-      ? Users.findByPk(req.session.userId, {
-          include: [Posts, Llama],
-        })
-      : null,
-  ]).then(([PostData, userData]) => {
-    console.log(PostData);
+  Users.findAll({
+    include: [Posts],
+  }).then((PostData) => {
     const hbsPost = PostData.map((Post) => Post.toJSON());
     res.render("home", {
       allPosts: hbsPost.reverse(),
-      user: userData ? userData.toJSON() : null,
     });
   });
 });
@@ -43,7 +34,7 @@ router.get("/journal", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts, Llama],
+      include: [Posts],
     }).then((userData) => {
       if (!userData) {
         res.render("error", { alert: "User not found" });
@@ -64,7 +55,7 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [Posts, Mood, Llama],
+    include: [Posts, Mood],
   }).then((userData) => {
     if (!userData) {
       res.render("error", { alert: "User not found" });
@@ -87,7 +78,7 @@ router.get("/profile", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts, Llama],
+      include: [Posts],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
       const allUserPosts = hbsUser.posts.reverse();
