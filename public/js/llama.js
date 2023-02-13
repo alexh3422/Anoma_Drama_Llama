@@ -9,7 +9,6 @@ const llama = document.querySelector("#llamaImage");
 const hat = document.querySelector("#hatImage");
 const colorOption = document.querySelector(".colorSelect");
 const hatOption = document.querySelector(".hatSelect");
-// name given when creating/editing llama
 const llamaName = document.querySelector("#llamaName");
 const submit = document.querySelector("#submit");
 const userLlamaPage = document.querySelector("#userLlamaPage");

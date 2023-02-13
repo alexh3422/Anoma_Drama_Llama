@@ -1,50 +1,47 @@
-<div>
-  <div class="column">
-    <div id="userLlamaPage" userId="{{user.id}}" llamaId="{{user.llama.id}}">
-      <p id="userLlamaName">{{user.llama.name}}</p>
-      <div id="llamaCard">
-        <img id="userLlamaColor" src="{{user.llama.llama_image}}" />
-        <img id="userLlamaHat" src="{{user.llama.llama_hat_image}}" />
-      </div>
-      <div>
-        <label for="happiness">Happiness:</label>
-        <progress
-          id="userLlamaHappiness"
-          value={{user.llama.happiness}}
-          max="10"
-        >
-        </progress>
-      </div>
+<div class="column">
+  <div id="userLlamaPage" userId="{{user.id}}" llamaId="{{user.llama.id}}">
+    <p id="userLlamaName">{{user.llama.name}}</p>
+    <div id="llamaCard">
+      <img id="userLlamaColor" src="{{user.llama.llama_image}}" />
+      <img id="userLlamaHat" src="{{user.llama.llama_hat_image}}" />
+
+    </div>
+    <div id="llamaExtra">
+
+      <label for="happiness">Happiness:</label>
+      <progress id="userLlamaHappiness" value={{user.llama.happiness}} max="10">
+      </progress>
       <button id="toEditBttn">Edit Llama</button>
     </div>
 
-    <div id="llamaEdit">
-      <h2>Customize Your Llama</h2>
-      <form id="llamaSelect">
-        <label for="llamaName">Name your llama:</label>
-        <input type="text" id="llamaName" />
-        <label for="llamaColor">Choose a color:</label>
-        <select name="colors" class="colorSelect">
-          <option value=""></option>
-          <option value="grey">Grey</option>
-          <option value="brown">Brown</option>
-          <option value="white">White</option>
-        </select>
-        <br />
-        <label for="llamaHat">Choose a hat:</label>
-        <select name="hats" class="hatSelect">
-          <option value="none">None</option>
-          <option value="cowboy">Cowboy Hat</option>
-          <option value="crown">Crown</option>
-          <option value="wizard">Wizard Hat</option>
-        </select>
-        <div id="llamaCard">
-          <img id="llamaImage" src="" />
-          <img id="hatImage" src="" />
-        </div>
-        <input type="submit" id="submit" />
-      </form>
-    </div>
+  </div>
+
+  <div id="llamaEdit">
+    <h2>Customize Your Llama</h2>
+    <form id="llamaSelect">
+      <label for="llamaName">Name your llama:</label>
+      <input type="text" id="llamaName" />
+      <label for="llamaColor">Choose a color:</label>
+      <select name="colors" class="colorSelect">
+        <option value=""></option>
+        <option value="grey">Grey</option>
+        <option value="brown">Brown</option>
+        <option value="white">White</option>
+      </select>
+      <label for="llamaHat">Choose a hat:</label>
+      <select name="hats" class="hatSelect">
+        <option value="none">None</option>
+        <option value="cowboy">Cowboy Hat</option>
+        <option value="crown">Crown</option>
+        <option value="wizard">Wizard Hat</option>
+      </select>
+      <div id="llamaCard">
+        <img id="llamaImage" src="" />
+        <img id="hatImage" src="" />
+      </div>
+      <input type="submit" id="submit" />
+    </form>
   </div>
 </div>
+
 <script src="js/llama.js"></script>
