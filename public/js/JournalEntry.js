@@ -165,7 +165,7 @@ sumbitBtn.addEventListener("click", (e) => {
             if (res.ok) {
                 return res.json();
             } else {
-                alert("trumpet sound")
+                alert("error, please try again")
             }
         }).then(post => {
             console.log(post);
@@ -184,7 +184,7 @@ sumbitBtn.addEventListener("click", (e) => {
                     if (res.ok) {
                         location.reload();
                     } else {
-                        alert("trumpet sound")
+                        alert("error please try again")
                     }
                 })
             })
