@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Manrope">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Manrope"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <title>Anoma Drama Llama</title>
   </head>
@@ -29,7 +32,12 @@
         </main>
       </section>
       <aside id="rightSide">
-        <p>Your Drama Llama is comming soon...</p>
+
+        <div id="sideLlamaCard" userId="{{user.id}}">
+          <img id="sideLlamaColor" src="{{user.llama.llama_image}}" />
+          <img id="sideLlamaHat" src="{{user.llama.llama_hat_image}}" />
+        </div>
+
       </aside>
     </section>
     <footer>

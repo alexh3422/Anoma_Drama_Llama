@@ -14,18 +14,26 @@ router.get("/login", (req, res) => {
   res.render("login", { layout: "main2" });
 });
 
-
 router.get("/signup", (req, res) => {
   res.render("signup", { layout: "main2" });
 });
 
 router.get("/home", (req, res) => {
-  Posts.findAll({
-    include: [Users],
-  }).then((PostData) => {
+  Promise.all([
+    Users.findAll({
+      include: [Posts, Llama],
+    }),
+    req.session.userId
+      ? Users.findByPk(req.session.userId, {
+          include: [Posts, Llama],
+        })
+      : null,
+  ]).then(([PostData, userData]) => {
+    console.log(PostData);
     const hbsPost = PostData.map((Post) => Post.toJSON());
     res.render("home", {
       allPosts: hbsPost.reverse(),
+      user: userData ? userData.toJSON() : null,
     });
   });
 });
@@ -35,7 +43,7 @@ router.get("/journal", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts]
+      include: [Posts, Llama],
     }).then((userData) => {
       if (!userData) {
         res.render("error", { alert: "User not found" });
@@ -43,7 +51,9 @@ router.get("/journal", (req, res) => {
       }
       const hbsUser = userData.toJSON();
       const userPostsReverse = hbsUser.posts.reverse();
-      const allJournalPosts = userPostsReverse.filter(post => post.type === 'journal')
+      const allJournalPosts = userPostsReverse.filter(
+        (post) => post.type === "journal"
+      );
       res.render("journal", {
         user: hbsUser,
         userPosts: allJournalPosts,
@@ -54,7 +64,7 @@ router.get("/journal", (req, res) => {
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [Posts,Mood]
+    include: [Posts, Mood, Llama],
   }).then((userData) => {
     if (!userData) {
       res.render("error", { alert: "User not found" });
@@ -62,7 +72,9 @@ router.get("/mood", (req, res) => {
     }
     const hbsUser = userData.toJSON();
     const userPostsReverse = hbsUser.posts.reverse();
-    const allMoodPosts = userPostsReverse.filter(post => post.type === 'mood-entry')
+    const allMoodPosts = userPostsReverse.filter(
+      (post) => post.type === "mood-entry"
+    );
     res.render("mood", {
       user: hbsUser,
       userPosts: allMoodPosts,
@@ -75,7 +87,7 @@ router.get("/profile", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts],
+      include: [Posts, Llama],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
       const allUserPosts = hbsUser.posts.reverse();
