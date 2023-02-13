@@ -64,5 +64,9 @@ getPostButton.forEach((button) => {
     event.preventDefault();
     gifSwitchLlama();
     gifSwitchHat();
+    // setTimeout(() => {
+    //   gifSwitchLlama();
+    //   gifSwitchHat();
+    // }, "3000");
   });
 });
