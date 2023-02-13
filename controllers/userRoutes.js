@@ -2,10 +2,11 @@ const router = require("express").Router();
 const { Users, Posts, Comments, Mood } = require("../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize");
+const email = require("../nodemailer");
 
 router.get("/", (req, res) => {
   Users.findAll({
-    include: [Posts, Comments, Mood]
+    include: [Posts, Comments, Mood],
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
@@ -29,8 +30,10 @@ router.post("/", (req, res) => {
       req.session.userId = dbUserData.id;
       req.session.userUsername = dbUserData.username;
       req.session.userEmail = dbUserData.email;
-      res.json(dbUserData)
-    }).catch((err) => {
+      email(req.body.email, req.body.username);
+      res.json(dbUserData);
+    })
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
@@ -60,8 +63,8 @@ router.get("/:id", (req, res) => {
 router.post("/login", (req, res) => {
   Users.findOne({
     where: {
-      [Op.or]: [{ username: req.body.login }, [{ email: req.body.login }]]
-    }
+      [Op.or]: [{ username: req.body.login }, [{ email: req.body.login }]],
+    },
   })
     .then((userData) => {
       if (!userData) {
@@ -82,5 +85,25 @@ router.post("/login", (req, res) => {
       res.status(500).json({ msg: "Try Again!", err });
     });
 });
+
+router.put("/", (req, res) => {
+  Users.update({
+    currentMood: req.body.currentMood
+  }, {
+    where: { id: req.session.userId }
+  }).then(data => {
+    if (data[0]) {
+      return res.json(data)
+    } else {
+      return res.status(404).json({ msg: "no such record" })
+    }
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      msg: "an error occurred",
+      err: err
+    })
+  })
+})
 
 module.exports = router;

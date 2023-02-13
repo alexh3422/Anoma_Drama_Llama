@@ -88,7 +88,8 @@ backgroundCover.addEventListener("click", () => {
 
 const trackMoodBtn = document.querySelector('#trackMoodBtn')
 
-trackMoodBtn.addEventListener("click", () => {
+trackMoodBtn.addEventListener("click", (e) => {
+    e.preventDefault()
     moodWheel.style.display = "flex";
 });
 
@@ -105,14 +106,12 @@ const trackEmotions = () => {
 }
 
 const moodTitle = document.querySelector("#moodTitle")
-const userId = document.querySelector("#userInfo").getAttribute("userId")
-const validateBtn = document.querySelector("#validateBtn")
 
 let feelings = emotionsToTrack[0]
 
 const changeTitle = () => {
     if (emotionsToTrack.length > 0) {
-        
+
         if (emotionsToTrack.length > 2) {
             const feelingsArr = []
             for (let i = 0; i < emotionsToTrack.length - 2; i++) {
@@ -126,61 +125,75 @@ const changeTitle = () => {
 
         moodTitle.textContent = `You are feeling ${feelings}`
         trackMoodBtn.textContent = "No, actually..."
-        validateBtn.style.display = "inline"
 
     } else {
         moodTitle.textContent = "How are you feeling right now?";
-        trackMoodBtn.textContent = "Feed my llama some drama"
-        document.querySelector("#validateBtn").style.display = "none"
+        trackMoodBtn.textContent = "Add emotions"
     }
-    
+
 }
 
-validateBtn.addEventListener("click", () => {
-    const postObj = {
-        moodText: feelings,
-        title: "Mood Entry",
-        text: "",
-        type: "mood-entry",
-        visibility: "public"
-    }
-    fetch('api/posts', {
-        method:"POST",
-        body:JSON.stringify(postObj),
-        headers:{
-            "Content-Type":"application/json"
+const sumbitBtn = document.querySelector('#submit')
+
+sumbitBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    const title = document.querySelector('#title-input').value
+    const text = document.querySelector('#post-input').value
+
+    if(emotionsToTrack.length<1){
+        alert("Please add at least 1 emotion")
+    } else if(!title){
+        alert('Please add a title'); 
+    } else if(!text){
+        alert('Please add some text'); 
+    } else {
+        const postObj = {
+            moodText: feelings,
+            title: title,
+            text: text,
+            type: "journal",
+            visibility: "public"
         }
-    }).then(res=>{
-        if(res.ok){
-           return res.json();
-        } else {
-            alert("trumpet sound")
-        }
-    }).then(post => {
-        console.log(post);
-        emotionsToTrack.forEach(emotion => {
-            const moodObj = {
-                mood: emotion,
-                postId: post.id
+        fetch('api/posts', {
+            method: "POST",
+            body: JSON.stringify(postObj),
+            headers: {
+                "Content-Type": "application/json"
             }
-            fetch('api/moods', {
-                method:"POST",
-                body:JSON.stringify(moodObj),
-                headers:{
-                    "Content-Type":"application/json"
+        }).then(res => {
+            if (res.ok) {
+                return res.json();
+            } else {
+                alert("trumpet sound")
+            }
+        }).then(post => {
+            console.log(post);
+            emotionsToTrack.forEach(emotion => {
+                const moodObj = {
+                    mood: emotion,
+                    postId: post.id
                 }
-            }).then(res=>{
-                if(res.ok){
-                    location.href="/profile";
-                } else {
-                    alert("trumpet sound")
-                }
+                fetch('api/moods', {
+                    method: "POST",
+                    body: JSON.stringify(moodObj),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(res => {
+                    if (res.ok) {
+                        location.reload();
+                    } else {
+                        alert("trumpet sound")
+                    }
+                })
             })
         })
-    })
+    }
 })
 
 
-console.log(userId)
+
+
 
 

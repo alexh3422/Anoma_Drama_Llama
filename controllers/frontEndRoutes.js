@@ -6,17 +6,7 @@ router.get("/", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
   } else {
-    Posts.findAll({
-      include: [Users],
-    }).then((PostData) => {
-      console.log(PostData);
-      const hbsPost = PostData.map((Post) => Post.toJSON());
-      console.log("==============================");
-      console.log(hbsPost);
-      res.render("home", {
-        allPosts: hbsPost,
-      });
-    });
+    res.redirect("/home");
   }
 });
 
@@ -29,7 +19,23 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  res.render("home");
+  Promise.all([
+    Users.findAll({
+      include: [Posts, Llama],
+    }),
+    req.session.userId
+      ? Users.findByPk(req.session.userId, {
+          include: [Posts, Llama],
+        })
+      : null,
+  ]).then(([PostData, userData]) => {
+    console.log(PostData);
+    const hbsPost = PostData.map((Post) => Post.toJSON());
+    res.render("home", {
+      allPosts: hbsPost.reverse(),
+      user: userData ? userData.toJSON() : null,
+    });
+  });
 });
 
 router.get("/journal", (req, res) => {
@@ -37,36 +43,41 @@ router.get("/journal", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts],
+      include: [Posts, Llama],
     }).then((userData) => {
+      if (!userData) {
+        res.render("error", { alert: "User not found" });
+        return;
+      }
       const hbsUser = userData.toJSON();
-      res.render("journal", { user: hbsUser });
+      const userPostsReverse = hbsUser.posts.reverse();
+      const allJournalPosts = userPostsReverse.filter(
+        (post) => post.type === "journal"
+      );
+      res.render("journal", {
+        user: hbsUser,
+        userPosts: allJournalPosts,
+      });
     });
   }
 });
 
 router.get("/mood", (req, res) => {
   Users.findByPk(req.session.userId, {
-    include: [
-      {
-        model: Posts,
-        // where: {
-        //   type: "mood-entry",
-        // },
-      },
-      Mood,
-    ],
+    include: [Posts, Mood, Llama],
   }).then((userData) => {
     if (!userData) {
       res.render("error", { alert: "User not found" });
       return;
     }
-
     const hbsUser = userData.toJSON();
-    const allUserPosts = hbsUser.posts.reverse();
+    const userPostsReverse = hbsUser.posts.reverse();
+    const allMoodPosts = userPostsReverse.filter(
+      (post) => post.type === "mood-entry"
+    );
     res.render("mood", {
       user: hbsUser,
-      userPosts: allUserPosts,
+      userPosts: allMoodPosts,
     });
   });
 });
@@ -76,11 +87,10 @@ router.get("/profile", (req, res) => {
     res.redirect("/login");
   } else {
     Users.findByPk(req.session.userId, {
-      include: [Posts],
+      include: [Posts, Llama],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
       const allUserPosts = hbsUser.posts.reverse();
-      console.log(allUserPosts);
       res.render("profile", {
         user: hbsUser,
         userPosts: allUserPosts,
@@ -98,9 +108,16 @@ router.get("/llama", (req, res) => {
       include: [Llama],
     }).then((userData) => {
       const hbsUser = userData.toJSON();
-      console.log(hbsUser);
       res.render("llama", { user: hbsUser });
     });
+  }
+});
+
+router.get("/bookmarks", (req, res) => {
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    res.render("bookmarks");
   }
 });
 
