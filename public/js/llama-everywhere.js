@@ -58,15 +58,13 @@ function gifSwitchHat() {
 
 const getPostButton = document.querySelectorAll(".llamaListener");
 console.log(getPostButton);
+const sparkles = "images/pixel-llamas/sparkles.gif";
 
 getPostButton.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
     gifSwitchLlama();
     gifSwitchHat();
-    // setTimeout(() => {
-    //   gifSwitchLlama();
-    //   gifSwitchHat();
-    // }, "3000");
+    document.querySelector("#sparkles").src = sparkles;
   });
 });
