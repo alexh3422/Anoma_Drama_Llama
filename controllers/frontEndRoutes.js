@@ -19,8 +19,8 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  Users.findAll({
-    include: [Posts],
+  Posts.findAll({
+    include: [Users],
   }).then((PostData) => {
     const hbsPost = PostData.map((Post) => Post.toJSON());
     res.render("home", {
