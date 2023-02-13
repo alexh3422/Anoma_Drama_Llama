@@ -1,7 +1,7 @@
 ("use strict");
 const nodemailer = require("nodemailer");
 
-async function emailfunction(email) {
+async function emailfunction(email, username) {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -17,7 +17,7 @@ async function emailfunction(email) {
     from: '"DramaLlamaCEO@DramaLlama.com', // sender address
     to: `${email}`, // list of receivers
     subject: "Account Created", // Subject line
-    text: "Your account was created", // plain text body
+    text: `Your account was sucessfully created! Your username is: ${username} `, // plain text body
   });
 
   console.log("Message sent: %s", info.messageId);
@@ -28,3 +28,5 @@ async function emailfunction(email) {
 // emailfunction().catch(console.error);
 
 module.exports = emailfunction;
+
+
