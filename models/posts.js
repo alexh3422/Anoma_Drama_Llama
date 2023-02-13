@@ -6,7 +6,8 @@ class Posts extends Model {
   static async afterCreate(post, options) {
     const llama = await Llama.findOne({ where: { userId: post.userId } });
     if (llama) {
-      llama.happiness += 1;
+      llama.happiness += post.type === "mood-entry" ? 1 : 2;
+      llama.happiness = Math.min(llama.happiness, 10);
       await llama.save();
     }
   }
