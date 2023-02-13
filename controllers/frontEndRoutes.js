@@ -26,14 +26,14 @@ router.get("/home", (req, res) => {
     const allPublicPosts = hbsPost.filter(
       (post) => post.visibility === "public" || post.visibility === "anonymous"
     );
-    allPublicPosts.map(post => {
-      if(post.visibility==="anonymous"){
-        post.user['username'] = "Someone"
+    allPublicPosts.map((post) => {
+      if (post.visibility === "anonymous") {
+        post.user["username"] = "Someone";
       }
       console.log(post.user);
     });
     res.render("home", {
-      allPosts: allPublicPosts.reverse()
+      allPosts: allPublicPosts.reverse(),
     });
   });
 });
@@ -120,5 +120,23 @@ router.get("/bookmarks", (req, res) => {
     res.render("bookmarks");
   }
 });
+
+setInterval(() => {
+  router.get("/llama"),
+    (req, res) => {
+      Llama.findAll().then((llamas) => {
+        llamas.forEach((llama) => {
+          let updatedHappiness = llama.happiness - 2;
+          fetch(`api/llamas/${llama.id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ happiness: updatedHappiness }),
+          });
+        });
+      });
+    };
+}, 10000);
 
 module.exports = router;
