@@ -1,7 +1,16 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const Llama = require("./Llama");
 
-class Posts extends Model {}
+class Posts extends Model {
+  static async afterCreate(post, options) {
+    const llama = await Llama.findOne({ where: { userId: post.userId } });
+    if (llama) {
+      llama.happiness += 1;
+      await llama.save();
+    }
+  }
+}
 
 Posts.init(
   {
@@ -16,6 +25,13 @@ Posts.init(
     text: {
       type: DataTypes.TEXT,
       allowNull: true,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
     type: {
       type: DataTypes.STRING,
@@ -38,6 +54,9 @@ Posts.init(
     timestamps: true,
     freezeTableName: true,
     modelName: "posts",
+    hooks: {
+      afterCreate: Posts.afterCreate,
+    },
   }
 );
 
