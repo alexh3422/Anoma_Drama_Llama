@@ -101,6 +101,7 @@ const trackEmotions = () => {
 
 const moodTitle = document.querySelector("#moodTitle")
 const validateBtn = document.querySelector("#validateBtn")
+const privacySetting = document.querySelector('#privacySelect')
 
 const changeTitle = () => {
     
@@ -111,23 +112,31 @@ const changeTitle = () => {
         trackMoodBtn.textContent = "No, actually..."
         validateBtn.textContent = `Yep, set current mood to ${feelings}`
         validateBtn.style.display = "inline"
+        privacySetting.style.display = "block"
 
     } else {
         moodTitle.textContent = "How are you feeling right now?";
         trackMoodBtn.textContent = "Add Current Mood"
         document.querySelector("#validateBtn").style.display = "none"
+        privacySetting.style.display = "none"
     }
 
 }
 
 validateBtn.addEventListener("click", () => {
-
+    const values = document.getElementsByName('privacy')
+    let privacyChoice;
+    values.forEach(choice => {
+        if(choice.checked){
+            privacyChoice = choice
+        }
+    })
     const postObj = {
         moodText: feelings,
         title: "Current Mood",
         text: "",
         type: "mood-entry",
-        visibility: "public"
+        visibility: privacyChoice.id
     }
     fetch('api/posts', {
         method: "POST",
