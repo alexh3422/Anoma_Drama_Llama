@@ -37,6 +37,7 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.createdAt && data.id) {
+        //redirects to llama creation page if user is created
         location.href = "/llama";
       } else if (data.original.errno === 1062 && data.fields.username) {
         alert("Username already exists. Please choose another one.");
