@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 const dayjs = require("dayjs");
 const cron = require("node-cron");
-const {Llama} = require("./models");
+const { Llama } = require("./models");
 
 const allRoutes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -24,10 +24,6 @@ cron.schedule("*/120 * * * *", () => {
     });
   });
 });
-
-
-
-
 
 const sess = {
   secret: process.env.SECRET,
@@ -53,6 +49,25 @@ app.use(allRoutes);
 
 app.get("/sessions", (req, res) => {
   res.json(req.session);
+});
+
+app.use(function (req, res, next) {
+  res.status(404);
+
+  // respond with html page
+  if (req.accepts("html")) {
+    res.render("404", { url: req.url, layout: false });
+    return;
+  }
+
+  // respond with json
+  if (req.accepts("json")) {
+    res.json({ error: "Not found" });
+    return;
+  }
+
+  // default to plain-text. send()
+  res.type("txt").send("Not found");
 });
 
 Handlebars.registerHelper("dateFormat", function (dateData) {
