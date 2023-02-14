@@ -12,7 +12,7 @@ document.querySelector("#moodsBttn").addEventListener("click", () => {
   location.href = "/mood";
 });
 
-if (url.includes("llama")) {
+if (url.includes("Llama")) {
   document.querySelector("#sideLlamaCard").style.display = "none";
 }
 
