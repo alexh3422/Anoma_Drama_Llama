@@ -4,6 +4,7 @@ const validateBtn2 = document.querySelector("#validateBtn");
 const trackMoodBtn2 = document.querySelector("#trackMoodBtn");
 const journalBtn = document.querySelector("#submit-post");
 const deleteBtn2 = document.querySelector("#deleteBtn");
+console.log(document.querySelector("#deleteBtn"));
 
 if (window.location.pathname === "/mood") {
   validateBtn2.addEventListener("click", (event) => {
@@ -42,6 +43,7 @@ if (window.location.pathname === "/mood") {
       document.querySelector(".bubble").style.display = "none";
     }, 10000);
   });
+  deleteListener();
 } else if (window.location.pathname === "/home") {
   trackMoodBtn2.addEventListener("click", (event) => {
     event.preventDefault();
@@ -60,4 +62,17 @@ if (window.location.pathname === "/mood") {
       document.querySelector(".bubble").style.display = "none";
     }, 5000);
   });
+}
+
+function deleteListener() {
+  if (deleteBtn2) {
+    deleteBtn2.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.querySelector("#speechBubble").innerHTML = "I saw nothing.";
+      document.querySelector(".bubble").style.display = "block";
+      setTimeout(() => {
+        document.querySelector(".bubble").style.display = "none";
+      }, 5000);
+    });
+  }
 }
