@@ -233,3 +233,21 @@ validateBtn.addEventListener("click", (event) => {
       });
     });
 });
+
+
+const deleteBtn = document.querySelectorAll("#deleteBtn")
+
+deleteBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    const id = button.getAttribute("post-id");
+    fetch(`/api/posts/${id}`, {
+      method:"DELETE"
+    }).then(res => {
+      if (res.ok) {
+        location.href= "/mood"
+      } else {
+        alert("oh noes!")
+      }
+    })
+  })
+})
