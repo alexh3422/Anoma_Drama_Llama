@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 const dayjs = require("dayjs");
 const cron = require("node-cron");
-const { Llama } = require("./models");
+const {Llama} = require("./models");
 
 const allRoutes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -24,6 +24,8 @@ cron.schedule("*/120 * * * *", () => {
     });
   });
 });
+
+
 
 
 
