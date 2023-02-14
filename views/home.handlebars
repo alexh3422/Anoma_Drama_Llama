@@ -9,10 +9,9 @@
       {{#each allPosts}}
       <div class="post-box">
         <p>{{user.username}}'s drama:</p>
-        <p id="moodText">Mood: {{moodText}}</p>
         <p id="title">"{{title}}"</p>
         <p id="text">{{text}}</p>
-        <p id="date">{{dateFormat createdAt}}</p>
+        <p>Was feeling {{moodText}} on {{dateFormat createdAt}}</p>
       </div>
       {{/each}}
     </div>

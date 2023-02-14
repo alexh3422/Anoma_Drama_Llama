@@ -41,6 +41,8 @@ fetch("/sessions", {
       });
   });
 
+
+
 function gifSwitchLlama() {
   if (document.querySelector("#userLlamaColor").src.includes("llama01.png")) {
     document.querySelector("#userLlamaColor").src =
@@ -56,6 +58,22 @@ function gifSwitchLlama() {
     document.querySelector("#userLlamaColor").src =
       "images/pixel-llamas/llama03.gif";
   }
+  setTimeout(() => {
+    if (document.querySelector("#userLlamaColor").src.includes("llama01.gif")) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama01.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama02.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama02.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama03.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama03.png";
+    }
+  }, 5000);
 }
 
 function gifSwitchHat() {
@@ -73,6 +91,22 @@ function gifSwitchHat() {
     document.querySelector("#userLlamaHat").src =
       "images/pixel-llamas/hat03.gif";
   }
+  setTimeout(() => {
+    if (document.querySelector("#userLlamaHat").src.includes("hat01.gif")) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat01.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat02.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat02.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat03.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat03.png";
+    }
+  }, 5000);
 }
 
 const getPostButton = document.querySelectorAll(".llamaListener");
@@ -85,6 +119,9 @@ getPostButton.forEach((button) => {
     gifSwitchLlama();
     gifSwitchHat();
     document.querySelector("#sparkles").src = sparkles;
+    setTimeout(() => {
+      document.querySelector("#sparkles").src = "images/pixel-llamas/no-hat.png";
+    }, 5000);
   });
 });
 

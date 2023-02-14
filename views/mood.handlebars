@@ -17,12 +17,12 @@
     <div id="pieChart"></div>
   </div>
 
-  <div class="allPosts">
+  <div class="allPosts" id="moodPage">
     <h2>My Mood Tracker</h2>
     {{#each userPosts}}
     <div class="post-box">
       <p>You were feeling {{moodText}}</p>
-      <p id="title">{{title}}</p>
+      <p id="title">"{{title}}"</p>
       <p id="text">{{text}}</p>
       <p id="date">{{dateFormat createdAt}}</p>
       <button id="deleteBtn" post-id={{id}}>Delete</button>
