@@ -1,28 +1,28 @@
-<div>
-  <div class="column">
-    <div class="journalEntry">
-      <form id="new-post-form">
-          {{> mood-wheel}}
-        <textarea id="title-input" placeholder="Journal entry title"></textarea>
-        <textarea
-          id="post-input"
-          placeholder="Let off some steam here!"></textarea>
-        <button id="submit-post" class="llamaListener">Feed Llama</button></div>
-    </form>
+<div class="column">
+  <div class="row">
+  <form id="new-post-form">
+  {{> mood-wheel}}
+  <textarea id="title-input" placeholder="Journal entry title"></textarea>
+  <textarea id="post-input" placeholder="Let off some steam here!"></textarea>
+  <button id="submit-post" class="llamaListener">Feed Llama</button>
   </div>
+</form>
 
-  <div class="userPosts">
-    <h2>Your Journal</h2>
-      {{#each userPosts}}
-      <div class="post-box">
-        <p id="moodText">Mood: {{moodText}}</p>
-        <p id="title">"{{title}}"</p>
-        <p id="text">{{text}}</p>
-        <p id="date">{{dateFormat createdAt}}</p>
-      </div>
-      {{/each}}
-    </div>
+
+<div class="allPosts">
+  <h2>All Your drama</h2>
+  {{#each userPosts}}
+  <div class="post-box">
+    <p id="postUsername">Your drama:</p>
+    <p id="title">"{{title}}"</p>
+    <p id="text">{{text}}</p>
+    <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
   </div>
+  {{/each}}
 </div>
+</div>
+
+
+
 
 <script src="/js/journalEntry.js"></script>

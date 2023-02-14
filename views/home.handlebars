@@ -1,7 +1,6 @@
 <div>
   <div class="column">
     <div class="currentMood">
-      <h2>What is your current mood?</h2>
       {{>mood-wheel}}
     </div>
 
@@ -9,7 +8,7 @@
       <h2>Drama from all Llamas</h2>
       {{#each allPosts}}
       <div class="post-box">
-        <p id="username">{{user.username}}'s drama:</p>
+        <p>{{user.username}}'s drama:</p>
         <p id="moodText">Mood: {{moodText}}</p>
         <p id="title">"{{title}}"</p>
         <p id="text">{{text}}</p>
