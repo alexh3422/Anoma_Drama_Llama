@@ -51,8 +51,8 @@ function onLoad() {
 toEditBttn.addEventListener("click", (event) => {
   event.preventDefault();
   llamaName.value = userLlamaName.innerHTML;
-  llama.src = userLlamaSrc;
-  hat.src = userLlamaHatSrc;
+  llama.src = llamaGrey;
+  hat.src = hatNone;
   editLlama.style.display = "block";
   userLlamaPage.style.display = "none";
 });
@@ -93,6 +93,10 @@ hatOption.addEventListener("change", function () {
 
 submit.addEventListener("click", (event) => {
   event.preventDefault();
+  if (!llamaName.value) {
+    alert("Please enter a name for your llama.");
+    return;
+  }
   if (!userLlamaName.innerHTML) {
     let userLlama = {
       name: llamaName.value,
@@ -110,6 +114,7 @@ submit.addEventListener("click", (event) => {
     }).then((res) => {
       if (res.ok) {
         console.log(userLlama);
+
         editLlama.style.display = "none";
         userLlamaPage.style.display = "block";
 

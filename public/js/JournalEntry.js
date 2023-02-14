@@ -199,7 +199,7 @@ sumbitBtn.addEventListener("click", (e) => {
             if (res.ok) {
               setTimeout(() => {
                 location.reload();
-              }, "2000");
+              }, "3000");
             } else {
               alert("trumpet sound");
             }

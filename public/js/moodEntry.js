@@ -139,7 +139,8 @@ const changeTitle = () => {
   }
 };
 
-validateBtn.addEventListener("click", () => {
+validateBtn.addEventListener("click", (event) => {
+  event.preventDefault();
   const values = document.getElementsByName("privacy");
   let privacyChoice;
   values.forEach((choice) => {
@@ -185,7 +186,7 @@ validateBtn.addEventListener("click", () => {
           if (res.ok) {
             setTimeout(() => {
               location.reload();
-            }, "2000");
+            }, "3000");
           } else {
             alert("trumpet sound");
           }
