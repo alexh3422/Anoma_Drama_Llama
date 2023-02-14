@@ -18,7 +18,8 @@ fetch("/sessions", {
           llamaData.llama.llama_image;
         document.querySelector("#userLlamaHat").src =
           llamaData.llama.llama_hat_image;
-        console.log(document.querySelector("#userLlamaColor").src);
+        document.querySelector("#sideLlamaHappiness").value =
+          llamaData.llama.happiness;
       });
   });
 

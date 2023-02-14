@@ -321,6 +321,10 @@ header button:not(:disabled):focus {
   height: 30%;
 }
 
+#submit-post {
+  display: none;
+}
+
 #toEditBttn,
 #submit {
   background-color: var(--light);
@@ -348,6 +352,12 @@ header button:not(:disabled):focus {
   position: relative;
 }
 
+#sideLlamaCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #llamaCard img,
 #sideLlamaCard img {
   position: absolute;
@@ -358,9 +368,23 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+#userLlamaHappiness,
+#sideLlamaHappiness {
+  height: 12px;
+  display: block;
+  position: relative;
+  background: var(--p1);
+  padding: 1px;
+}
+
+#sideLlamaHappiness {
+  position: absolute;
+  bottom: 10;
+}
+
 #sideLlamaCard img {
   width: 200px;
-  bottom: 10;
+  bottom: 25;
 }
 
 /* ================================================== */
@@ -702,4 +726,3 @@ header button:not(:disabled):focus {
 #privacySelect {
   display: none;
 }
-

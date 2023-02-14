@@ -110,6 +110,8 @@ const privacySetting = document.querySelector("#privacySelect");
 
 let feelings = emotionsToTrack[0];
 
+const sumbitBtn = document.querySelector("#submit-post");
+
 const changeTitle = () => {
   if (emotionsToTrack.length > 0) {
     if (emotionsToTrack.length > 2) {
@@ -130,14 +132,14 @@ const changeTitle = () => {
     moodTitle.textContent = `You are feeling ${feelings}`;
     trackMoodBtn.textContent = "No, actually...";
     privacySetting.style.display = "block";
+    sumbitBtn.style.display = "block";
   } else {
     moodTitle.textContent = "How are you feeling right now?";
     trackMoodBtn.textContent = "Add emotions";
     privacySetting.style.display = "none";
+    sumbitBtn.style.display = "none";
   }
 };
-
-const sumbitBtn = document.querySelector("#submit-post");
 
 sumbitBtn.addEventListener("click", (e) => {
   e.preventDefault();
