@@ -21,14 +21,24 @@ const userLlamaColor = document.querySelector("#userLlamaColor");
 const userLlamaSrc = userLlamaColor.getAttribute("src");
 const userLlamaHat = document.querySelector("#userLlamaHat");
 const userLlamaHatSrc = userLlamaHat.getAttribute("src");
+const happiness = document.querySelector("#userLlamaHappiness");
 
-function gifSwitch() {
-  if (userLlamaSrc == "images/pixel-llamas/llama01.png") {
-    userLlamaSrc == "images/pixel-llamas/llama01.gif";
-  }
+if (happiness.value == 10 || happiness.value == 9) {
+  happiness.setAttribute("class", "green");
+} else if (
+  happiness.value == 8 ||
+  happiness.value == 7 ||
+  happiness.value == 6
+) {
+  happiness.setAttribute("class", "light-green");
+} else if (happiness.value == 5 || happiness.value == 4) {
+  happiness.setAttribute("class", "yellow");
+} else if (happiness.value == 3 || happiness.value == 2) {
+  happiness.setAttribute("class", "orange");
+  console.log("Orange!");
+} else if (happiness.value == 1) {
+  happiness.setAttribute("class", "red");
 }
-
-gifSwitch();
 
 function onLoad() {
   if (!userLlamaName.innerHTML) {
