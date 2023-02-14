@@ -185,3 +185,12 @@ validateBtn.addEventListener("click", (event) => {
       });
     });
 });
+
+// function renderCurrentMood() {
+//   const postBox = document.querySelector(".post-box");
+//   let p = document.createElement("p");
+//   postBox.append(user.username, p);
+//   postBox.append(title, p);
+//   postBox.append(moodText, p);
+//   p.append(dateFormat createdAt);
+// }
