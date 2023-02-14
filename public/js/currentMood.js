@@ -19,22 +19,25 @@ class Emotion {
   }
 
   makesingleSelection(allEmotions) {
-    document.querySelector(`#${this.name}`).addEventListener("click", () => {
-      const color = document.querySelector(`.${this.color}`);
-      allEmotions.forEach((emotion) => {
-        if (emotion.name != this.name) {
-          document.querySelector(`.${emotion.color}`).style.opacity = "30%";
-          emotion.selected = false;
+    document
+      .querySelector(`#${this.name}`)
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        const color = document.querySelector(`.${this.color}`);
+        allEmotions.forEach((emotion) => {
+          if (emotion.name != this.name) {
+            document.querySelector(`.${emotion.color}`).style.opacity = "30%";
+            emotion.selected = false;
+          }
+        });
+        if (!this.selected) {
+          color.style.opacity = "100%";
+          this.selected = true;
+        } else {
+          color.style.opacity = "30%";
+          this.selected = false;
         }
       });
-      if (!this.selected) {
-        color.style.opacity = "100%";
-        this.selected = true;
-      } else {
-        color.style.opacity = "30%";
-        this.selected = false;
-      }
-    });
   }
 
   nameOnhover() {
@@ -72,7 +75,8 @@ emotions.forEach((emotion) => {
 
 const backgroundCover = document.querySelector("#backgroundCover");
 
-backgroundCover.addEventListener("click", () => {
+backgroundCover.addEventListener("click", (event) => {
+  event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
   changeTitle();
@@ -81,7 +85,8 @@ backgroundCover.addEventListener("click", () => {
 const trackMoodBtn = document.querySelector("#trackMoodBtn");
 trackMoodBtn.textContent = "Add Current Mood";
 
-trackMoodBtn.addEventListener("click", () => {
+trackMoodBtn.addEventListener("click", (event) => {
+  event.preventDefault();
   moodWheel.style.display = "flex";
 });
 
@@ -135,6 +140,10 @@ validateBtn.addEventListener("click", (event) => {
     type: "mood-entry",
     visibility: privacyChoice.id,
   };
+  moodTitle.textContent = "How are you feeling right now?";
+  trackMoodBtn.textContent = "Add Current Mood";
+  document.querySelector("#validateBtn").style.display = "none";
+  privacySetting.style.display = "none";
   fetch("api/posts", {
     method: "POST",
     body: JSON.stringify(postObj),
@@ -150,6 +159,39 @@ validateBtn.addEventListener("click", (event) => {
       }
     })
     .then((post) => {
+      console.log(post);
+      const allPostsDiv = document.querySelector(".allPosts");
+
+      const thisPostDiv = document.createElement("div");
+      thisPostDiv.setAttribute("class", "post-box");
+      const postUser = document.createElement("p");
+      // postUser.setAttribute("id", "postUsername")
+
+      const postTitle = document.createElement("p");
+      postTitle.setAttribute("id", "title");
+      postTitle.innerHTML = `\"${post.title}\"`;
+      const postMoodsAndDate = document.createElement("p");
+      postMoodsAndDate.innerHTML = `Was feeling ${post.moodText} on ${dayjs(
+        post.createdAt
+      ).format("MMM DD YYYY, HH:mm")}`;
+      const postText = document.createElement("p");
+      postText.setAttribute("id", "text");
+
+      thisPostDiv.append(postUser);
+      thisPostDiv.append(postTitle);
+      thisPostDiv.append(postText);
+      thisPostDiv.append(postMoodsAndDate);
+
+      if (post.visibility == "public") {
+        postUser.innerHTML = `Your drama: `;
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
+      } else if (post.visibility == "anonymous") {
+        postUser.innerHTML = `Someone's drama: `;
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
+      } else if (post.visibility == "private") {
+        thisPostDiv.remove();
+      }
+
       emotionsToTrack.forEach((emotion) => {
         const moodObj = {
           mood: emotion,
@@ -172,11 +214,6 @@ validateBtn.addEventListener("click", (event) => {
               },
             }).then((res) => {
               if (res.ok) {
-                console.log(currentMood);
-                console.log(moodObj);
-                setTimeout(() => {
-                  location.reload();
-                }, "3000");
               } else {
                 alert("Something went wrong with updating Current Mood");
               }
@@ -188,12 +225,3 @@ validateBtn.addEventListener("click", (event) => {
       });
     });
 });
-
-// function renderCurrentMood() {
-//   const postBox = document.querySelector(".post-box");
-//   let p = document.createElement("p");
-//   postBox.append(user.username, p);
-//   postBox.append(title, p);
-//   postBox.append(moodText, p);
-//   p.append(dateFormat createdAt);
-// }
