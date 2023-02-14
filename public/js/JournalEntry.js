@@ -212,11 +212,19 @@ sumbitBtn.addEventListener("click", (e) => {
 const editBtn = document.querySelectorAll("#editBtn");
 const deleteBtn = document.querySelectorAll("#deleteBtn")
 
-// editBtn.forEach(button => {
-//   button.addEventListener("click", () => {
-//     const
-//   })
-// })
+editBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    const post = document.querySelector("#text").innerHTML;
+    if (button.textContent === "Edit") {
+      button.textContent = "Cancel";
+      const text = document.createElement("textarea");
+      text.innerHTML = post;
+      text.setAttribute("id", "text");
+      
+
+    }
+  })
+})
 
 deleteBtn.forEach(button => {
   button.addEventListener("click", () => {

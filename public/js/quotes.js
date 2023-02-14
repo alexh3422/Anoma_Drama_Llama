@@ -6,7 +6,7 @@ const options = {
 };
 
 fetch("/sessions", {
-  methode: "GET",
+  method: "GET",
 })
   .then((res) => {
     return res.json();
@@ -107,7 +107,7 @@ fetch("/sessions", {
     }
 
     function tired() {
-      fetch("https://api.api-ninjas.com/v1/quotes?category=dreams", options)
+      fetch("https://api.api-ninjas.com/v1/quotes?category=life", options)
         .then((quote) => quote.json())
         .then((quote) => speechBubbleFeature(quote[0].quote))
         .catch((err) => console.error(err));
