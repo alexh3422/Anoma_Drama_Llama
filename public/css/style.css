@@ -726,3 +726,9 @@ header button:not(:disabled):focus {
 #privacySelect {
   display: none;
 }
+
+/* ================================================== */
+/* Mood charts */
+#allCharts{
+  display: flex;
+}
