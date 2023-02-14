@@ -185,7 +185,7 @@ validateBtn.addEventListener("click", () => {
           if (res.ok) {
             setTimeout(() => {
               location.reload();
-            }, "3000");
+            }, "2000");
           } else {
             alert("trumpet sound");
           }
