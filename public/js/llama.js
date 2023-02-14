@@ -114,10 +114,8 @@ submit.addEventListener("click", (event) => {
     }).then((res) => {
       if (res.ok) {
         console.log(userLlama);
-
         editLlama.style.display = "none";
         userLlamaPage.style.display = "block";
-
         location.reload();
       } else {
         alert("Llama could not be created, please try again.");
