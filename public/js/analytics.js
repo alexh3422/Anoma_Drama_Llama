@@ -99,8 +99,8 @@ fetch('/api/moods/user', {
     const monthlyData = [];
     const yearlyData = [];
 
-    const colors = ["#43b4cd", "#479b79", "#47c14d", "#a5e23b", "#e1f71e", "#baa72e", "#9a621d", "#6c422a", "#662727", "#9f2d5b",
-        "#9f2d7b", "#842d9f", "#712d9f", "#4f2d9f", "#2d319f", "#2d559f"]
+    const colors = ["#49adb4", "#479b79", "#47c14d", "#a5e23b", "#e1f71e", "#baa72e", "#9a621d", "#6c422a", "#8e1d1d", "#a24676",
+        "#9f2d7b", "#842d9f", "#622d9f", "#3c236f", "#2d5b9f", "#2d709f"]
 
     let colorPosition = colors.length - 1;
 

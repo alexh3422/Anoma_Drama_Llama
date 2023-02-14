@@ -628,7 +628,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  border-color: #43b4cd transparent transparent transparent;
+  border-color: #49adb4 transparent transparent transparent;
 }
 
 #colorWheel span.color02 {
@@ -708,7 +708,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
-  border-color: #662727 transparent transparent transparent;
+  border-color: #8e1d1d transparent transparent transparent;
 }
 
 #colorWheel span.color10 {
@@ -718,7 +718,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(202.5deg);
   -o-transform: rotate(202.5deg);
   transform: rotate(202.5deg);
-  border-color: #9f2d5b transparent transparent transparent;
+  border-color: #a24676 transparent transparent transparent;
 }
 
 #colorWheel span.color11 {
@@ -748,7 +748,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(270deg);
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
-  border-color: #712d9f transparent transparent transparent;
+  border-color: #622d9f transparent transparent transparent;
 }
 
 #colorWheel span.color14 {
@@ -758,7 +758,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(292.5deg);
   -o-transform: rotate(292.5deg);
   transform: rotate(292.5deg);
-  border-color: #4f2d9f transparent transparent transparent;
+  border-color: #3c236f transparent transparent transparent;
 }
 
 #colorWheel span.color15 {
@@ -768,7 +768,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(315deg);
   -o-transform: rotate(315deg);
   transform: rotate(315deg);
-  border-color: #2d319f transparent transparent transparent;
+  border-color: #2d5b9f transparent transparent transparent;
 }
 
 #colorWheel span.color16 {
@@ -778,7 +778,7 @@ progress::-webkit-progress-bar {
   -ms-transform: rotate(337.5deg);
   -o-transform: rotate(337.5deg);
   transform: rotate(337.5deg);
-  border-color: #2d559f transparent transparent transparent;
+  border-color: #2d709f transparent transparent transparent;
 }
 
 #validateBtn {
