@@ -23,6 +23,8 @@ async function emailfunction(email, username) {
   console.log("Message sent: %s", info.messageId);
 
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+  console.log("email sent");
 }
 
 // emailfunction().catch(console.error);
