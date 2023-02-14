@@ -5,6 +5,16 @@
 
   {{> mood-wheel}}
 
+  <label for="orderDate">Order by:</label>
+      <select name="orderDate" id="orderDate">
+        <option value="post">Post</option>
+        <option value="hourly">Hourly</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+
   <div id="allCharts">
     <div id="barChart"></div>
     <div id="pieChart"></div>
