@@ -35,7 +35,6 @@ if (happiness.value == 10 || happiness.value == 9) {
   happiness.setAttribute("class", "yellow");
 } else if (happiness.value == 3 || happiness.value == 2) {
   happiness.setAttribute("class", "orange");
-  console.log("Orange!");
 } else if (happiness.value == 1) {
   happiness.setAttribute("class", "red");
 }
@@ -83,12 +82,10 @@ function chooseHat() {
 
 colorOption.addEventListener("change", function () {
   chooseLlama();
-  console.log(colorOption.value);
 });
 
 hatOption.addEventListener("change", function () {
   chooseHat();
-  console.log(hatOption.value);
 });
 
 submit.addEventListener("click", (event) => {
@@ -113,7 +110,6 @@ submit.addEventListener("click", (event) => {
       },
     }).then((res) => {
       if (res.ok) {
-        console.log(userLlama);
         editLlama.style.display = "none";
         userLlamaPage.style.display = "block";
         location.reload();
@@ -135,7 +131,6 @@ submit.addEventListener("click", (event) => {
       },
     }).then((res) => {
       if (res.ok) {
-        console.log(userLlama);
         editLlama.style.display = "none";
         userLlamaPage.style.display = "block";
 
