@@ -243,14 +243,22 @@ const deleteBtn = document.querySelectorAll("#deleteBtn")
 
 editBtn.forEach(button => {
   button.addEventListener("click", () => {
-    const post = document.querySelector("#text").innerHTML;
     if (button.textContent === "Edit") {
-      button.textContent = "Cancel";
-      const text = document.createElement("textarea");
-      text.innerHTML = post;
-      text.setAttribute("id", "text");
-      
+      const p = document.getElementById("text");
+      const post = document.getElementById("text").innerHTML;
+      const newText = document.createElement("textarea");
 
+      button.textContent = "Cancel";
+      newText.innerHTML = post;
+      newText.setAttribute("id", "post-input");
+      p.replaceWith(newText);
+
+      const updateBtn = document.createElement("button");
+      updateBtn.innerHTML = "Update";
+      updateBtn.setAttribute("id", "updateBtn");
+      button.parentElement.append(updateBtn);
+      console.log(button.getAttribute("post-id"))
+      button.display.style="none";
     }
   })
 })
