@@ -27,8 +27,6 @@ cron.schedule("*/120 * * * *", () => {
 
 
 
-// console.log(cron.validate("25  * * * * *"));
-
 const sess = {
   secret: process.env.SECRET,
   cookie: {},
