@@ -703,3 +703,8 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+/* ================================================== */
+/* Mood charts */
+#allCharts{
+  display: flex;
+}

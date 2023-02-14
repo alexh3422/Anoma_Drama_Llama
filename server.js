@@ -56,7 +56,7 @@ app.get("/sessions", (req, res) => {
 });
 
 Handlebars.registerHelper("dateFormat", function (dateData) {
-  return dayjs(dateData).format("MMM DD YYYY");
+  return dayjs(dateData).format("MMM DD YYYY, HH:mm");
 });
 
 sequelize.sync({ force: false }).then(() => {
