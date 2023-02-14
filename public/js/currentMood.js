@@ -102,6 +102,7 @@ const trackEmotions = () => {
 const moodTitle = document.querySelector("#moodTitle")
 const validateBtn = document.querySelector("#validateBtn")
 const privacySetting = document.querySelector('#privacySelect')
+moodTitle.textContent = "What is your current mood?";
 
 const changeTitle = () => {
     
@@ -115,7 +116,7 @@ const changeTitle = () => {
         privacySetting.style.display = "block"
 
     } else {
-        moodTitle.textContent = "How are you feeling right now?";
+        moodTitle.textContent = "What is your current mood?";
         trackMoodBtn.textContent = "Add Current Mood"
         document.querySelector("#validateBtn").style.display = "none"
         privacySetting.style.display = "none"
