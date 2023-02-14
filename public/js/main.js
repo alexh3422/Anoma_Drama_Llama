@@ -12,6 +12,13 @@ document.querySelector("#moodsBttn").addEventListener("click", () => {
   location.href = "/mood";
 });
 
-if (url.includes("Llama")) {
+if (url.includes("llama")) {
   document.querySelector("#sideLlamaCard").style.display = "none";
 }
+
+// if (!document.querySelector("#userLlamaColor")) {
+//   document.querySelector("#rightSide").style.display = "none";
+//   console.log("test");
+// }
+console.log(url);
+console.log(document.querySelector("#userLlamaColor"));

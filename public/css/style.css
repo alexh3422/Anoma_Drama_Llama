@@ -31,7 +31,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 50px;
-  background-color: var(--light);
+  background: rgb(238, 224, 203);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 224, 203, 1) 0%,
+    rgba(243, 233, 218, 1) 65%
+  );
   padding-top: 10vh;
   position: fixed;
   height: 100%;
@@ -73,7 +78,12 @@ body {
 }
 
 header {
-  background-color: var(--p1);
+  background: rgb(186, 168, 152);
+  background: linear-gradient(
+    90deg,
+    rgba(186, 168, 152, 1) 0%,
+    rgba(201, 187, 174, 1) 40%
+  );
   height: 10vh;
   display: flex;
   justify-content: space-evenly;
@@ -175,7 +185,12 @@ footer {
 .loginBttn,
 #signUpBttn,
 header button {
-  background-color: var(--light);
+  background: rgb(238, 224, 203);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 224, 203, 1) 0%,
+    rgb(243, 232, 216) 65%
+  );
   border-radius: 12px;
   color: black;
   padding: 10px 15px;
@@ -216,9 +231,10 @@ header button:not(:disabled):focus {
   padding: 10px;
   margin: 1% 1% 0% 1%;
   min-height: 5vh;
+  min-width: 20vw;
   border-radius: 10px;
   text-align: center;
-  width: 90%;
+  /* width: 90%; */
 }
 
 /* ============================= journal/posts =========================== */

@@ -86,21 +86,6 @@ getPostButton.forEach((button) => {
   });
 });
 
-// const happiness = document.querySelector("#sideLlamaHappiness");
-// console.log(happiness);
-// if (happiness.value == 10 || happiness.value == 9) {
-//   happiness.setAttribute("class", "green");
-// } else if (
-//   happiness.value == 8 ||
-//   happiness.value == 7 ||
-//   happiness.value == 6
-// ) {
-//   happiness.setAttribute("class", "light-green");
-// } else if (happiness.value == 5 || happiness.value == 4) {
-//   happiness.setAttribute("class", "yellow");
-// } else if (happiness.value == 3 || happiness.value == 2) {
-//   happiness.setAttribute("class", "orange");
-//   console.log("Orange!");
-// } else if (happiness.value == 1) {
-//   happiness.setAttribute("class", "red");
-// }
+if (!document.querySelector("#speechBubble").innerHTML) {
+  document.querySelector(".bubble").style.display = "none";
+}
