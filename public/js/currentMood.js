@@ -99,10 +99,9 @@ const trackEmotions = () => {
   feelings = emotionsToTrack[0];
 };
 
-
-const moodTitle = document.querySelector("#moodTitle")
-const validateBtn = document.querySelector("#validateBtn")
-const privacySetting = document.querySelector('#privacySelect')
+const moodTitle = document.querySelector("#moodTitle");
+const validateBtn = document.querySelector("#validateBtn");
+const privacySetting = document.querySelector("#privacySelect");
 moodTitle.textContent = "What is your current mood?";
 
 const changeTitle = () => {
@@ -173,6 +172,8 @@ validateBtn.addEventListener("click", (event) => {
               },
             }).then((res) => {
               if (res.ok) {
+                console.log(currentMood);
+                console.log(moodObj);
                 setTimeout(() => {
                   location.reload();
                 }, "3000");
