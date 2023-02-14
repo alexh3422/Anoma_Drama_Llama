@@ -143,14 +143,14 @@ fetch('/api/moods/user', {
 
     Plotly.newPlot('pieChart', pieData, layout);
 
-    // var barData = dataByEntry;
+    var config = {responsive: true, scrollZoom: true}
 
     var barLayout = {
         barmode: 'stack',
-        title: 'Scroll and Zoom'
+        title: 'All your drama on one graph!'
     };
 
-    Plotly.newPlot('barChart', dataByEntry, barLayout, { scrollZoom: true });
+    Plotly.newPlot('barChart', dataByEntry, barLayout, config);
 
     const orderBy = document.querySelector("#orderDate")
 
@@ -158,17 +158,17 @@ fetch('/api/moods/user', {
 
         document.querySelector(".plot-container").remove()
         if(orderBy.value==="post"){
-            Plotly.newPlot('barChart', byPostData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', byPostData, barLayout, config);
         } else if(orderBy.value==="hourly"){
-            Plotly.newPlot('barChart', hourlyData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', hourlyData, barLayout, config);
         } else if(orderBy.value==="daily"){
-            Plotly.newPlot('barChart', dailyData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', dailyData, barLayout, config);
         } else if(orderBy.value==="weekly"){
-            Plotly.newPlot('barChart', weeklyData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', weeklyData, barLayout, config);
         } else if(orderBy.value==="monthly"){
-            Plotly.newPlot('barChart', monthlyData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', monthlyData, barLayout, config);
         } else if(orderBy.value==="yearly"){
-            Plotly.newPlot('barChart', yearlyData, barLayout, { scrollZoom: true });
+            Plotly.newPlot('barChart', yearlyData, barLayout, config);
         }
     })
 })

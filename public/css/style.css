@@ -853,8 +853,11 @@ margin: 5px;
 /* Mood charts */
 #allCharts {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
+
 
 /* ================================================== */
 @media screen and (max-width:750px) {

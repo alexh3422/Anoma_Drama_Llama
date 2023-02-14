@@ -14,6 +14,7 @@ document.querySelector("#moodsBttn").addEventListener("click", () => {
 
 if (window.location.pathname === ("/llama")) {
   document.querySelector("#sideLlamaCard").style.display = "none";
+  document.querySelector("#rightSide").style.display = "none";
 }
 
 
