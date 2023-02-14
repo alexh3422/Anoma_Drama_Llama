@@ -5,7 +5,6 @@ fetch("/sessions", {
     return res.json();
   })
   .then((sessionData) => {
-    console.log(sessionData);
     fetch(`/api/llamas/user/${sessionData.userId}`, {
       method: "GET",
     })
@@ -13,7 +12,6 @@ fetch("/sessions", {
         return res.json();
       })
       .then((llamaData) => {
-        console.log(llamaData);
         if (llamaData.llama) {
           document.querySelector("#userLlamaColor").src =
             llamaData.llama.llama_image;
@@ -40,8 +38,6 @@ fetch("/sessions", {
         }
       });
   });
-
-
 
 function gifSwitchLlama() {
   if (document.querySelector("#userLlamaColor").src.includes("llama01.png")) {
@@ -73,7 +69,7 @@ function gifSwitchLlama() {
       document.querySelector("#userLlamaColor").src =
         "images/pixel-llamas/llama03.png";
     }
-  }, 5000);
+  }, 3000);
 }
 
 function gifSwitchHat() {
@@ -106,11 +102,10 @@ function gifSwitchHat() {
       document.querySelector("#userLlamaHat").src =
         "images/pixel-llamas/hat03.png";
     }
-  }, 5000);
+  }, 3000);
 }
 
 const getPostButton = document.querySelectorAll(".llamaListener");
-console.log(getPostButton);
 const sparkles = "images/pixel-llamas/sparkles.gif";
 
 getPostButton.forEach((button) => {
@@ -120,8 +115,9 @@ getPostButton.forEach((button) => {
     gifSwitchHat();
     document.querySelector("#sparkles").src = sparkles;
     setTimeout(() => {
-      document.querySelector("#sparkles").src = "images/pixel-llamas/no-hat.png";
-    }, 5000);
+      document.querySelector("#sparkles").src =
+        "images/pixel-llamas/no-hat.png";
+    }, 3000);
   });
 });
 
