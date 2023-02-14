@@ -20,6 +20,22 @@ fetch("/sessions", {
           llamaData.llama.llama_hat_image;
         document.querySelector("#sideLlamaHappiness").value =
           llamaData.llama.happiness;
+        const happiness = document.querySelector("#sideLlamaHappiness");
+        if (happiness.value == 10 || happiness.value == 9) {
+          happiness.setAttribute("class", "green");
+        } else if (
+          happiness.value == 8 ||
+          happiness.value == 7 ||
+          happiness.value == 6
+        ) {
+          happiness.setAttribute("class", "light-green");
+        } else if (happiness.value == 5 || happiness.value == 4) {
+          happiness.setAttribute("class", "yellow");
+        } else if (happiness.value == 3 || happiness.value == 2) {
+          happiness.setAttribute("class", "orange");
+        } else if (happiness.value == 1) {
+          happiness.setAttribute("class", "red");
+        }
       });
   });
 
@@ -69,3 +85,22 @@ getPostButton.forEach((button) => {
     document.querySelector("#sparkles").src = sparkles;
   });
 });
+
+// const happiness = document.querySelector("#sideLlamaHappiness");
+// console.log(happiness);
+// if (happiness.value == 10 || happiness.value == 9) {
+//   happiness.setAttribute("class", "green");
+// } else if (
+//   happiness.value == 8 ||
+//   happiness.value == 7 ||
+//   happiness.value == 6
+// ) {
+//   happiness.setAttribute("class", "light-green");
+// } else if (happiness.value == 5 || happiness.value == 4) {
+//   happiness.setAttribute("class", "yellow");
+// } else if (happiness.value == 3 || happiness.value == 2) {
+//   happiness.setAttribute("class", "orange");
+//   console.log("Orange!");
+// } else if (happiness.value == 1) {
+//   happiness.setAttribute("class", "red");
+// }

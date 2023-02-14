@@ -98,11 +98,11 @@ main {
 
 #rightSide {
   width: 200px;
-  background-color: var(--light);
+  /* background-color: var(--light); */
   position: fixed;
   right: 0;
   height: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 
 footer {
@@ -380,6 +380,30 @@ header button:not(:disabled):focus {
 #sideLlamaHappiness {
   position: absolute;
   bottom: 10;
+}
+
+progress.green::-webkit-progress-value {
+  background: #00ff40;
+}
+
+progress.light-green::-webkit-progress-value {
+  background: #73ff00;
+}
+
+progress.yellow::-webkit-progress-value {
+  background: #fbff00;
+}
+
+progress.orange::-webkit-progress-value {
+  background: #ff7b00;
+}
+
+progress.red::-webkit-progress-value {
+  background: #ff3300;
+}
+
+progress::-webkit-progress-bar {
+  background: white;
 }
 
 #sideLlamaCard img {
