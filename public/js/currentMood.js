@@ -99,9 +99,11 @@ const trackEmotions = () => {
   feelings = emotionsToTrack[0];
 };
 
-const moodTitle = document.querySelector("#moodTitle");
-const validateBtn = document.querySelector("#validateBtn");
-const privacySetting = document.querySelector("#privacySelect");
+
+const moodTitle = document.querySelector("#moodTitle")
+const validateBtn = document.querySelector("#validateBtn")
+const privacySetting = document.querySelector('#privacySelect')
+moodTitle.textContent = "What is your current mood?";
 
 const changeTitle = () => {
   if (emotionsToTrack.length > 0) {
