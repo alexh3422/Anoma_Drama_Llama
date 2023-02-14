@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 const dayjs = require("dayjs");
 const cron = require("node-cron");
-const { Llama } = require("./models");
+const {Llama} = require("./models");
 
 const allRoutes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -27,10 +27,10 @@ cron.schedule("*/120 * * * *", () => {
 
 
 
-// console.log(cron.validate("25  * * * * *"));
+
 
 const sess = {
-  secret: "Super secret secret",
+  secret: process.env.SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,

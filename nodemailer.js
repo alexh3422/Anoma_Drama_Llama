@@ -6,7 +6,7 @@ async function emailfunction(email, username) {
     service: "gmail",
     auth: {
       user: "DramaLlamaCEO@gmail.com",
-      pass: "xamzjbohifbajihy",
+      pass: process.env.EMAIL_SECRET,
       tls: {
         rejectUnAuthorized: true,
       },
@@ -23,10 +23,10 @@ async function emailfunction(email, username) {
   console.log("Message sent: %s", info.messageId);
 
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+  console.log("email sent");
 }
 
 // emailfunction().catch(console.error);
 
 module.exports = emailfunction;
-
-

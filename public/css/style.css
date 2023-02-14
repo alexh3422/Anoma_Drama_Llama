@@ -98,11 +98,11 @@ main {
 
 #rightSide {
   width: 200px;
-  background-color: var(--light);
+  /* background-color: var(--light); */
   position: fixed;
   right: 0;
   height: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 
 footer {
@@ -382,12 +382,74 @@ header button:not(:disabled):focus {
   bottom: 10;
 }
 
+progress.green::-webkit-progress-value {
+  background: #00ff40;
+}
+
+progress.light-green::-webkit-progress-value {
+  background: #73ff00;
+}
+
+progress.yellow::-webkit-progress-value {
+  background: #fbff00;
+}
+
+progress.orange::-webkit-progress-value {
+  background: #ff7b00;
+}
+
+progress.red::-webkit-progress-value {
+  background: #ff3300;
+}
+
+progress::-webkit-progress-bar {
+  background: white;
+}
+
 #sideLlamaCard img {
   width: 200px;
   bottom: 25;
 }
 
-/* ================================================== */
+/* =================== Speech Bubble =============================== */
+
+.bubble {
+  position: absolute;
+  background: #eeeee8;
+  border: 1px solid var(--p1);
+  max-width: 250px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  bottom: 220px;
+}
+
+.bubble:after,
+.bubble:before {
+  right: 30%;
+  top: 100%;
+  transform: rotate(45deg);
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.bubble:after {
+  border-color: rgba(255, 255, 204, 0);
+  border-right-color: #eeeee8;
+  border-width: 15px;
+  margin-top: -15px;
+}
+.bubble:before {
+  border-color: rgba(255, 204, 0, 0);
+  border-right-color: var(--p1);
+  border-width: 16px;
+  margin-top: -16px;
+}
 
 /* Mood Wheel */
 #moodWheel {
@@ -729,6 +791,6 @@ header button:not(:disabled):focus {
 
 /* ================================================== */
 /* Mood charts */
-#allCharts{
+#allCharts {
   display: flex;
 }
