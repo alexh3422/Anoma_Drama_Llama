@@ -94,7 +94,7 @@ header {
     rgba(186, 168, 152, 1) 0%,
     rgba(201, 187, 174, 1) 200%
   );
-  height: 10vh;
+  height: 70px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -131,7 +131,7 @@ main {
 }
 
 footer {
-  height: 5vh;
+  height: 30px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -513,16 +513,17 @@ margin: 5px;
 
 /* Mood Wheel */
 #moodWheel {
-  margin: 50px;
+  margin: 0;
   /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
-  position: relative;
-  height: 58vh;
-  width: 58vh;
+  position: fixed;
+  height: 41.5vw;
+  width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
+  top: 0;
 }
 
 #innerWheel {
@@ -538,15 +539,15 @@ margin: 5px;
 
 .moodMiddle {
   position: absolute;
-  font-size: 5vh;
+  font-size: 4vw;
   border-radius: 50%;
   z-index: 20;
   cursor: pointer;
 }
 
 #Border {
-  height: 58vh;
-  width: 58vh;
+  height: 100%;
+  width: 100%;
   border: var(--light) 20px solid;
   border-radius: 50%;
   z-index: 20;
@@ -677,7 +678,8 @@ margin: 5px;
 #colorWheel span {
   position: absolute;
   border-style: solid;
-  border-width: 28vh 5.6vh;
+  /* border-width: 28vh 5.6vh; */
+  border-width: 20vw 4vw;
   box-sizing: border-box;
 }
 
@@ -851,9 +853,21 @@ margin: 5px;
 
 /* ================================================== */
 /* Mood charts */
+#orderData, #orderLabel{
+  position: relative;
+  left: 50px;
+}
+
 #allCharts {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+}
+
+#pieChart {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin: auto;
+  padding: 0;
+  width: 100%;
 }
 
 /* ================================================== */
@@ -938,9 +952,9 @@ header button{
     height: 1vh;
     right: 20px;
   }
-  .svg-container{
+  /* .svg-container{
     width: 500px;
-  }
+  } */
   #rightSide {
     width: 100%;
     bottom: 0;
@@ -977,5 +991,14 @@ header button{
   border-width: 16px;
   margin-top: -16px;
 }
+
+ #pieChart {
+  margin-top: 10px;
+  padding: 0;
+}
+/*
+#allCharts {
+  width: 100%;
+} */
 
 }
