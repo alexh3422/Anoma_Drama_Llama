@@ -16,7 +16,7 @@ if (window.location.pathname === ("/llama")) {
   document.querySelector("#sideLlamaCard").style.display = "none";
 }
 
-console.log (window.location.pathname)
+
 
 // if (!document.querySelector("#userLlamaColor")) {
 //   document.querySelector("#rightSide").style.display = "none";
