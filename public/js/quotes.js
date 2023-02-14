@@ -12,7 +12,6 @@ fetch("/sessions", {
     return res.json();
   })
   .then((sessionData) => {
-    console.log(sessionData);
     fetch("api/users", {
       method: "GET",
     })
@@ -20,7 +19,6 @@ fetch("/sessions", {
         return res.json();
       })
       .then((res) => {
-        console.log(res[0].currentMood);
         function quotes() {
           switch (res[0].currentMood) {
             case "happy":

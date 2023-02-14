@@ -19,23 +19,25 @@ class Emotion {
   }
 
   makesingleSelection(allEmotions) {
-    document.querySelector(`#${this.name}`).addEventListener("click", (event) => {
-      event.preventDefault()
-      const color = document.querySelector(`.${this.color}`);
-      allEmotions.forEach((emotion) => {
-        if (emotion.name != this.name) {
-          document.querySelector(`.${emotion.color}`).style.opacity = "30%";
-          emotion.selected = false;
+    document
+      .querySelector(`#${this.name}`)
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        const color = document.querySelector(`.${this.color}`);
+        allEmotions.forEach((emotion) => {
+          if (emotion.name != this.name) {
+            document.querySelector(`.${emotion.color}`).style.opacity = "30%";
+            emotion.selected = false;
+          }
+        });
+        if (!this.selected) {
+          color.style.opacity = "100%";
+          this.selected = true;
+        } else {
+          color.style.opacity = "30%";
+          this.selected = false;
         }
       });
-      if (!this.selected) {
-        color.style.opacity = "100%";
-        this.selected = true;
-      } else {
-        color.style.opacity = "30%";
-        this.selected = false;
-      }
-    });
   }
 
   nameOnhover() {
@@ -74,7 +76,7 @@ emotions.forEach((emotion) => {
 const backgroundCover = document.querySelector("#backgroundCover");
 
 backgroundCover.addEventListener("click", (event) => {
-  event.preventDefault()
+  event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
   changeTitle();
@@ -84,7 +86,7 @@ const trackMoodBtn = document.querySelector("#trackMoodBtn");
 trackMoodBtn.textContent = "Add Current Mood";
 
 trackMoodBtn.addEventListener("click", (event) => {
-  event.preventDefault()
+  event.preventDefault();
   moodWheel.style.display = "flex";
 });
 
@@ -102,10 +104,9 @@ const trackEmotions = () => {
   feelings = emotionsToTrack[0];
 };
 
-
-const moodTitle = document.querySelector("#moodTitle")
-const validateBtn = document.querySelector("#validateBtn")
-const privacySetting = document.querySelector('#privacySelect')
+const moodTitle = document.querySelector("#moodTitle");
+const validateBtn = document.querySelector("#validateBtn");
+const privacySetting = document.querySelector("#privacySelect");
 moodTitle.textContent = "What is your current mood?";
 
 const changeTitle = () => {
@@ -159,34 +160,36 @@ validateBtn.addEventListener("click", (event) => {
     })
     .then((post) => {
       console.log(post);
-      const allPostsDiv = document.querySelector(".allPosts")
+      const allPostsDiv = document.querySelector(".allPosts");
 
-      const thisPostDiv = document.createElement("div")
-      thisPostDiv.setAttribute("class", "post-box")
-      const postUser = document.createElement("p")
+      const thisPostDiv = document.createElement("div");
+      thisPostDiv.setAttribute("class", "post-box");
+      const postUser = document.createElement("p");
       // postUser.setAttribute("id", "postUsername")
 
-      const postTitle = document.createElement("p")
-      postTitle.setAttribute("id", "title")
-      postTitle.innerHTML = `\"${post.title}\"`
-      const postMoodsAndDate = document.createElement("p")
-      postMoodsAndDate.innerHTML = `Was feeling ${post.moodText} on ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
-      const postText = document.createElement("p")
-      postText.setAttribute("id", "text")
+      const postTitle = document.createElement("p");
+      postTitle.setAttribute("id", "title");
+      postTitle.innerHTML = `\"${post.title}\"`;
+      const postMoodsAndDate = document.createElement("p");
+      postMoodsAndDate.innerHTML = `Was feeling ${post.moodText} on ${dayjs(
+        post.createdAt
+      ).format("MMM DD YYYY, HH:mm")}`;
+      const postText = document.createElement("p");
+      postText.setAttribute("id", "text");
 
-      thisPostDiv.append(postUser)
-      thisPostDiv.append(postTitle)
-      thisPostDiv.append(postText)
-      thisPostDiv.append(postMoodsAndDate)
+      thisPostDiv.append(postUser);
+      thisPostDiv.append(postTitle);
+      thisPostDiv.append(postText);
+      thisPostDiv.append(postMoodsAndDate);
 
       if (post.visibility == "public") {
-        postUser.innerHTML = `Your drama: `
-        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+        postUser.innerHTML = `Your drama: `;
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
       } else if (post.visibility == "anonymous") {
-        postUser.innerHTML = `Someone's drama: `
-        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+        postUser.innerHTML = `Someone's drama: `;
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
       } else if (post.visibility == "private") {
-        thisPostDiv.remove()
+        thisPostDiv.remove();
       }
 
       emotionsToTrack.forEach((emotion) => {
