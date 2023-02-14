@@ -12,6 +12,24 @@ router.get("/", (req, res) => {
     });
 });
 
+// All moods by current user
+router.get("/user", (req, res) => {
+  Users.findByPk(req.session.userId, {
+    include: [Mood],
+  })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.get("/:id", (req, res) => {
   Mood.findOne({
     where: {
@@ -32,6 +50,7 @@ router.get("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 router.post("/", (req, res) => {
   Mood.create({

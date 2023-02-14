@@ -1,7 +1,14 @@
 <div class="column">
-  <div id="userInfo" userId="{{user.id}}"><h2>{{user.username}}</h2></div>
+  <div id="userInfo" userId="{{user.id}}">
+    <h2>{{user.username}}</h2>
+  </div>
 
   {{> mood-wheel}}
+
+  <div id="allCharts">
+    <div id="barChart"></div>
+    <div id="pieChart"></div>
+  </div>
 
   <div class="allPosts">
     <h2>My Mood Tracker</h2>
@@ -18,3 +25,4 @@
 </div>
 
 <script src="/js/moodEntry.js"></script>
+<script src="/js/analytics.js"></script>

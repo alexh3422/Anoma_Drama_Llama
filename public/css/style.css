@@ -788,3 +788,9 @@ progress::-webkit-progress-bar {
 #privacySelect {
   display: none;
 }
+
+/* ================================================== */
+/* Mood charts */
+#allCharts{
+  display: flex;
+}
