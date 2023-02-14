@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const Llama = require("./llama");
+const Llama = require("./Llama");
 
 class Posts extends Model {
   static async afterCreate(post, options) {
