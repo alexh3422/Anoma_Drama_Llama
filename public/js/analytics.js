@@ -126,7 +126,7 @@ fetch('/api/moods/user', {
     })
 
 
-    var pieData = [{
+     var pieData = [{
         values: allValues,
         labels: allEmotions,
         type: 'pie',
