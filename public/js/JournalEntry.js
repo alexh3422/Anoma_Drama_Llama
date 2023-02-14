@@ -168,6 +168,12 @@ sumbitBtn.addEventListener("click", (e) => {
       type: "journal",
       visibility: privacyChoice.id,
     };
+    document.querySelector("#title-input").value = '';
+    document.querySelector("#post-input").value = '';
+    moodTitle.textContent = "How are you feeling right now?";
+    trackMoodBtn.textContent = "Add emotions";
+    privacySetting.style.display = "none";
+    sumbitBtn.style.display = "none";
     fetch("api/posts", {
       method: "POST",
       body: JSON.stringify(postObj),
@@ -183,6 +189,29 @@ sumbitBtn.addEventListener("click", (e) => {
         }
       })
       .then((post) => {
+        const allPostsDiv = document.querySelector(".allPosts")
+
+        const thisPostDiv = document.createElement("div")
+        thisPostDiv.setAttribute("class", "post-box")
+        const postUser = document.createElement("p")
+        postUser.setAttribute("id", "postUsername")
+        postUser.innerHTML = "Your drama:"
+        const postTitle = document.createElement("p")
+        postTitle.setAttribute("id", "title")
+        postTitle.innerHTML =  `\"${post.title}\"`
+        const postText = document.createElement("p")
+        postText.setAttribute("id", "text")
+        postText.innerHTML = post.text
+        const postMoodsAndDate = document.createElement("p")
+        postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
+        
+        thisPostDiv.appendChild(postUser)       
+        thisPostDiv.appendChild(postTitle)
+        thisPostDiv.appendChild(postText)
+        thisPostDiv.appendChild(postMoodsAndDate)
+
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+
         console.log(post);
         emotionsToTrack.forEach((emotion) => {
           const moodObj = {
@@ -197,9 +226,9 @@ sumbitBtn.addEventListener("click", (e) => {
             },
           }).then((res) => {
             if (res.ok) {
-              setTimeout(() => {
-                location.reload();
-              }, "3000");
+              // setTimeout(() => {
+              //   location.reload();
+              // }, "3000");
             } else {
               alert("trumpet sound");
             }

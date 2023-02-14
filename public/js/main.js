@@ -20,5 +20,4 @@ if (url.includes("llama")) {
 //   document.querySelector("#rightSide").style.display = "none";
 //   console.log("test");
 // }
-console.log(url);
-console.log(document.querySelector("#userLlamaColor"));
+

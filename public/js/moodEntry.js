@@ -6,7 +6,8 @@ class Emotion {
   }
 
   makeSelection() {
-    document.querySelector(`#${this.name}`).addEventListener("click", () => {
+    document.querySelector(`#${this.name}`).addEventListener("click", (event) => {
+      event.preventDefault()
       const color = document.querySelector(`.${this.color}`);
       if (!this.selected) {
         color.style.opacity = "100%";
@@ -19,7 +20,8 @@ class Emotion {
   }
 
   makesingleSelection(allEmotions) {
-    document.querySelector(`#${this.name}`).addEventListener("click", () => {
+    document.querySelector(`#${this.name}`).addEventListener("click", (event) => {
+      event.preventDefault()
       const color = document.querySelector(`.${this.color}`);
       allEmotions.forEach((emotion) => {
         if (emotion.name != this.name) {
@@ -81,7 +83,8 @@ if (moodWheel.getAttribute("wheelMode") === "single") {
 
 const backgroundCover = document.querySelector("#backgroundCover");
 
-backgroundCover.addEventListener("click", () => {
+backgroundCover.addEventListener("click", (event) => {
+  event.preventDefault()
   moodWheel.style.display = "none";
   trackEmotions();
   changeTitle();
@@ -89,7 +92,8 @@ backgroundCover.addEventListener("click", () => {
 
 const trackMoodBtn = document.querySelector("#trackMoodBtn");
 
-trackMoodBtn.addEventListener("click", () => {
+trackMoodBtn.addEventListener("click", (event) => {
+  event.preventDefault()
   moodWheel.style.display = "flex";
 });
 
@@ -118,8 +122,7 @@ const changeTitle = () => {
         feelingsArr.push(emotionsToTrack[i]);
       }
       feelingsArr.push(
-        `${emotionsToTrack[emotionsToTrack.length - 2]} and ${
-          emotionsToTrack[emotionsToTrack.length - 1]
+        `${emotionsToTrack[emotionsToTrack.length - 2]} and ${emotionsToTrack[emotionsToTrack.length - 1]
         }`
       );
       feelings = feelingsArr.join(", ");
@@ -155,6 +158,10 @@ validateBtn.addEventListener("click", (event) => {
     type: "mood-entry",
     visibility: privacyChoice.id,
   };
+  moodTitle.textContent = "How are you feeling right now?";
+  trackMoodBtn.textContent = "Add emotions";
+  validateBtn.style.display = "none";
+  privacySetting.style.display = "none";
   fetch("api/posts", {
     method: "POST",
     body: JSON.stringify(postObj),
@@ -171,6 +178,38 @@ validateBtn.addEventListener("click", (event) => {
     })
     .then((post) => {
       console.log(post);
+
+      const allPostsDiv = document.querySelector(".allPosts")
+
+      const thisPostDiv = document.createElement("div")
+      thisPostDiv.setAttribute("class", "post-box")
+      const postUser = document.createElement("p")
+      postUser.setAttribute("id", "postUsername")
+      const postTitle = document.createElement("p")
+      postTitle.setAttribute("id", "title")
+      const postMoodsAndDate = document.createElement("p")
+    
+      if(document.getElementById("moodPage")){
+        postUser.innerHTML = `Your were feeling ${post.moodText}`
+        postTitle.innerHTML = `\"${post.title}\"`
+        postMoodsAndDate.innerHTML = ` ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
+      } else {
+        postUser.innerHTML = "Your drama:"
+      postTitle.innerHTML = `\"${post.title}\"`
+      postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
+
+      }
+      const postText = document.createElement("p")
+      postText.setAttribute("id", "text")
+
+
+      thisPostDiv.appendChild(postUser)
+      thisPostDiv.appendChild(postTitle)
+      thisPostDiv.appendChild(postText)
+      thisPostDiv.appendChild(postMoodsAndDate)
+
+      allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+
       emotionsToTrack.forEach((emotion) => {
         const moodObj = {
           mood: emotion,
@@ -184,9 +223,9 @@ validateBtn.addEventListener("click", (event) => {
           },
         }).then((res) => {
           if (res.ok) {
-            setTimeout(() => {
-              location.reload();
-            }, "3000");
+            // setTimeout(() => {
+            //   location.reload();
+            // }, "3000");
           } else {
             alert("trumpet sound");
           }
