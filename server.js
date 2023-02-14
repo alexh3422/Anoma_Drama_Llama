@@ -30,7 +30,7 @@ cron.schedule("*/120 * * * *", () => {
 // console.log(cron.validate("25  * * * * *"));
 
 const sess = {
-  secret: "Super secret secret",
+  secret: process.env.SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,

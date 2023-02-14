@@ -6,7 +6,7 @@ async function emailfunction(email, username) {
     service: "gmail",
     auth: {
       user: "DramaLlamaCEO@gmail.com",
-      pass: "xamzjbohifbajihy",
+      pass: process.env.EMAIL_SECRET,
       tls: {
         rejectUnAuthorized: true,
       },
@@ -28,5 +28,3 @@ async function emailfunction(email, username) {
 // emailfunction().catch(console.error);
 
 module.exports = emailfunction;
-
-
