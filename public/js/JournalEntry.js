@@ -208,3 +208,27 @@ sumbitBtn.addEventListener("click", (e) => {
       });
   }
 });
+
+const editBtn = document.querySelectorAll("#editBtn");
+const deleteBtn = document.querySelectorAll("#deleteBtn")
+
+// editBtn.forEach(button => {
+//   button.addEventListener("click", () => {
+//     const
+//   })
+// })
+
+deleteBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    const id = button.getAttribute("post-id");
+    fetch(`/api/posts/${id}`, {
+      method:"DELETE"
+    }).then(res => {
+      if (res.ok) {
+        location.href= "/journal"
+      } else {
+        alert("oh noes!")
+      }
+    })
+  })
+})
