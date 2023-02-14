@@ -1,9 +1,9 @@
-const Users = require("./users");
-const Posts = require("./posts");
-const Comments = require("./comments");
-const Mood = require("./mood");
-const Llama = require("./llama");
-const Reaction = require("./reaction");
+const Users = require("./Users");
+const Posts = require("./Posts");
+const Comments = require("./Comments");
+const Mood = require("./Mood");
+const Llama = require("./Llama");
+const Reaction = require("./Reaction");
 
 Users.hasMany(Posts);
 Users.hasMany(Comments);
