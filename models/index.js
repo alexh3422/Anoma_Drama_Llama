@@ -5,13 +5,12 @@ const Mood = require("./mood");
 const Llama = require("./llama");
 const Reaction = require("./reaction");
 
-Mood.hasMany(Posts, { foreignKey: "moodId" });
-Posts.belongsTo(Mood, { foreignKey: "moodId" });
-
 Users.hasMany(Posts);
 Users.hasMany(Comments);
 Users.hasMany(Mood);
-Posts.hasMany(Mood);
+Posts.hasMany(Mood, {
+  onDelete: "CASCADE",
+});
 Posts.hasMany(Comments);
 Users.hasMany(Reaction);
 Comments.hasMany(Reaction);
