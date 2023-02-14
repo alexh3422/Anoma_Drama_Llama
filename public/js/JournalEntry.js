@@ -230,7 +230,7 @@ sumbitBtn.addEventListener("click", (e) => {
               //   location.reload();
               // }, "3000");
             } else {
-              alert("trumpet sound");
+              alert("error, please try again");
             }
           });
         });
@@ -256,7 +256,7 @@ deleteBtn.forEach(button => {
       if (res.ok) {
         location.href= "/journal"
       } else {
-        alert("oh noes!")
+        alert("error, please try again!")
       }
     })
   })

@@ -5,10 +5,17 @@ const Mood = require("./mood");
 const Llama = require("./llama");
 const Reaction = require("./reaction");
 
-Users.hasMany(Posts);
+Users.hasMany(Posts, {
+  onDelete: "CASCADE",
+  });
 Users.hasMany(Comments);
-Users.hasMany(Mood);
-Posts.hasMany(Mood);
+Users.hasMany(Mood, {
+  onDelete: "CASCADE",
+}
+  );
+Posts.hasMany(Mood, {
+  onDelete: "CASCADE",
+});
 Posts.hasMany(Comments);
 Users.hasMany(Reaction);
 Comments.hasMany(Reaction);
