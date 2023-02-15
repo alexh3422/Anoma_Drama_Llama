@@ -17,10 +17,20 @@ const deleteArray = [
 ];
 const randomIndexDelete = Math.floor(Math.random() * deleteArray.length);
 const deleteDialouge = deleteArray[randomIndexDelete];
+const pokeArray = [
+  "Whoa whoa whoa! Warn me next time you poke!",
+  "Mind getting behind the ears?",
+  "Watch the coat!",
+  "Thanks, I love being poked by surprise...",
+  "I'll let that one slide.",
+];
+const randomIndexPoke = Math.floor(Math.random() * pokeArray.length);
+const pokeDialouge = pokeArray[randomIndexPoke];
 const validateBtn2 = document.querySelector("#validateBtn");
 const trackMoodBtn2 = document.querySelector("#trackMoodBtn");
 const journalBtn = document.querySelector("#submit-post");
 const deleteBtn2 = document.querySelector("#deleteBtn");
+const sideLlamaCard2 = document.querySelector("#sideLlamaCard");
 
 if (window.location.pathname === "/mood") {
   moodListenerAnalytics();
@@ -105,3 +115,13 @@ function moodPostListener() {
     }, 5000);
   });
 }
+
+sideLlamaCard2.addEventListener("click", () => {
+  gifSwitchLlama(500);
+  gifSwitchHat(500);
+  document.querySelector("#speechBubble").innerHTML = pokeDialouge;
+  document.querySelector(".bubble").style.display = "block";
+  setTimeout(() => {
+    document.querySelector(".bubble").style.display = "none";
+  }, 5000);
+});
