@@ -346,16 +346,21 @@ header button:not(:disabled):focus {
 .column {
   display: flex;
   flex-direction: column;
+
   flex-basis: 100%;
   flex: 1;
   align-items: flex-start;
   width: 100%;
 }
+<<<<<<< HEAD
 
 .llamaColumn {
   align-items: center;
 }
 
+=======
+  
+>>>>>>> dev
 #title-input {
   border-radius: 5px;
   width: 100%;
