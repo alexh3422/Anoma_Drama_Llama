@@ -18,6 +18,7 @@ async function emailfunction(email, username) {
     to: `${email}`, // list of receivers
     subject: "Welcome! - Account Created", // Subject line
     text: `Your Anoma Drama Llama account was sucessfully created! Your username is: ${username} 
+
     You should have been redirected to the edit llama page after signing up to create your llama.
     If you have not created your llama yet, you can do so by clicking Llama in the side menu bar (top menu if on mobile).
     
@@ -39,7 +40,7 @@ async function emailfunction(email, username) {
 
     If you have any questions or concerns, please feel free to reach out to us at DramaLlamaCeo@gmail.com
 
-    https://dramallama.herokuapp.com/ - Anoma Drama Llama App
+    https://anomallama.herokuapp.com/ - Anoma Drama Llama App
 
     best, 
 
