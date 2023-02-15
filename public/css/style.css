@@ -12,6 +12,11 @@
 }
 
 /* ============================= main layout =========================== */
+
+button:hover {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -359,6 +364,11 @@ header button:not(:disabled):focus {
 }
 
 /* =============== Llama ===================== */
+
+#sideLlamaCard:hover {
+  cursor: pointer;
+}
+
 #llamaSelect {
   display: flex;
   flex-direction: column;
