@@ -154,6 +154,32 @@ footer {
   background-color: #00ff40;
 } */
 
+#deleteBtn,
+#editBtn {
+  font-weight: bold;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 3px 8px 0 rgba(255, 255, 255, 0.15);
+  background: rgb(238, 224, 203);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 224, 203, 1) 0%,
+    rgb(240, 228, 211) 65%
+  );
+  border-radius: 5px;
+  color: var(--p1);
+  /* padding: 10px 15px; */
+  border: 0;
+  font-size: 16px;
+}
+
+#deleteBtn:hover,
+#deleteBtn:focus,
+#editBtn:hover,
+#editBtn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
 /* ============================= login and sign up =========================== */
 .loginBody {
   width: 100%;
@@ -352,19 +378,16 @@ header button:not(:disabled):focus {
   align-items: flex-start;
   width: 100%;
 }
-<<<<<<< HEAD
 
 .llamaColumn {
   align-items: center;
 }
 
-=======
-  
->>>>>>> dev
 #title-input {
   border-radius: 5px;
   width: 100%;
-  height: 40px;
+  max-width: 100%;
+  height: 30px;
   resize: none;
   border-color: var(--p1);
 }
@@ -422,9 +445,9 @@ header button:not(:disabled):focus {
 
 .post-box:hover,
 .post-box:focus {
-  box-shadow: 0 0 0 5px rgba(44, 43, 43, 0.2),
-    0 3px 8px 0 rgba(36, 36, 36, 0.15);
-  padding: 10px;
+  box-shadow: 0 0 0 3px rgba(44, 43, 43, 0.2),
+    0 3px 10px 0 rgba(36, 36, 36, 0.15);
+  padding: 8px;
 }
 
 #title {
