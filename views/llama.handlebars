@@ -1,4 +1,4 @@
-<div class="column">
+<div class="column llamaColumn" >
   <div id="userLlamaPage" userId="{{user.id}}" llamaId="{{user.llama.id}}">
     <p id="userLlamaName">{{user.llama.name}}</p>
     <div id="llamaCard">
@@ -19,7 +19,7 @@
 
   <div id="llamaEdit">
     <h2>Customize Your Llama</h2>
-    <form id="llamaSelect">
+    <for id="llamaSelect">
       <label for="llamaName">Name your llama:</label>
       <input type="text" id="llamaName" />
       <label for="llamaColor">Choose a color:</label>
@@ -39,7 +39,7 @@
         <img id="llamaImage" src="images/pixel-llamas/llama01.png" />
         <img id="hatImage" src="images/pixel-llamas/no-hat.png" />
       </div>
-      <input type="submit" id="submit" text="Done" />
+      <button type="submit" id="submit">Done</button>
     </form>
   </div>
 </div>
