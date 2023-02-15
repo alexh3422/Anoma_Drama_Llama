@@ -265,8 +265,7 @@ editBtn.forEach(button => {
         const id = button.getAttribute("post-id");
         fetch(`/api/posts/${id}`, {
           method: "PUT",
-          body: JSON.stringify({ post: document.getElementById("text").value
-          }),
+          body: JSON.stringify(text),
           headers: {
             "Content-Type": "application/json"
           }
@@ -274,7 +273,7 @@ editBtn.forEach(button => {
           if (res.ok) {
             location.href="/journal"
           } else {
-            alert("oh noes!")
+            alert("error! please try again!")
           }
         })
       })

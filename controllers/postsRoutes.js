@@ -55,10 +55,10 @@ router.put("/:id", (req,res) => {
     where: {
       id: req.params.id
     }
-  }).then((dbPostData) => res.json(dbPostData))
+  }).then((dbPostData) => {res.json(dbPostData)})
   .catch((err) => {
     console.log(err);
-    res.sendStatus(500).json(err);
+    res.status(500).json(err);
   })
 });
 

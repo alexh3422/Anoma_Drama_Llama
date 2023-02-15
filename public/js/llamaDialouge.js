@@ -5,6 +5,7 @@ const eatArray = [
   "Power levels rising!",
   "Yeah! More please!",
   "You write the tastiest drama!",
+  "Nom nom nom! Me so happy!",
 ];
 const randomIndexEat = Math.floor(Math.random() * eatArray.length);
 const eatDialouge = eatArray[randomIndexEat];
@@ -14,6 +15,8 @@ const deleteArray = [
   "Yeah I didn't like that one either.",
   "Good riddance!",
   "What post? I didn't see a post.",
+  "No evidence left behind!",
+  "Gone forever! Just like my--nevermind...",
 ];
 const randomIndexDelete = Math.floor(Math.random() * deleteArray.length);
 const deleteDialouge = deleteArray[randomIndexDelete];
@@ -23,6 +26,8 @@ const pokeArray = [
   "Watch the coat!",
   "Thanks, I love being poked by surprise...",
   "I'll let that one slide.",
+  "Hey! At least take me to dinner first...",
+  "Poke the llama, get ready for the drama!"
 ];
 const randomIndexPoke = Math.floor(Math.random() * pokeArray.length);
 const pokeDialouge = pokeArray[randomIndexPoke];
