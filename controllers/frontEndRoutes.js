@@ -23,8 +23,16 @@ router.get("/home", (req, res) => {
     res.redirect("/login");
   } else {
     Posts.findAll({
-      include: [Users],
+      include: [
+        {
+          model: Users,
+          include: {
+            model: Llama,
+          },
+        },
+      ],
     }).then((PostData) => {
+      console.log(PostData);
       const hbsPost = PostData.map((Post) => Post.toJSON());
       const allPublicPosts = hbsPost.filter(
         (post) =>

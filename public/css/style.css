@@ -1,7 +1,7 @@
 :root {
   --light: #eee0cb;
   --p1: #8e8074;
-  --p2: #839788;
+  --p2: #e2e2e2;
 }
 
 * {
@@ -25,7 +25,7 @@ a {
 body {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(223, 221, 219);
+  background-color: var(--p2);
 }
 
 #baseSection {
@@ -370,7 +370,7 @@ header button:not(:disabled):focus {
 .default h3 {
   color: var(--light);
   text-shadow: 0.5px 0.5px 0.5px black;
-} 
+}
 
 #journalRow {
   width: 90%;
@@ -502,15 +502,24 @@ header button:not(:disabled):focus {
 /* =============== Llama ===================== */
 
 #profileLlama {
-  background-color: #00ff40;
-  position: relative;
+  background-color: var(--p2);
+  box-shadow: 0 0 0 2px rgba(44, 43, 43, 0.2),
+    0 2px 7px 0 rgba(36, 36, 36, 0.15);
+  border-radius: 10%;
+  position: absolute;
+  right: 15px;
+  margin-right: 1%;
+  height: 50px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
 }
 
 #profileLlamaColor,
 #profileLlamaHat {
-  width: 50px;
+  width: 90px;
+  right: -32px;
+  top: 2px;
   position: absolute;
-  right: 5px;
 }
 
 .llamaClick:hover {
@@ -886,7 +895,7 @@ progress::-webkit-progress-bar {
   border-color: #49adb4 transparent transparent transparent;
 }
 
-.tired{
+.tired {
   background-color: #49adb49d;
   border: 1px solid #49adb4;
   color: var(--p1);
@@ -902,12 +911,12 @@ progress::-webkit-progress-bar {
   border-color: #479b79 transparent transparent transparent;
 }
 
-.happy{
+.happy {
   background-color: #3b9e4fb0;
   border: 1px solid #479b79;
 }
 
-.happy h3{
+.happy h3 {
   color: var(--light);
 }
 
@@ -921,7 +930,7 @@ progress::-webkit-progress-bar {
   border-color: #47c14d transparent transparent transparent;
 }
 
-.calm{
+.calm {
   background-color: #6ead71d0;
   border: 1px solid #47c14d;
   color: var(--p1);
@@ -937,7 +946,7 @@ progress::-webkit-progress-bar {
   border-color: #a5e23b transparent transparent transparent;
 }
 
-.embarrassed{
+.embarrassed {
   background-color: #759c31b4;
   border: 1px solid #90c03f;
   color: var(--p1);
@@ -953,7 +962,7 @@ progress::-webkit-progress-bar {
   border-color: #e1f71e transparent transparent transparent;
 }
 
-.disappointed{
+.disappointed {
   background-color: #b8c44dc9;
   border: 1px solid #e1f71e;
 }
@@ -968,7 +977,7 @@ progress::-webkit-progress-bar {
   border-color: #baa72e transparent transparent transparent;
 }
 
-.scared{
+.scared {
   background-color: #baa72e89;
   border: 1px solid #baa72e;
   color: var(--p1);
@@ -984,7 +993,7 @@ progress::-webkit-progress-bar {
   border-color: #9a621d transparent transparent transparent;
 }
 
-.anxious{
+.anxious {
   background-color: #9a621d6a;
   border: 1px solid #9a621d;
   color: var(--p1);
@@ -1000,12 +1009,12 @@ progress::-webkit-progress-bar {
   border-color: #6c422a transparent transparent transparent;
 }
 
-.frustrated{
+.frustrated {
   background-color: #6c422aab;
   border: 1px solid #6c422a;
 }
 
-.frustrated h3{
+.frustrated h3 {
   color: var(--light);
 }
 
@@ -1019,12 +1028,12 @@ progress::-webkit-progress-bar {
   border-color: #8e1d1d transparent transparent transparent;
 }
 
-.angry{
+.angry {
   background-color: #8e1d1dcd;
   border: 1px solid #8e1d1d;
 }
 
-.angry h3{
+.angry h3 {
   color: var(--light);
 }
 
@@ -1038,15 +1047,14 @@ progress::-webkit-progress-bar {
   border-color: #a24676 transparent transparent transparent;
 }
 
-.flirty{
+.flirty {
   background-color: #a2467584;
   border: 1px solid #a24676;
 }
 
-.flirty h3{
+.flirty h3 {
   color: var(--light);
 }
-
 
 #colorWheel span.color11 {
   opacity: 30%;
@@ -1058,12 +1066,12 @@ progress::-webkit-progress-bar {
   border-color: #9f2d7b transparent transparent transparent;
 }
 
-.silly{
+.silly {
   background-color: #883c70cd;
   border: 1px solid #9f2d7b;
 }
 
-.silly h3{
+.silly h3 {
   color: var(--light);
 }
 
@@ -1077,7 +1085,7 @@ progress::-webkit-progress-bar {
   border-color: #842d9f transparent transparent transparent;
 }
 
-.mischievous{
+.mischievous {
   background-color: #664072e3;
   border: 1px solid #842d9f;
 }
@@ -1096,12 +1104,12 @@ progress::-webkit-progress-bar {
   border-color: #622d9f transparent transparent transparent;
 }
 
-.shocked{
+.shocked {
   background-color: #6e528dbc;
   border: 1px solid #622d9f;
 }
 
-.shocked h3{
+.shocked h3 {
   color: var(--light);
 }
 
@@ -1115,12 +1123,12 @@ progress::-webkit-progress-bar {
   border-color: #3c236f transparent transparent transparent;
 }
 
-.bored{
+.bored {
   background-color: #3c236fdf;
   border: 1px solid #3c236f;
 }
 
-.bored h3{
+.bored h3 {
   color: var(--light);
 }
 
@@ -1134,7 +1142,7 @@ progress::-webkit-progress-bar {
   border-color: #2d5b9f transparent transparent transparent;
 }
 
-.sad{
+.sad {
   background-color: #2d5b9fc6;
   border: 1px solid #2d5b9f;
 }
@@ -1153,7 +1161,7 @@ progress::-webkit-progress-bar {
   border-color: #2d709f transparent transparent transparent;
 }
 
-.annoyed{
+.annoyed {
   background-color: #2d709f68;
   border: 1px solid #2d709f;
 }

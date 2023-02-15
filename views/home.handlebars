@@ -9,8 +9,10 @@
       {{#each allPosts}}
       <div class="post-box">
         <div id="profileLlama">
-          <img id="profileLlamaColor" src="images/pixel-llamas/llama02.png" />
-        <img id="profileLlamaHat" src="images/pixel-llamas/hat02.png" />
+         {{#if user.llama.llama_image}}
+          <img id="profileLlamaColor" src={{user.llama.llama_image}} />
+        <img id="profileLlamaHat" src={{user.llama.llama_hat_image}} />
+        {{/if}}
         </div>
         <p>{{user.username}}'s drama:</p>
         <p id="title">"{{title}}"</p>
