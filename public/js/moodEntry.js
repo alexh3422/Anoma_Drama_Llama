@@ -6,37 +6,41 @@ class Emotion {
   }
 
   makeSelection() {
-    document.querySelector(`#${this.name}`).addEventListener("click", (event) => {
-      event.preventDefault()
-      const color = document.querySelector(`.${this.color}`);
-      if (!this.selected) {
-        color.style.opacity = "100%";
-        this.selected = true;
-      } else {
-        color.style.opacity = "30%";
-        this.selected = false;
-      }
-    });
+    document
+      .querySelector(`#${this.name}`)
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        const color = document.querySelector(`.${this.color}`);
+        if (!this.selected) {
+          color.style.opacity = "100%";
+          this.selected = true;
+        } else {
+          color.style.opacity = "30%";
+          this.selected = false;
+        }
+      });
   }
 
   makesingleSelection(allEmotions) {
-    document.querySelector(`#${this.name}`).addEventListener("click", (event) => {
-      event.preventDefault()
-      const color = document.querySelector(`.${this.color}`);
-      allEmotions.forEach((emotion) => {
-        if (emotion.name != this.name) {
-          document.querySelector(`.${emotion.color}`).style.opacity = "30%";
-          emotion.selected = false;
+    document
+      .querySelector(`#${this.name}`)
+      .addEventListener("click", (event) => {
+        event.preventDefault();
+        const color = document.querySelector(`.${this.color}`);
+        allEmotions.forEach((emotion) => {
+          if (emotion.name != this.name) {
+            document.querySelector(`.${emotion.color}`).style.opacity = "30%";
+            emotion.selected = false;
+          }
+        });
+        if (!this.selected) {
+          color.style.opacity = "100%";
+          this.selected = true;
+        } else {
+          color.style.opacity = "30%";
+          this.selected = false;
         }
       });
-      if (!this.selected) {
-        color.style.opacity = "100%";
-        this.selected = true;
-      } else {
-        color.style.opacity = "30%";
-        this.selected = false;
-      }
-    });
   }
 
   nameOnhover() {
@@ -84,7 +88,7 @@ if (moodWheel.getAttribute("wheelMode") === "single") {
 const backgroundCover = document.querySelector("#backgroundCover");
 
 backgroundCover.addEventListener("click", (event) => {
-  event.preventDefault()
+  event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
   changeTitle();
@@ -93,7 +97,7 @@ backgroundCover.addEventListener("click", (event) => {
 const trackMoodBtn = document.querySelector("#trackMoodBtn");
 
 trackMoodBtn.addEventListener("click", (event) => {
-  event.preventDefault()
+  event.preventDefault();
   moodWheel.style.display = "flex";
 });
 
@@ -122,7 +126,8 @@ const changeTitle = () => {
         feelingsArr.push(emotionsToTrack[i]);
       }
       feelingsArr.push(
-        `${emotionsToTrack[emotionsToTrack.length - 2]} and ${emotionsToTrack[emotionsToTrack.length - 1]
+        `${emotionsToTrack[emotionsToTrack.length - 2]} and ${
+          emotionsToTrack[emotionsToTrack.length - 1]
         }`
       );
       feelings = feelingsArr.join(", ");
@@ -179,36 +184,38 @@ validateBtn.addEventListener("click", (event) => {
     .then((post) => {
       console.log(post);
 
-      const allPostsDiv = document.querySelector(".allPosts")
+      const allPostsDiv = document.querySelector(".allPosts");
 
-      const thisPostDiv = document.createElement("div")
-      thisPostDiv.setAttribute("class", "post-box")
-      const postUser = document.createElement("p")
-      postUser.setAttribute("id", "postUsername")
-      const postTitle = document.createElement("p")
-      postTitle.setAttribute("id", "title")
-      const postMoodsAndDate = document.createElement("p")
-    
-      if(document.getElementById("moodPage")){
-        postUser.innerHTML = `Your were feeling ${post.moodText}`
-        postTitle.innerHTML = `\"${post.title}\"`
-        postMoodsAndDate.innerHTML = ` ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
+      const thisPostDiv = document.createElement("div");
+      thisPostDiv.setAttribute("class", "post-box");
+      const postUser = document.createElement("p");
+      postUser.setAttribute("id", "postUsername");
+      const postTitle = document.createElement("p");
+      postTitle.setAttribute("id", "title");
+      const postMoodsAndDate = document.createElement("p");
+
+      if (document.getElementById("moodPage")) {
+        postUser.innerHTML = `Your were feeling ${post.moodText}`;
+        postTitle.innerHTML = `\"${post.title}\"`;
+        postMoodsAndDate.innerHTML = ` ${dayjs(post.createdAt).format(
+          "MMM DD YYYY, HH:mm"
+        )}`;
       } else {
-        postUser.innerHTML = "Your drama:"
-      postTitle.innerHTML = `\"${post.title}\"`
-      postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
-
+        postUser.innerHTML = "Your drama:";
+        postTitle.innerHTML = `\"${post.title}\"`;
+        postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(
+          post.createdAt
+        ).format("MMM DD YYYY, HH:mm")}`;
       }
-      const postText = document.createElement("p")
-      postText.setAttribute("id", "text")
+      const postText = document.createElement("p");
+      postText.setAttribute("id", "text");
 
+      thisPostDiv.appendChild(postUser);
+      thisPostDiv.appendChild(postTitle);
+      thisPostDiv.appendChild(postText);
+      thisPostDiv.appendChild(postMoodsAndDate);
 
-      thisPostDiv.appendChild(postUser)
-      thisPostDiv.appendChild(postTitle)
-      thisPostDiv.appendChild(postText)
-      thisPostDiv.appendChild(postMoodsAndDate)
-
-      allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+      allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
 
       emotionsToTrack.forEach((emotion) => {
         const moodObj = {
@@ -234,20 +241,26 @@ validateBtn.addEventListener("click", (event) => {
     });
 });
 
+const deleteBtn = document.querySelectorAll("#deleteBtn");
 
-const deleteBtn = document.querySelectorAll("#deleteBtn")
-
-deleteBtn.forEach(button => {
+deleteBtn.forEach((button) => {
   button.addEventListener("click", () => {
     const id = button.getAttribute("post-id");
     fetch(`/api/posts/${id}`, {
-      method:"DELETE"
-    }).then(res => {
+      method: "DELETE",
+    }).then((res) => {
       if (res.ok) {
-        location.href= "/mood"
+        let postBoxDiv = document.querySelectorAll(".post-box");
+        const deleteBtn = button.getAttribute("post-id");
+        postBoxDiv.forEach((post) => {
+          const postId = post.getAttribute("post-id");
+          if (postId == deleteBtn) {
+            post.remove();
+          }
+        });
       } else {
-        alert("oh noes!")
+        alert("oh noes!");
       }
-    })
-  })
-})
+    });
+  });
+});
