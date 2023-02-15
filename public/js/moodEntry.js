@@ -66,21 +66,21 @@ class Emotion {
 }
 
 const emotions = [
-  new Emotion("happy", "color01"),
-  new Emotion("sad", "color02"),
-  new Emotion("embarrassed", "color03"),
-  new Emotion("calm", "color04"),
+  new Emotion("tired", "color01"),
+  new Emotion("happy", "color02"),
+  new Emotion("calm", "color03"),
+  new Emotion("embarrassed", "color04"),
   new Emotion("disappointed", "color05"),
   new Emotion("scared", "color06"),
   new Emotion("anxious", "color07"),
-  new Emotion("angry", "color08"),
-  new Emotion("mischievous", "color09"),
+  new Emotion("frustrated", "color08"),
+  new Emotion("angry", "color09"),
   new Emotion("flirty", "color10"),
   new Emotion("silly", "color11"),
-  new Emotion("frustrated", "color12"),
+  new Emotion("mischievous", "color12"),
   new Emotion("shocked", "color13"),
   new Emotion("bored", "color14"),
-  new Emotion("tired", "color15"),
+  new Emotion("sad", "color15"),
   new Emotion("annoyed", "color16"),
 ];
 

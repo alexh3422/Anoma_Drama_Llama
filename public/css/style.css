@@ -25,6 +25,7 @@ a {
 body {
   display: flex;
   flex-wrap: wrap;
+  background-color: rgb(223, 221, 219);
 }
 
 #baseSection {
@@ -147,7 +148,7 @@ footer {
   bottom: 0;
   padding-right: 250px;
   left: 50px;
-  background: white;
+  background-color: rgb(223, 221, 219);
 }
 
 /* #UserPageInfo{
@@ -361,15 +362,20 @@ header button:not(:disabled):focus {
   margin: 1% 1% 1% 1%;
   padding: 10px;
   width: 51%;
-  background-color: var(--p1);
   border-radius: 7px;
   box-shadow: 1px 1px 1px #4b433d;
+  border: solid 1px;
 }
 
-.row h3 {
+.default {
+  background-color: var(--p1);
+  border: 1px solid var(--p1);
+}
+
+.default h3 {
   color: var(--light);
   text-shadow: 0.5px 0.5px 0.5px black;
-}
+} 
 
 #journalRow {
   width: 90%;
@@ -704,10 +710,6 @@ progress::-webkit-progress-bar {
   height: 50%;
 }
 
-legend {
-  /* background-color: white; */
-}
-
 /* Mood Wheel */
 #moodWheel {
   margin: auto;
@@ -772,11 +774,11 @@ legend {
   opacity: 50%;
 }
 
-#happy {
+#tired {
   top: -40%;
 }
 
-#sad {
+#happy {
   top: -32%;
   right: 5%;
 }
@@ -786,17 +788,17 @@ legend {
   left: 5%;
 }
 
-#embarrassed {
+#calm {
   top: -15%;
   right: -20%;
 }
 
-#tired {
+#sad {
   top: -15%;
   left: -20%;
 }
 
-#calm {
+#embarrassed {
   top: 8%;
   right: -35%;
 }
@@ -811,11 +813,11 @@ legend {
   right: -40%;
 }
 
-#mischievous {
+#angry {
   bottom: -40%;
 }
 
-#angry {
+#frustrated {
   bottom: -32%;
   right: 5%;
 }
@@ -840,7 +842,7 @@ legend {
   right: -35%;
 }
 
-#frustrated {
+#mischievous {
   bottom: 12%;
   left: -35%;
 }
@@ -891,6 +893,12 @@ legend {
   border-color: #49adb4 transparent transparent transparent;
 }
 
+.tired{
+  background-color: #49adb49d;
+  border: 1px solid #49adb4;
+  color: var(--p1);
+}
+
 #colorWheel span.color02 {
   opacity: 30%;
   -webkit-transform: rotate(22.5deg);
@@ -899,6 +907,15 @@ legend {
   -o-transform: rotate(22.5deg);
   transform: rotate(22.5deg);
   border-color: #479b79 transparent transparent transparent;
+}
+
+.happy{
+  background-color: #3b9e4fb0;
+  border: 1px solid #479b79;
+}
+
+.happy h3{
+  color: var(--light);
 }
 
 #colorWheel span.color03 {
@@ -911,6 +928,12 @@ legend {
   border-color: #47c14d transparent transparent transparent;
 }
 
+.calm{
+  background-color: #6ead71d0;
+  border: 1px solid #47c14d;
+  color: var(--p1);
+}
+
 #colorWheel span.color04 {
   opacity: 30%;
   -webkit-transform: rotate(67.5deg);
@@ -919,6 +942,12 @@ legend {
   -o-transform: rotate(67.5deg);
   transform: rotate(67.5deg);
   border-color: #a5e23b transparent transparent transparent;
+}
+
+.embarrassed{
+  background-color: #759c31b4;
+  border: 1px solid #90c03f;
+  color: var(--p1);
 }
 
 #colorWheel span.color05 {
@@ -931,6 +960,11 @@ legend {
   border-color: #e1f71e transparent transparent transparent;
 }
 
+.disappointed{
+  background-color: #b8c44dc9;
+  border: 1px solid #e1f71e;
+}
+
 #colorWheel span.color06 {
   opacity: 30%;
   -webkit-transform: rotate(112.5deg);
@@ -939,6 +973,12 @@ legend {
   -o-transform: rotate(112.5deg);
   transform: rotate(112.5deg);
   border-color: #baa72e transparent transparent transparent;
+}
+
+.scared{
+  background-color: #baa72e89;
+  border: 1px solid #baa72e;
+  color: var(--p1);
 }
 
 #colorWheel span.color07 {
@@ -951,6 +991,12 @@ legend {
   border-color: #9a621d transparent transparent transparent;
 }
 
+.anxious{
+  background-color: #9a621d6a;
+  border: 1px solid #9a621d;
+  color: var(--p1);
+}
+
 #colorWheel span.color08 {
   opacity: 30%;
   -webkit-transform: rotate(157.5deg);
@@ -959,6 +1005,15 @@ legend {
   -o-transform: rotate(157.5deg);
   transform: rotate(157.5deg);
   border-color: #6c422a transparent transparent transparent;
+}
+
+.frustrated{
+  background-color: #6c422aab;
+  border: 1px solid #6c422a;
+}
+
+.frustrated h3{
+  color: var(--light);
 }
 
 #colorWheel span.color09 {
@@ -971,6 +1026,15 @@ legend {
   border-color: #8e1d1d transparent transparent transparent;
 }
 
+.angry{
+  background-color: #8e1d1dcd;
+  border: 1px solid #8e1d1d;
+}
+
+.angry h3{
+  color: var(--light);
+}
+
 #colorWheel span.color10 {
   opacity: 30%;
   -webkit-transform: rotate(202.5deg);
@@ -981,6 +1045,16 @@ legend {
   border-color: #a24676 transparent transparent transparent;
 }
 
+.flirty{
+  background-color: #a2467584;
+  border: 1px solid #a24676;
+}
+
+.flirty h3{
+  color: var(--light);
+}
+
+
 #colorWheel span.color11 {
   opacity: 30%;
   -webkit-transform: rotate(225deg);
@@ -989,6 +1063,15 @@ legend {
   -o-transform: rotate(225deg);
   transform: rotate(225deg);
   border-color: #9f2d7b transparent transparent transparent;
+}
+
+.silly{
+  background-color: #883c70cd;
+  border: 1px solid #9f2d7b;
+}
+
+.silly h3{
+  color: var(--light);
 }
 
 #colorWheel span.color12 {
@@ -1001,6 +1084,15 @@ legend {
   border-color: #842d9f transparent transparent transparent;
 }
 
+.mischievous{
+  background-color: #664072e3;
+  border: 1px solid #842d9f;
+}
+
+.mischievous h3 {
+  color: var(--light);
+}
+
 #colorWheel span.color13 {
   opacity: 30%;
   -webkit-transform: rotate(270deg);
@@ -1009,6 +1101,15 @@ legend {
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
   border-color: #622d9f transparent transparent transparent;
+}
+
+.shocked{
+  background-color: #6e528dbc;
+  border: 1px solid #622d9f;
+}
+
+.shocked h3{
+  color: var(--light);
 }
 
 #colorWheel span.color14 {
@@ -1021,6 +1122,15 @@ legend {
   border-color: #3c236f transparent transparent transparent;
 }
 
+.bored{
+  background-color: #3c236fdf;
+  border: 1px solid #3c236f;
+}
+
+.bored h3{
+  color: var(--light);
+}
+
 #colorWheel span.color15 {
   opacity: 30%;
   -webkit-transform: rotate(315deg);
@@ -1031,6 +1141,15 @@ legend {
   border-color: #2d5b9f transparent transparent transparent;
 }
 
+.sad{
+  background-color: #2d5b9fc6;
+  border: 1px solid #2d5b9f;
+}
+
+.sad h3 {
+  color: var(--light);
+}
+
 #colorWheel span.color16 {
   opacity: 30%;
   -webkit-transform: rotate(337.5deg);
@@ -1039,6 +1158,11 @@ legend {
   -o-transform: rotate(337.5deg);
   transform: rotate(337.5deg);
   border-color: #2d709f transparent transparent transparent;
+}
+
+.annoyed{
+  background-color: #2d709f68;
+  border: 1px solid #2d709f;
 }
 
 #validateBtn {
@@ -1059,6 +1183,7 @@ legend {
 
 #allCharts {
   width: 100%;
+  opacity: 80%;
 }
 
 #pieChart {
@@ -1109,6 +1234,12 @@ legend {
     font-size: 9px;
     height: 25px;
     width: 60px;
+  }
+
+  .row {
+    margin: 1% 1% 1% 1%;
+    padding: 10px;
+    width: 100%;
   }
 
   #leftSide {
