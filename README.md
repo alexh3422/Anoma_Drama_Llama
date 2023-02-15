@@ -39,7 +39,9 @@
 
 - Your Moods: Here you'll have two charts if you have logged any moods, along with your mood history listed below1. The first chart allows you to order by post, hour, day, week, month or year so that you can get a clear picture of your mood habits at a specific time span. The second shows an overall chart of your moods so you can see what is your most and least commonly logged emotion.
 
-  ![screenshot]()
+ <img width="1187" alt="Screenshot 2023-02-14 at 9 35 43 PM" src="https://user-images.githubusercontent.com/115325648/218942088-e65da350-8e64-4686-ae9d-573c13f68147.png">
+
+<img width="322" alt="Screenshot 2023-02-14 at 9 36 15 PM" src="https://user-images.githubusercontent.com/115325648/218942134-f08f7d53-19aa-44fc-8af1-a66a0646d8b7.png">
 
 ## Credits
 
