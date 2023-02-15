@@ -12,6 +12,11 @@
 }
 
 /* ============================= main layout =========================== */
+
+button:hover {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -42,6 +47,7 @@ body {
   position: fixed;
   height: 100%;
   z-index: 10;
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
 }
 
 #leftSide a {
@@ -65,11 +71,9 @@ body {
   font-size: 25px;
 }
 
-#leftSide:hover {
+#leftSide:hover, #leftSide:active {
   width: 200px;
 }
-
-
 
 #leftSide:hover a {
   display: block;
@@ -90,18 +94,19 @@ body {
 header {
   background: rgb(186, 168, 152);
   background: linear-gradient(
-    /* 90deg, */
-    rgba(186, 168, 152, 1) 0%,
+    /* 90deg, */ rgba(186, 168, 152, 1) 0%,
     rgba(201, 187, 174, 1) 200%
   );
-  height: 10vh;
+  height: 70px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   position: fixed;
   width: 100%;
-  left: 50px;
-  padding-right: 250px;
+  padding: 20px;
+  /* padding: 10px; */
+  /* left: 50px; */
+  /* padding-right: 250px; */
   z-index: 5;
 }
 
@@ -109,9 +114,10 @@ header button {
   color: var(--p1);
   height: 50px;
   width: 150px;
-  box-shadow: 0 0 0 2px rgba(48, 47, 47, 0.2), 0 3px 8px 0 rgba(89, 89, 89, 0.15);
+  margin: 0px auto;
+  box-shadow: 0 0 0 2px rgba(48, 47, 47, 0.2),
+    0 3px 8px 0 rgba(89, 89, 89, 0.15);
 }
-
 main {
   margin-left: 50px;
   margin-right: 200px;
@@ -131,7 +137,7 @@ main {
 }
 
 footer {
-  height: 5vh;
+  height: 30px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -142,6 +148,10 @@ footer {
   left: 50px;
   background: white;
 }
+
+/* #UserPageInfo{
+  background-color: #00ff40;
+} */
 
 /* ============================= login and sign up =========================== */
 .loginBody {
@@ -240,8 +250,9 @@ header button {
 #validateBtn:not(:disabled):hover,
 #validateBtn:not(:disabled):focus,
 header button:not(:disabled):hover,
-header button:not(:disabled):focus  {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2), 0 3px 8px 0 rgba(255, 255, 255, 0.15);
+header button:not(:disabled):focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 3px 8px 0 rgba(255, 255, 255, 0.15);
 }
 
 #validateBtn,
@@ -299,7 +310,7 @@ header button:not(:disabled):focus  {
   border-color: var(--p1);
 }
 
-#new-post-form{
+#new-post-form {
   width: 100%;
 }
 
@@ -311,7 +322,7 @@ header button:not(:disabled):focus  {
   border-color: var(--p1);
 }
 
-#text{
+#text {
   margin: 10px 0;
   padding: 0 10px;
 }
@@ -335,10 +346,12 @@ header button:not(:disabled):focus  {
 }
 
 .post-box {
-  margin: 5px;
+  margin: 10px 5px;
   border: var(--p1) solid 1px;
   border-radius: 5px;
   padding: 5px;
+  background-color: rgba(243, 232, 216, 0.677);
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
 }
 
 #title {
@@ -346,11 +359,16 @@ header button:not(:disabled):focus  {
   color: var(--p1);
 }
 
-#postUsername{
+#postUsername {
   margin: 10px 0;
 }
 
 /* =============== Llama ===================== */
+
+#sideLlamaCard:hover {
+  cursor: pointer;
+}
+
 #llamaSelect {
   display: flex;
   flex-direction: column;
@@ -364,6 +382,20 @@ header button:not(:disabled):focus  {
 #userLlamaName {
   font-size: xx-large;
   text-align: center;
+}
+
+#llamaName,
+.colorSelect,
+.hatSelect {
+  width: 100px;
+  border-radius: 5px;
+  border: 2px solid #8e8074;
+}
+
+#llamaName:focus,
+.colorSelect:focus,
+.hatSelect:focus {
+  outline: none;
 }
 
 #llamaExtra {
@@ -506,23 +538,25 @@ progress::-webkit-progress-bar {
 
 /* ====================================================================== */
 #title-input,
-#privacySelect{
-width: 35vw;
-margin: 5px;
+#privacySelect {
+  width: 35vw;
+  margin: 5px;
 }
 
 /* Mood Wheel */
 #moodWheel {
-  margin: 50px;
+  margin: auto;
   /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
-  position: relative;
-  height: 58vh;
-  width: 58vh;
+  position: fixed;
+  height: 41.5vw;
+  width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
+  z-index: 100;
+  align-self: center;
 }
 
 #innerWheel {
@@ -538,15 +572,15 @@ margin: 5px;
 
 .moodMiddle {
   position: absolute;
-  font-size: 5vh;
+  font-size: 3vw;
   border-radius: 50%;
   z-index: 20;
   cursor: pointer;
 }
 
 #Border {
-  height: 58vh;
-  width: 58vh;
+  height: 100%;
+  width: 100%;
   border: var(--light) 20px solid;
   border-radius: 50%;
   z-index: 20;
@@ -677,7 +711,8 @@ margin: 5px;
 #colorWheel span {
   position: absolute;
   border-style: solid;
-  border-width: 28vh 5.6vh;
+  /* border-width: 28vh 5.6vh; */
+  border-width: 20vw 4vw;
   box-sizing: border-box;
 }
 
@@ -851,12 +886,45 @@ margin: 5px;
 
 /* ================================================== */
 /* Mood charts */
+#orderData,
+#orderLabel {
+  position: relative;
+  left: 50px;
+}
+
 #allCharts {
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+}
+
+#pieChart {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+}
+
+
+#userPageUsername, #userPageCurrentMood{
+  color: var(--light);
+  text-align: center;
 }
 
 /* ================================================== */
+@media screen and (max-width:1050px) {
+  #moodWheel {
+    height: 80vw;
+    width: 80vw;
+    align-self: center;
+  }
+  #colorWheel span {
+    border-width: 38.5vw 7.7vw;
+  }
+  .moodMiddle {
+    font-size: 5.5vw;
+  }
+}
+
 @media screen and (max-width:750px) {
   #baseSection {
     flex-direction: column;
@@ -865,20 +933,20 @@ margin: 5px;
     height: 50px;
     left: 0px;
     padding-right: 30vw;
-
   }
   .loginBttn,
-#signUpBttn,
-#validateBtn,
-#trackMoodBtn,
-#submit-post,
-header button{
+  #signUpBttn,
+  #validateBtn,
+  #trackMoodBtn,
+  #submit-post,
+  header button {
     padding: 0;
     font-size: 9px;
     height: 25px;
     width: 60px;
   }
-  #leftSide{
+
+  #leftSide {
     flex-direction: row;
     position: fixed;
     height: 30px;
@@ -892,7 +960,7 @@ header button{
     margin: auto;
     display: none;
   }
-  
+
   #leftSide p {
     position: fixed;
     top: 45px;
@@ -900,11 +968,11 @@ header button{
     left: 0;
     font-size: 30px;
   }
-  
+
   #leftSide a:hover {
     font-size: 15px;
   }
-  
+
   #leftSide:hover {
     width: 100%;
     height: 50px;
@@ -938,9 +1006,9 @@ header button{
     height: 1vh;
     right: 20px;
   }
-  .svg-container{
+  /* .svg-container{
     width: 500px;
-  }
+  } */
   #rightSide {
     width: 100%;
     bottom: 0;
@@ -953,29 +1021,37 @@ header button{
     bottom: 50px;
     left: 20px;
   }
-.bubble:after,
-.bubble:before {
-  left: 100%;
-  top: 50%;
-  transform: rotate(180deg);
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.bubble:after {
-  border-color: rgba(255, 255, 204, 0);
-  border-right-color: #eeeee8;
-  border-width: 15px;
-  margin-top: -15px;
-}
-.bubble:before {
-  border-color: rgba(255, 204, 0, 0);
-  border-right-color: var(--p1);
-  border-width: 16px;
-  margin-top: -16px;
-}
+  .bubble:after,
+  .bubble:before {
+    left: 100%;
+    top: 50%;
+    transform: rotate(180deg);
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  .bubble:after {
+    border-color: rgba(255, 255, 204, 0);
+    border-right-color: #eeeee8;
+    border-width: 15px;
+    margin-top: -15px;
+  }
+  .bubble:before {
+    border-color: rgba(255, 204, 0, 0);
+    border-right-color: var(--p1);
+    border-width: 16px;
+    margin-top: -16px;
+  }
 
+  #pieChart {
+    margin-top: 10px;
+    padding: 0;
+  }
+  /*
+#allCharts {
+  width: 100%;
+} */
 }

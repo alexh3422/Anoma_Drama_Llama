@@ -168,8 +168,8 @@ sumbitBtn.addEventListener("click", (e) => {
       type: "journal",
       visibility: privacyChoice.id,
     };
-    document.querySelector("#title-input").value = '';
-    document.querySelector("#post-input").value = '';
+    document.querySelector("#title-input").value = "";
+    document.querySelector("#post-input").value = "";
     moodTitle.textContent = "How are you feeling right now?";
     trackMoodBtn.textContent = "Add emotions";
     privacySetting.style.display = "none";
@@ -189,28 +189,30 @@ sumbitBtn.addEventListener("click", (e) => {
         }
       })
       .then((post) => {
-        const allPostsDiv = document.querySelector(".allPosts")
+        const allPostsDiv = document.querySelector(".allPosts");
 
-        const thisPostDiv = document.createElement("div")
-        thisPostDiv.setAttribute("class", "post-box")
-        const postUser = document.createElement("p")
-        postUser.setAttribute("id", "postUsername")
-        postUser.innerHTML = "Your drama:"
-        const postTitle = document.createElement("p")
-        postTitle.setAttribute("id", "title")
-        postTitle.innerHTML =  `\"${post.title}\"`
-        const postText = document.createElement("p")
-        postText.setAttribute("id", "text")
-        postText.innerHTML = post.text
-        const postMoodsAndDate = document.createElement("p")
-        postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(post.createdAt).format("MMM DD YYYY, HH:mm")}`
-        
-        thisPostDiv.appendChild(postUser)       
-        thisPostDiv.appendChild(postTitle)
-        thisPostDiv.appendChild(postText)
-        thisPostDiv.appendChild(postMoodsAndDate)
+        const thisPostDiv = document.createElement("div");
+        thisPostDiv.setAttribute("class", "post-box");
+        const postUser = document.createElement("p");
+        postUser.setAttribute("id", "postUsername");
+        postUser.innerHTML = "Your drama:";
+        const postTitle = document.createElement("p");
+        postTitle.setAttribute("id", "title");
+        postTitle.innerHTML = `\"${post.title}\"`;
+        const postText = document.createElement("p");
+        postText.setAttribute("id", "text");
+        postText.innerHTML = post.text;
+        const postMoodsAndDate = document.createElement("p");
+        postMoodsAndDate.innerHTML = `You felt ${post.moodText} on ${dayjs(
+          post.createdAt
+        ).format("MMM DD YYYY, HH:mm")}`;
 
-        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1])
+        thisPostDiv.appendChild(postUser);
+        thisPostDiv.appendChild(postTitle);
+        thisPostDiv.appendChild(postText);
+        thisPostDiv.appendChild(postMoodsAndDate);
+
+        allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
 
         console.log(post);
         emotionsToTrack.forEach((emotion) => {
@@ -282,17 +284,24 @@ editBtn.forEach(button => {
   })
 })
 
-deleteBtn.forEach(button => {
+deleteBtn.forEach((button) => {
   button.addEventListener("click", () => {
     const id = button.getAttribute("post-id");
     fetch(`/api/posts/${id}`, {
-      method:"DELETE"
-    }).then(res => {
+      method: "DELETE",
+    }).then((res) => {
       if (res.ok) {
-        location.href= "/journal"
+        let postBoxDiv = document.querySelectorAll(".post-box");
+        const deleteBtn = button.getAttribute("post-id");
+        postBoxDiv.forEach((post) => {
+          const postId = post.getAttribute("post-id");
+          if (postId == deleteBtn) {
+            post.remove();
+          }
+        });
       } else {
-        alert("oh noes!")
+        alert("error, please try again!");
       }
-    })
-  })
-})
+    });
+  });
+});

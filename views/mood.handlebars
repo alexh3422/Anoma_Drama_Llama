@@ -2,8 +2,8 @@
 
   {{> mood-wheel}}
 
-  <label for="orderDate">Order by:</label>
-      <select name="orderDate" id="orderDate">
+  <label id="orderLabel" for="orderData">Order by:</label>
+      <select name="orderData" id="orderData">
         <option value="post">Post</option>
         <option value="hourly">Hourly</option>
         <option value="daily">Daily</option>
@@ -20,7 +20,7 @@
   <div class="allPosts" id="moodPage">
     <h2>My Mood Tracker</h2>
     {{#each userPosts}}
-    <div class="post-box">
+    <div class="post-box" post-id={{id}}>
       <p>You were feeling {{moodText}}</p>
       <p id="title">"{{title}}"</p>
       <p id="text">{{text}}</p>
