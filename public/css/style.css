@@ -176,7 +176,9 @@ footer {
 #deleteBtn:hover,
 #deleteBtn:focus,
 #editBtn:hover,
-#editBtn:focus {
+#editBtn:focus
+#updateBtn:hover,
+#updateBtn:focus {
   outline: 0;
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
@@ -192,7 +194,7 @@ footer {
 
 .loginCard {
   border-radius: 5px;
-  background-color: var(--p2);
+  background-color: var(--p1);
   width: 40vmin;
   min-height: 30vh;
   display: flex;
@@ -202,7 +204,7 @@ footer {
 
 .signupCard {
   border-radius: 5px;
-  background-color: var(--p2);
+  background-color: var(--p1);
   width: 40vmin;
   min-height: 30vh;
   display: flex;
@@ -212,6 +214,9 @@ footer {
 
 .loginHeader {
   margin: 15px;
+  color: var(--light);
+  text-align: center;
+  font-weight: bold;
 }
 
 .loginForm {
@@ -413,7 +418,9 @@ header button:not(:disabled):focus {
 }
 
 #title-input:focus,
-#post-input:focus {
+#post-input:focus,
+#login:focus,
+#loginPassword:focus {
   outline: solid 1px var(--p1);
 }
 
