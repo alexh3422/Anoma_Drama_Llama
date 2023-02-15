@@ -47,7 +47,7 @@ function multiMoodListener() {
     document.querySelector(".bubble").style.display = "block";
     setTimeout(() => {
       document.querySelector(".bubble").style.display = "none";
-    }, 10000);
+    }, 15000);
   });
 }
 
@@ -59,7 +59,7 @@ function singleMoodListener() {
     document.querySelector(".bubble").style.display = "block";
     setTimeout(() => {
       document.querySelector(".bubble").style.display = "none";
-    }, 10000);
+    }, 15000);
   });
 }
 
@@ -133,5 +133,5 @@ llamaClick.addEventListener("click", () => {
   document.querySelector(".bubble").style.display = "block";
   setTimeout(() => {
     document.querySelector(".bubble").style.display = "none";
-  }, 5000);
+  }, 3500);
 });

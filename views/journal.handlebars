@@ -1,6 +1,6 @@
 <div class="column">
   {{> mood-wheel}}
-  <div class="row">
+  <div class="row" id="journalRow">
   <form id="new-post-form">
   <textarea id="title-input" placeholder="Journal entry title"></textarea>
   <textarea id="post-input" placeholder="Let off some steam here!"></textarea>
@@ -9,10 +9,10 @@
 </form>
 
 <div class="allPosts">
-  <h2>All Your drama</h2>
+  <h2>All Your Drama</h2>
   {{#each userPosts}}
   <div class="post-box" post-id={{id}}>
-    <p id="postUsername">Your drama:</p>
+    <p id="postUsername">Your Drama:</p>
     <p id="title">"{{title}}"</p>
     <p id="text">{{text}}</p>
     <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
@@ -23,6 +23,11 @@
 </div>
 </div>
 
+<div class="modal">
+<div id="journalModal">
+  <p class="modal-content"></p>
+</div>
+</div>
 
 
 

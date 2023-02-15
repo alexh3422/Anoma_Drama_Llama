@@ -47,7 +47,7 @@ body {
   position: fixed;
   height: 100%;
   z-index: 10;
-  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
 }
 
 #leftSide a {
@@ -71,7 +71,8 @@ body {
   font-size: 25px;
 }
 
-#leftSide:hover, #leftSide:active {
+#leftSide:hover,
+#leftSide:active {
   width: 200px;
 }
 
@@ -265,6 +266,43 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+/* ============================ Error Modal ======================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* ============================= Profile =========================== */
 
 #profileUsername,
@@ -290,7 +328,19 @@ header button:not(:disabled):focus {
   align-items: center;
   margin: 1% 1% 1% 1%;
   padding: 10px;
-  width: 100%;
+  width: 51%;
+  background-color: var(--p1);
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px #4b433d;
+}
+
+.row h3 {
+  color: var(--light);
+  text-shadow: 0.5px 0.5px 0.5px black;
+}
+
+#journalRow {
+  width: 90%;
 }
 
 .column {
@@ -316,7 +366,8 @@ header button:not(:disabled):focus {
 
 #post-input {
   border-radius: 5px;
-  width: 90%;
+  width: 98.6%;
+  max-width: 98.6%;
   height: 10vh;
   margin: 5px;
   border-color: var(--p1);
@@ -325,6 +376,11 @@ header button:not(:disabled):focus {
 #text {
   margin: 10px 0;
   padding: 0 10px;
+}
+
+#title-input:focus,
+#post-input:focus {
+  outline: solid 1px var(--p1);
 }
 
 .allPosts,
@@ -351,7 +407,7 @@ header button:not(:disabled):focus {
   border-radius: 5px;
   padding: 5px;
   background-color: rgba(243, 232, 216, 0.677);
-  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
 }
 
 #title {
@@ -541,6 +597,14 @@ progress::-webkit-progress-bar {
 #privacySelect {
   width: 35vw;
   margin: 5px;
+}
+
+#privacySelect {
+  background-color: white;
+}
+
+legend {
+  background-color: white;
 }
 
 /* Mood Wheel */
@@ -904,14 +968,14 @@ progress::-webkit-progress-bar {
   width: 100%;
 }
 
-
-#userPageUsername, #userPageCurrentMood{
+#userPageUsername,
+#userPageCurrentMood {
   color: var(--light);
   text-align: center;
 }
 
 /* ================================================== */
-@media screen and (max-width:1050px) {
+@media screen and (max-width: 1050px) {
   #moodWheel {
     height: 80vw;
     width: 80vw;
@@ -925,7 +989,7 @@ progress::-webkit-progress-bar {
   }
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width: 750px) {
   #baseSection {
     flex-direction: column;
   }

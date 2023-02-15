@@ -1,3 +1,16 @@
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
+function errorMsg(alert) {
+  modal.style.display = "block";
+  modalContent.innerHTML = alert;
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
 class Emotion {
   constructor(name, color) {
     this.name = name;
@@ -178,7 +191,7 @@ validateBtn.addEventListener("click", (event) => {
       if (res.ok) {
         return res.json();
       } else {
-        alert("trumpet sound");
+        errorMsg("Error");
       }
     })
     .then((post) => {
@@ -234,7 +247,7 @@ validateBtn.addEventListener("click", (event) => {
             //   location.reload();
             // }, "3000");
           } else {
-            alert("trumpet sound");
+            errorMsg("Error");
           }
         });
       });
@@ -259,7 +272,7 @@ deleteBtn.forEach((button) => {
           }
         });
       } else {
-        alert("oh noes!");
+        errorMsg("Oh noes!");
       }
     });
   });

@@ -141,6 +141,19 @@ const changeTitle = () => {
   }
 };
 
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
+function errorMsg(alert) {
+  modal.style.display = "block";
+  modalContent.innerHTML = alert;
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
 sumbitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -148,11 +161,11 @@ sumbitBtn.addEventListener("click", (e) => {
   const text = document.querySelector("#post-input").value;
 
   if (emotionsToTrack.length < 1) {
-    alert("Please add at least 1 emotion");
+    errorMsg("Please add at least 1 emotion");
   } else if (!title) {
-    alert("Please add a title");
+    errorMsg("Please add a title");
   } else if (!text) {
-    alert("Please add some text");
+    errorMsg("Please add some text");
   } else {
     const values = document.getElementsByName("privacy");
     let privacyChoice;
@@ -185,7 +198,7 @@ sumbitBtn.addEventListener("click", (e) => {
         if (res.ok) {
           return res.json();
         } else {
-          alert("trumpet sound");
+          errorMsg("Error");
         }
       })
       .then((post) => {
@@ -232,7 +245,7 @@ sumbitBtn.addEventListener("click", (e) => {
               //   location.reload();
               // }, "3000");
             } else {
-              alert("error, please try again");
+              errorMsg("error, please try again");
             }
           });
         });
@@ -265,7 +278,7 @@ deleteBtn.forEach((button) => {
           }
         });
       } else {
-        alert("error, please try again!");
+        errorMsg("error, please try again");
       }
     });
   });
