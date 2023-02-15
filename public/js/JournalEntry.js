@@ -230,7 +230,7 @@ sumbitBtn.addEventListener("click", (e) => {
               //   location.reload();
               // }, "3000");
             } else {
-              alert("error, please try again");
+              alert("trumpet sound");
             }
           });
         });
@@ -249,6 +249,7 @@ editBtn.forEach(button => {
       const newText = document.createElement("textarea");
 
       button.textContent = "Cancel";
+      
       newText.innerHTML = post;
       newText.setAttribute("id", "post-input");
       p.replaceWith(newText);
@@ -257,8 +258,26 @@ editBtn.forEach(button => {
       updateBtn.innerHTML = "Update";
       updateBtn.setAttribute("id", "updateBtn");
       button.parentElement.append(updateBtn);
-      console.log(button.getAttribute("post-id"))
-      button.display.style="none";
+
+      updateBtn.addEventListener("click", () => {
+        const id = button.getAttribute("post-id");
+        fetch(`/api/posts/${id}`, {
+          method: "PUT",
+          body: JSON.stringify({ post: document.getElementById("text").value
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(res => {
+          if (res.ok) {
+            location.href="/journal"
+          } else {
+            alert("oh noes!")
+          }
+        })
+      })
+    } else {
+      location.reload();
     }
   })
 })
@@ -272,7 +291,7 @@ deleteBtn.forEach(button => {
       if (res.ok) {
         location.href= "/journal"
       } else {
-        alert("error, please try again!")
+        alert("oh noes!")
       }
     })
   })

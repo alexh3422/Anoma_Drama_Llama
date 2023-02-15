@@ -48,6 +48,20 @@ router.post("/", (req, res) => {
     });
 });
 
+router.put("/:id", (req,res) => {
+  Posts.update({
+    text: req.body.text,
+  },{
+    where: {
+      id: req.params.id
+    }
+  }).then((dbPostData) => res.json(dbPostData))
+  .catch((err) => {
+    console.log(err);
+    res.sendStatus(500).json(err);
+  })
+});
+
 router.delete("/:id", (req, res) => {
   Posts.destroy({
     where: {
