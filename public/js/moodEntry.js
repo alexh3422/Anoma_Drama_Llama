@@ -250,19 +250,17 @@ deleteBtn.forEach((button) => {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
-        location.href = "/mood";
+        let postBoxDiv = document.querySelectorAll(".post-box");
+        const deleteBtn = button.getAttribute("post-id");
+        postBoxDiv.forEach((post) => {
+          const postId = post.getAttribute("post-id");
+          if (postId == deleteBtn) {
+            post.remove();
+          }
+        });
       } else {
         alert("oh noes!");
       }
     });
   });
 });
-
-// let postBoxDiv = document.querySelectorAll(".post-box");
-//         const deleteBtn = button.getAttribute("post-id");
-//         postBoxDiv.forEach((post) => {
-//           const postId = post.getAttribute("post-id");
-//           if (postId == deleteBtn) {
-//             post.remove();
-//           }
-//         });

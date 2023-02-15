@@ -264,7 +264,6 @@ deleteBtn.forEach((button) => {
             post.remove();
           }
         });
-        console.log(postBoxDiv);
       } else {
         alert("error, please try again!");
       }
