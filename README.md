@@ -42,6 +42,7 @@
  <img width="1187" alt="Screenshot 2023-02-14 at 9 35 43 PM" src="https://user-images.githubusercontent.com/115325648/218942088-e65da350-8e64-4686-ae9d-573c13f68147.png">
 
 <img width="322" alt="Screenshot 2023-02-14 at 9 36 15 PM" src="https://user-images.githubusercontent.com/115325648/218942134-f08f7d53-19aa-44fc-8af1-a66a0646d8b7.png">
+![pixil-frame-0 (1)](https://user-images.githubusercontent.com/41850199/218942389-f142ba81-5f2e-4b34-b9ce-e988bd8e7c04.png)
 
 ## Credits
 
