@@ -20,7 +20,7 @@
 ## Installation
 
 - No installation required.
-- Just follow the link! [anomallama.herokuapp.com](anomallama.herokuapp.comm)
+- Just follow the link! https://anomallama.herokuapp.com
 
 ## Usage
 
