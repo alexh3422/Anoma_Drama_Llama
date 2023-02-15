@@ -1,74 +1,68 @@
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <script
-      src="https://cdn.plot.ly/plotly-2.18.1.min.js"
-      charset="utf-8"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/minMax.js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"
-    ></script>
-    <title>Anoma Drama Llama</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.18.1.min.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/minMax.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/weekOfYear.js"></script>
+  <title>Anoma Drama Llama</title>
+</head>
 
-  <body>
-    <section id="baseSection">
-      <aside id="leftSide">
-        <P>≡</P>
-        <a href="/profile">Profile</a>
-        <a href="/llama">Llama</a>
-        <a href="/bookmarks">Bookmarks</a>
-        <a href="/api/users/logout">Logout</a>
-      </aside>
-      <section id="mainSection">
-        <header>
-          <button id="allPostsBttn">All Posts</button>
-          <button id="journalBttn">Your Journal</button>
-          <button id="moodsBttn">Your Moods</button>
-          <div id="UserPageInfo">
-          </div>
-        </header>
-        <main>
-          {{{body}}}
-        </main>
-      </section>
-      <aside id="rightSide">
-
-        <div class="bubble">
-          <p id="speechBubble"></p>
+<body>
+  <section id="baseSection">
+    <aside id="leftSide">
+      <P>≡</P>
+      <a href="/profile">Profile</a>
+      <a href="/llama">Llama</a>
+      <a href="/bookmarks">Bookmarks</a>
+      <a href="/api/users/logout">Logout</a>
+    </aside>
+    <section id="mainSection">
+      <header>
+        <button id="allPostsBttn">All Posts</button>
+        <button id="journalBttn">Your Journal</button>
+        <button id="moodsBttn">Your Moods</button>
+        <div id="UserPageInfo">
+          <h2 id="userPageUsername"></h2>
+          <p id="userPageCurrentMood"></p>
+          <h1 id="userPageEmoji"></h1>
         </div>
-
-        <div id="sideLlamaCard">
-          <img id="sparkles" src="images/pixel-llamas/no-hat.png" />
-          <img id="userLlamaColor" src="images/pixel-llamas/no-hat.png" />
-          <img id="userLlamaHat" src="images/pixel-llamas/no-hat.png" />
-          <progress id="sideLlamaHappiness" value="" max="10">
-          </progress>
         </div>
-
-      </aside>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
     </section>
-    <footer>
-      <p>&copy; Andy Barringer, Alex Hall, Feliclare De Jesus, Maya Lynn Cohen</p>
-    </footer>
-    <script src="/js/main.js"></script>
-    <script src="/js/llama-everywhere.js"></script>
-    <script src="js/quotes.js"></script>
-    <script src="js/llamaDialouge.js"></script>
-  </body>
+    <aside id="rightSide">
+
+      <div class="bubble">
+        <p id="speechBubble"></p>
+      </div>
+
+      <div id="sideLlamaCard">
+        <img id="sparkles" src="images/pixel-llamas/no-hat.png" />
+        <img id="userLlamaColor" src="images/pixel-llamas/no-hat.png" />
+        <img id="userLlamaHat" src="images/pixel-llamas/no-hat.png" />
+        <progress id="sideLlamaHappiness" value="" max="10">
+        </progress>
+      </div>
+
+    </aside>
+  </section>
+  <footer>
+    <p>&copy; Andy Barringer, Alex Hall, Feliclare De Jesus, Maya Lynn Cohen</p>
+  </footer>
+  <script src="/js/main.js"></script>
+  <script src="/js/llama-everywhere.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/currentMoodDialouge.js"></script>
+  <script src="js/userInfo.js"></script>
+</body>
+
 </html>
