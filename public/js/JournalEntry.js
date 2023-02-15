@@ -277,13 +277,52 @@ sumbitBtn.addEventListener("click", (e) => {
 });
 
 const editBtn = document.querySelectorAll("#editBtn");
-const deleteBtn = document.querySelectorAll("#deleteBtn");
+const deleteBtn = document.querySelectorAll("#deleteBtn")
 
-// editBtn.forEach(button => {
-//   button.addEventListener("click", () => {
-//     const
-//   })
-// })
+editBtn.forEach(button => {
+  button.addEventListener("click", () => {
+    if (button.textContent === "Edit") {
+      const previousEl= button.previousElementSibling;
+      const p = previousEl.previousElementSibling;
+      const post = previousEl.previousElementSibling.innerHTML;
+      const newText = document.createElement("textarea");
+      const updateBtn = document.createElement("button");
+
+      button.textContent = "Cancel";
+      
+      newText.innerHTML = post;
+      newText.setAttribute("id", "post-input");
+      p.replaceWith(newText);
+      
+      updateBtn.innerHTML = "Update";
+      updateBtn.setAttribute("id", "updateBtn");
+      button.parentElement.append(updateBtn);
+
+      updateBtn.addEventListener("click", () => {
+        const id = button.getAttribute("post-id");
+        const postObj = {
+          text: previousEl.previousElementSibling.value
+        }
+        console.log(postObj)
+        fetch(`/api/posts/${id}`, {
+          method: "PUT",
+          body: JSON.stringify(postObj),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }).then(res => {
+          if (res.ok) {
+            location.href="/journal"
+          } else {
+            alert("error! please try again!")
+          }
+        })
+      })
+    } else {
+      location.reload();
+    }
+  })
+})
 
 deleteBtn.forEach((button) => {
   button.addEventListener("click", () => {

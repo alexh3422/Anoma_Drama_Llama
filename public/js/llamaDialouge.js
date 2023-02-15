@@ -27,6 +27,8 @@ function deleteListener() {
         "Yeah I didn't like that one either.",
         "Good riddance!",
         "What post? I didn't see a post.",
+        "No evidence left behind!",
+        "Gone forever! Just like my--nevermind...",
       ];
       let randomIndexDelete = Math.floor(Math.random() * deleteArray.length);
       let deleteDialouge = deleteArray[randomIndexDelete];
@@ -73,6 +75,7 @@ function journalPostListener() {
       "Power levels rising!",
       "Yeah! More please!",
       "You write the tastiest drama!",
+      "Nom nom nom! Me so happy!",
     ];
     let randomIndexEat = Math.floor(Math.random() * eatArray.length);
     let eatDialouge = eatArray[randomIndexEat];
@@ -124,6 +127,8 @@ llamaClick.addEventListener("click", () => {
     "Watch the coat!",
     "Thanks, I love being poked by surprise...",
     "I'll let that one slide.",
+    "Hey! At least take me to dinner first...",
+    "Poke the llama, get ready for the drama!",
   ];
   let randomIndexPoke = Math.floor(Math.random() * pokeArray.length);
   let pokeDialouge = pokeArray[randomIndexPoke];
