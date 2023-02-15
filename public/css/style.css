@@ -47,7 +47,7 @@ body {
   position: fixed;
   height: 100%;
   z-index: 10;
-  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
 }
 
 #leftSide a {
@@ -71,7 +71,8 @@ body {
   font-size: 25px;
 }
 
-#leftSide:hover, #leftSide:active {
+#leftSide:hover,
+#leftSide:active {
   width: 200px;
 }
 
@@ -152,6 +153,32 @@ footer {
 /* #UserPageInfo{
   background-color: #00ff40;
 } */
+
+#deleteBtn,
+#editBtn {
+  font-weight: bold;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 3px 8px 0 rgba(255, 255, 255, 0.15);
+  background: rgb(238, 224, 203);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 224, 203, 1) 0%,
+    rgb(240, 228, 211) 65%
+  );
+  border-radius: 5px;
+  color: var(--p1);
+  /* padding: 10px 15px; */
+  border: 0;
+  font-size: 16px;
+}
+
+#deleteBtn:hover,
+#deleteBtn:focus,
+#editBtn:hover,
+#editBtn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
+}
 
 /* ============================= login and sign up =========================== */
 .loginBody {
@@ -265,6 +292,43 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+/* ============================ Error Modal ======================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* ============================= Profile =========================== */
 
 #profileUsername,
@@ -290,22 +354,40 @@ header button:not(:disabled):focus {
   align-items: center;
   margin: 1% 1% 1% 1%;
   padding: 10px;
-  width: 100%;
+  width: 51%;
+  background-color: var(--p1);
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px #4b433d;
+}
+
+.row h3 {
+  color: var(--light);
+  text-shadow: 0.5px 0.5px 0.5px black;
+}
+
+#journalRow {
+  width: 90%;
 }
 
 .column {
   display: flex;
   flex-direction: column;
+
   flex-basis: 100%;
   flex: 1;
   align-items: flex-start;
   width: 100%;
 }
 
+.llamaColumn {
+  align-items: center;
+}
+
 #title-input {
   border-radius: 5px;
   width: 100%;
-  height: 40px;
+  max-width: 100%;
+  height: 30px;
   resize: none;
   border-color: var(--p1);
 }
@@ -316,7 +398,8 @@ header button:not(:disabled):focus {
 
 #post-input {
   border-radius: 5px;
-  width: 90%;
+  width: 98.6%;
+  max-width: 98.6%;
   height: 10vh;
   margin: 5px;
   border-color: var(--p1);
@@ -325,6 +408,11 @@ header button:not(:disabled):focus {
 #text {
   margin: 10px 0;
   padding: 0 10px;
+}
+
+#title-input:focus,
+#post-input:focus {
+  outline: solid 1px var(--p1);
 }
 
 .allPosts,
@@ -338,6 +426,7 @@ header button:not(:disabled):focus {
   border-radius: 5px;
   top: 0;
   width: 90%;
+  position: relative;
 }
 
 .allPosts h2,
@@ -351,7 +440,14 @@ header button:not(:disabled):focus {
   border-radius: 5px;
   padding: 5px;
   background-color: rgba(243, 232, 216, 0.677);
-  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81)
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
+}
+
+.post-box:hover,
+.post-box:focus {
+  box-shadow: 0 0 0 3px rgba(44, 43, 43, 0.2),
+    0 3px 10px 0 rgba(36, 36, 36, 0.15);
+  padding: 8px;
 }
 
 #title {
@@ -363,9 +459,41 @@ header button:not(:disabled):focus {
   margin: 10px 0;
 }
 
+#public:after,
+#anonymous:after,
+#private:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+#public:checked:after,
+#anonymous:checked:after,
+#private:checked:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--p2);
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
 /* =============== Llama ===================== */
 
-#sideLlamaCard:hover {
+.llamaClick:hover {
   cursor: pointer;
 }
 
@@ -420,6 +548,8 @@ header button:not(:disabled):focus {
   border: 0;
   font-size: 16px;
   width: 150px;
+  box-shadow: 0 0 0 2px rgba(48, 47, 47, 0.2),
+    0 3px 8px 0 rgba(89, 89, 89, 0.15);
 }
 
 #toEditBttn:not(:disabled):hover,
@@ -446,6 +576,11 @@ header button:not(:disabled):focus {
 #llamaCard img,
 #sideLlamaCard img {
   position: absolute;
+}
+
+#userLlamaPage {
+  display: flex;
+  align-items: center;
 }
 
 #llamaEdit,
@@ -541,6 +676,15 @@ progress::-webkit-progress-bar {
 #privacySelect {
   width: 35vw;
   margin: 5px;
+}
+
+#privacySelect {
+  background-color: white;
+  height: 50%;
+}
+
+legend {
+  /* background-color: white; */
 }
 
 /* Mood Wheel */
@@ -904,14 +1048,14 @@ progress::-webkit-progress-bar {
   width: 100%;
 }
 
-
-#userPageUsername, #userPageCurrentMood{
+#userPageUsername,
+#userPageCurrentMood {
   color: var(--light);
   text-align: center;
 }
 
 /* ================================================== */
-@media screen and (max-width:1050px) {
+@media screen and (max-width: 1050px) {
   #moodWheel {
     height: 80vw;
     width: 80vw;
@@ -925,7 +1069,7 @@ progress::-webkit-progress-bar {
   }
 }
 
-@media screen and (max-width:750px) {
+@media screen and (max-width: 750px) {
   #baseSection {
     flex-direction: column;
   }

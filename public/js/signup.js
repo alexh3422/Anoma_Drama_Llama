@@ -1,3 +1,21 @@
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
+document.getElementById("signUpBttn").addEventListener("click", (e) => {
+  e.preventDefault();
+  location.href = "/";
+});
+
+function errorMsg(alert) {
+  modal.style.display = "block";
+  modalContent.innerHTML = alert;
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
+
 document.querySelector("#signupForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.querySelector("#signupEmail").value;
@@ -5,19 +23,19 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
   const password = document.querySelector("#signupPassword").value;
 
   if (!email || !username || !password) {
-    alert("Please enter your email, username, and password.");
+    errorMsg("Please enter your email, username, and password.");
     return;
   }
 
   const emailRegex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!emailRegex.test(email)) {
-    alert("Invalid email. Please enter a valid email address.");
+    errorMsg("Invalid email. Please enter a valid email address.");
     return;
   }
 
   if (password.length < 8) {
-    alert("Password must be at least 8 characters long.");
+    errorMsg("Password must be at least 8 characters long.");
     return;
   }
 
@@ -39,9 +57,9 @@ document.querySelector("#signupForm").addEventListener("submit", (e) => {
       if (data.createdAt && data.id) {
         location.href = "/llama";
       } else if (data.original.errno === 1062 && data.fields.username) {
-        alert("Username already exists. Please choose another one.");
+        errorMsg("Username already exists. Please choose another one.");
       } else if (data.original.errno === 1062 && data.fields.email) {
-        alert("Email already exists. Please choose another one.");
+        errorMsg("Email already exists. Please choose another one.");
       }
     });
 });
