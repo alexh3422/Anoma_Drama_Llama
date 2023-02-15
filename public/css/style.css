@@ -65,7 +65,7 @@ body {
   font-size: 25px;
 }
 
-#leftSide:hover {
+#leftSide:hover, #leftSide:active {
   width: 200px;
 }
 
@@ -526,7 +526,7 @@ progress::-webkit-progress-bar {
 
 /* Mood Wheel */
 #moodWheel {
-  margin: 0;
+  margin: auto;
   /* display: flex; */
   display: none;
   justify-content: center;
@@ -536,7 +536,8 @@ progress::-webkit-progress-bar {
   width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
-  top: 0;
+  z-index: 100;
+  align-self: center;
 }
 
 #innerWheel {
@@ -552,7 +553,7 @@ progress::-webkit-progress-bar {
 
 .moodMiddle {
   position: absolute;
-  font-size: 4vw;
+  font-size: 3vw;
   border-radius: 50%;
   z-index: 20;
   cursor: pointer;
@@ -885,7 +886,21 @@ progress::-webkit-progress-bar {
 }
 
 /* ================================================== */
-@media screen and (max-width: 750px) {
+@media screen and (max-width:1050px) {
+  #moodWheel {
+    height: 80vw;
+    width: 80vw;
+    align-self: center;
+  }
+  #colorWheel span {
+    border-width: 38.5vw 7.7vw;
+  }
+  .moodMiddle {
+    font-size: 5.5vw;
+  }
+}
+
+@media screen and (max-width:750px) {
   #baseSection {
     flex-direction: column;
   }
