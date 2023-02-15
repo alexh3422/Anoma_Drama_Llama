@@ -20,8 +20,7 @@
 ## Installation
 
 - No installation required.
-- Just follow the link!  [Anoma Drama Llama](https://anomallama.herokuapp.com){:target="_blank" rel="noopener"}
-
+- Just follow the link! [Anoma Drama Llama](https://anomallama.herokuapp.com){:target="\_blank" rel="noopener"}
 
 ## Usage
 
