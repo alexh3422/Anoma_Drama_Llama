@@ -22,6 +22,18 @@ const userLlamaSrc = userLlamaColor.getAttribute("src");
 const userLlamaHat = document.querySelector("#userLlamaHat");
 const userLlamaHatSrc = userLlamaHat.getAttribute("src");
 const happiness = document.querySelector("#userLlamaHappiness");
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
+function errorMsg(alert) {
+  modal.style.display = "block";
+  modalContent.innerHTML = alert;
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}
 
 if (happiness.value == 10 || happiness.value == 9) {
   happiness.setAttribute("class", "green");
@@ -91,7 +103,7 @@ hatOption.addEventListener("change", function () {
 submit.addEventListener("click", (event) => {
   event.preventDefault();
   if (!llamaName.value) {
-    alert("Please enter a name for your llama.");
+    errorMsg("Please enter a name for your llama.");
     return;
   }
   if (!userLlamaName.innerHTML) {
@@ -114,7 +126,7 @@ submit.addEventListener("click", (event) => {
         userLlamaPage.style.display = "block";
         location.reload();
       } else {
-        alert("Llama could not be created, please try again.");
+        errorMsg("Llama could not be created, please try again.");
       }
     });
   } else {
@@ -136,7 +148,7 @@ submit.addEventListener("click", (event) => {
 
         location.reload();
       } else {
-        alert("Llama could not be updated, please try again.");
+        errorMsg("Llama could not be updated, please try again.");
       }
     });
   }

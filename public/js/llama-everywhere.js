@@ -105,6 +105,10 @@ function gifSwitchHat(time) {
   }, time);
 }
 
+if (!document.querySelector("#speechBubble").innerHTML) {
+  document.querySelector(".bubble").style.display = "none";
+}
+
 const getPostButton = document.querySelectorAll(".llamaListener");
 const sparkles = "images/pixel-llamas/sparkles.gif";
 
@@ -119,8 +123,32 @@ getPostButton.forEach((button) => {
         "images/pixel-llamas/no-hat.png";
     }, 3000);
   });
+  // if (window.location.pathname === "/journal") {
+  //   if (
+  //     document.querySelector("#title-input").value &&
+  //     document.querySelector("#post-input").value
+  //   ) {
+  //     button.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       gifSwitchLlama(3000);
+  //       gifSwitchHat(3000);
+  //       document.querySelector("#sparkles").src = sparkles;
+  //       setTimeout(() => {
+  //         document.querySelector("#sparkles").src =
+  //           "images/pixel-llamas/no-hat.png";
+  //       }, 3000);
+  //     });
+  //   }
+  // } else {
+  //   button.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     gifSwitchLlama(3000);
+  //     gifSwitchHat(3000);
+  //     document.querySelector("#sparkles").src = sparkles;
+  //     setTimeout(() => {
+  //       document.querySelector("#sparkles").src =
+  //         "images/pixel-llamas/no-hat.png";
+  //     }, 3000);
+  //   });
+  // }
 });
-
-if (!document.querySelector("#speechBubble").innerHTML) {
-  document.querySelector(".bubble").style.display = "none";
-}
