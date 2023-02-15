@@ -287,7 +287,9 @@ editBtn.forEach(button => {
       const post = previousEl.previousElementSibling.innerHTML;
       const newText = document.createElement("textarea");
       const updateBtn = document.createElement("button");
-
+      const deleteBtn = button.nextElementSibling;
+      
+      deleteBtn.setAttribute("class", "hide");
       button.textContent = "Cancel";
       
       newText.innerHTML = post;
