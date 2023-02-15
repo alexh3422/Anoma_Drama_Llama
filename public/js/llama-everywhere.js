@@ -35,6 +35,8 @@ fetch("/sessions", {
           } else if (happiness.value == 1) {
             happiness.setAttribute("class", "red");
           }
+        } else if (!llamaData.llama) {
+          document.querySelector("#rightSide").style.display = "none";
         }
       });
   });

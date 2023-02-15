@@ -352,7 +352,15 @@ header button:not(:disabled):focus {
   align-items: flex-start;
   width: 100%;
 }
+<<<<<<< HEAD
+
+.llamaColumn {
+  align-items: center;
+}
+
+=======
   
+>>>>>>> dev
 #title-input {
   border-radius: 5px;
   width: 100%;
@@ -395,6 +403,7 @@ header button:not(:disabled):focus {
   border-radius: 5px;
   top: 0;
   width: 90%;
+  position: relative;
 }
 
 .allPosts h2,
@@ -411,6 +420,13 @@ header button:not(:disabled):focus {
   box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
 }
 
+.post-box:hover,
+.post-box:focus {
+  box-shadow: 0 0 0 5px rgba(44, 43, 43, 0.2),
+    0 3px 8px 0 rgba(36, 36, 36, 0.15);
+  padding: 10px;
+}
+
 #title {
   font-weight: bold;
   color: var(--p1);
@@ -418,6 +434,38 @@ header button:not(:disabled):focus {
 
 #postUsername {
   margin: 10px 0;
+}
+
+#public:after,
+#anonymous:after,
+#private:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+#public:checked:after,
+#anonymous:checked:after,
+#private:checked:after {
+  width: 13px;
+  height: 13px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: var(--p2);
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
 }
 
 /* =============== Llama ===================== */
@@ -477,6 +525,8 @@ header button:not(:disabled):focus {
   border: 0;
   font-size: 16px;
   width: 150px;
+  box-shadow: 0 0 0 2px rgba(48, 47, 47, 0.2),
+    0 3px 8px 0 rgba(89, 89, 89, 0.15);
 }
 
 #toEditBttn:not(:disabled):hover,
@@ -503,6 +553,11 @@ header button:not(:disabled):focus {
 #llamaCard img,
 #sideLlamaCard img {
   position: absolute;
+}
+
+#userLlamaPage {
+  display: flex;
+  align-items: center;
 }
 
 #llamaEdit,
@@ -602,10 +657,11 @@ progress::-webkit-progress-bar {
 
 #privacySelect {
   background-color: white;
+  height: 50%;
 }
 
 legend {
-  background-color: white;
+  /* background-color: white; */
 }
 
 /* Mood Wheel */
