@@ -20,7 +20,7 @@
 ## Installation
 
 - No installation required.
-- Just follow the link! [Anoma Drama Llama](https://anomallama.herokuapp.com){:target="\_blank" rel="noopener"}
+- Just follow this link! [Anoma Drama Llama](https://anomallama.herokuapp.com)
 
 ## Usage
 
@@ -38,7 +38,9 @@
 
 - Your Moods: Here you'll have two charts if you have logged any moods, along with your mood history listed below1. The first chart allows you to order by post, hour, day, week, month or year so that you can get a clear picture of your mood habits at a specific time span. The second shows an overall chart of your moods so you can see what is your most and least commonly logged emotion.
 
-  ![screenshot]()
+ <img width="1187" alt="Screenshot 2023-02-14 at 9 35 43 PM" src="https://user-images.githubusercontent.com/115325648/218942088-e65da350-8e64-4686-ae9d-573c13f68147.png">
+
+<img width="322" alt="Screenshot 2023-02-14 at 9 36 15 PM" src="https://user-images.githubusercontent.com/115325648/218942134-f08f7d53-19aa-44fc-8af1-a66a0646d8b7.png">
 
 ## Credits
 
@@ -52,8 +54,9 @@ THIRD-PARTY ASSETS
 ## License
 
 MIT License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2023 Alex Hall
+Copyright (c) 2023 Alex Hall, Andy Barringer, Feliclare De Jesus, Maya Lynn Cohen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
