@@ -282,26 +282,31 @@ const deleteBtn = document.querySelectorAll("#deleteBtn")
 editBtn.forEach(button => {
   button.addEventListener("click", () => {
     if (button.textContent === "Edit") {
-      const p = document.getElementById("text");
-      const post = document.getElementById("text").innerHTML;
+      const previousEl= button.previousElementSibling;
+      const p = previousEl.previousElementSibling;
+      const post = previousEl.previousElementSibling.innerHTML;
       const newText = document.createElement("textarea");
+      const updateBtn = document.createElement("button");
 
       button.textContent = "Cancel";
       
       newText.innerHTML = post;
       newText.setAttribute("id", "post-input");
       p.replaceWith(newText);
-
-      const updateBtn = document.createElement("button");
+      
       updateBtn.innerHTML = "Update";
       updateBtn.setAttribute("id", "updateBtn");
       button.parentElement.append(updateBtn);
 
       updateBtn.addEventListener("click", () => {
         const id = button.getAttribute("post-id");
+        const postObj = {
+          text: previousEl.previousElementSibling.value
+        }
+        console.log(postObj)
         fetch(`/api/posts/${id}`, {
           method: "PUT",
-          body: JSON.stringify(text),
+          body: JSON.stringify(postObj),
           headers: {
             "Content-Type": "application/json"
           }
