@@ -23,7 +23,6 @@ fetch('/api/moods/user', {
     dayjs.extend(window.dayjs_plugin_minMax)
     dayjs.extend(window.dayjs_plugin_weekOfYear)
 
-
     class Track {
         constructor(x, y, name, type, marker) {
             this.x = x;
@@ -82,13 +81,10 @@ fetch('/api/moods/user', {
         byPost.push(dayjs(timeStamp).format("YYYY-MM-DD, HH:mm"));
         hourly.push(dayjs(timeStamp).format("MMM DD YYYY, HH:00"));
         daily.push(dayjs(timeStamp).format("MMM DD YYYY"));
-        weekly.push(dayjs(timeStamp).week());
+        weekly.push("Week " + dayjs(timeStamp).week());
         monthly.push(dayjs(timeStamp).format("MMMM"));
         yearly.push(dayjs(timeStamp).format("YYYY"));
-
     })
-
-
 
     let dataByEntry = []
 
@@ -103,7 +99,6 @@ fetch('/api/moods/user', {
         "#9f2d7b", "#842d9f", "#622d9f", "#3c236f", "#2d5b9f", "#2d709f"]
 
     let colorPosition = colors.length - 1;
-
 
     allEmotions.forEach(mood => {
         const yArr = [];
@@ -125,50 +120,54 @@ fetch('/api/moods/user', {
 
     })
 
-
-     var pieData = [{
+    var pieData = [{
         values: allValues,
         labels: allEmotions,
         type: 'pie',
         marker: {
             colors: colors.reverse()
-        }
+        },
+        textinfo: "label+percent",
+        textposition: "inside",
     }];
 
-
     var layout = {
-        height: 400,
-        width: 500
-    };
+        showlegend: false
+    }
 
-    Plotly.newPlot('pieChart', pieData, layout);
+const config2 = { responsive: true, scrollZoom: true }
+Plotly.newPlot('pieChart', pieData, layout, config2);
 
-    // var barData = dataByEntry;
+var config = { responsive: true, scrollZoom: true }
 
-    var barLayout = {
-        barmode: 'stack',
-        title: 'Scroll and Zoom'
-    };
+var barLayout = {
+    barmode: 'stack',
+    legend: {
+        "orientation": "h",
+        // x: 1,
+        y: 2
+    }
+};
 
-    Plotly.newPlot('barChart', dataByEntry, barLayout, { scrollZoom: true });
+Plotly.newPlot('barChart', dataByEntry, barLayout, config);
 
-    const orderBy = document.querySelector("#orderDate")
+const orderBy = document.querySelector("#orderData")
 
-    orderBy.addEventListener("change", () => {
+orderBy.addEventListener("change", () => {
 
-        document.querySelector(".plot-container").remove()
-        if(orderBy.value==="post"){
-            Plotly.newPlot('barChart', byPostData, barLayout, { scrollZoom: true });
-        } else if(orderBy.value==="hourly"){
-            Plotly.newPlot('barChart', hourlyData, barLayout, { scrollZoom: true });
-        } else if(orderBy.value==="daily"){
-            Plotly.newPlot('barChart', dailyData, barLayout, { scrollZoom: true });
-        } else if(orderBy.value==="weekly"){
-            Plotly.newPlot('barChart', weeklyData, barLayout, { scrollZoom: true });
-        } else if(orderBy.value==="monthly"){
-            Plotly.newPlot('barChart', monthlyData, barLayout, { scrollZoom: true });
-        } else if(orderBy.value==="yearly"){
-            Plotly.newPlot('barChart', yearlyData, barLayout, { scrollZoom: true });
-        }
-    })
+    document.querySelector(".plot-container").remove()
+    if (orderBy.value === "post") {
+        Plotly.newPlot('barChart', byPostData, barLayout, config);
+    } else if (orderBy.value === "hourly") {
+        Plotly.newPlot('barChart', hourlyData, barLayout, config);
+    } else if (orderBy.value === "daily") {
+        Plotly.newPlot('barChart', dailyData, barLayout, config);
+    } else if (orderBy.value === "weekly") {
+        Plotly.newPlot('barChart', weeklyData, barLayout, config);
+    } else if (orderBy.value === "monthly") {
+        Plotly.newPlot('barChart', monthlyData, barLayout, config);
+    } else if (orderBy.value === "yearly") {
+        Plotly.newPlot('barChart', yearlyData, barLayout, config);
+    }
+})
 })
