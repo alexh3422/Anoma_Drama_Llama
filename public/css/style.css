@@ -156,7 +156,8 @@ footer {
 } */
 
 #deleteBtn,
-#editBtn {
+#editBtn,
+#updateBtn {
   font-weight: bold;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2),
     0 3px 8px 0 rgba(255, 255, 255, 0.15);
@@ -409,6 +410,7 @@ header button:not(:disabled):focus {
   height: 10vh;
   margin: 5px;
   border-color: var(--p1);
+  resize: vertical;
 }
 
 #text {
@@ -498,6 +500,18 @@ header button:not(:disabled):focus {
 }
 
 /* =============== Llama ===================== */
+
+#profileLlama {
+  background-color: #00ff40;
+  position: relative;
+}
+
+#profileLlamaColor,
+#profileLlamaHat {
+  width: 50px;
+  position: absolute;
+  right: 5px;
+}
 
 .llamaClick:hover {
   cursor: pointer;

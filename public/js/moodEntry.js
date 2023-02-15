@@ -105,6 +105,7 @@ backgroundCover.addEventListener("click", (event) => {
   moodWheel.style.display = "none";
   trackEmotions();
   changeTitle();
+  document.querySelector(".bubble").style.display = "none";
 });
 
 const trackMoodBtn = document.querySelector("#trackMoodBtn");

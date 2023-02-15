@@ -94,6 +94,7 @@ backgroundCover.addEventListener("click", (event) => {
   trackEmotions();
   changeTitle();
   changeBoxColor();
+  document.querySelector(".bubble").style.display = "none";
 });
 
 const trackMoodBtn = document.querySelector("#trackMoodBtn");
