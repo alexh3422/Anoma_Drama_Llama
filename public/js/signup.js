@@ -1,6 +1,11 @@
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 
+document.getElementById("signUpBttn").addEventListener("click", (e) => {
+  e.preventDefault();
+  location.href = "/";
+});
+
 function errorMsg(alert) {
   modal.style.display = "block";
   modalContent.innerHTML = alert;

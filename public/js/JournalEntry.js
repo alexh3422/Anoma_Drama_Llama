@@ -220,10 +220,33 @@ sumbitBtn.addEventListener("click", (e) => {
           post.createdAt
         ).format("MMM DD YYYY, HH:mm")}`;
 
+        // Create the delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.setAttribute("id", "deleteBtn");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", () => {
+          fetch(`api/posts/${post.id}`, {
+            method: "DELETE",
+          }).then((res) => {
+            if (res.ok) {
+              thisPostDiv.remove();
+            } else {
+              errorMsg("Error");
+            }
+          });
+        });
+
+        const editBtn = document.createElement("button");
+        editBtn.setAttribute("id", "editBtn");
+        editBtn.textContent = "Edit";
+        editBtn.addEventListener("click", () => {});
+
         thisPostDiv.appendChild(postUser);
         thisPostDiv.appendChild(postTitle);
         thisPostDiv.appendChild(postText);
         thisPostDiv.appendChild(postMoodsAndDate);
+        thisPostDiv.appendChild(editBtn);
+        thisPostDiv.appendChild(deleteBtn);
 
         allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
 
