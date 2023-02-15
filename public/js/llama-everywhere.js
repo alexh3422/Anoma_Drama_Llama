@@ -39,7 +39,7 @@ fetch("/sessions", {
       });
   });
 
-function gifSwitchLlama() {
+function gifSwitchLlama(time) {
   if (document.querySelector("#userLlamaColor").src.includes("llama01.png")) {
     document.querySelector("#userLlamaColor").src =
       "images/pixel-llamas/llama01.gif";
@@ -69,10 +69,10 @@ function gifSwitchLlama() {
       document.querySelector("#userLlamaColor").src =
         "images/pixel-llamas/llama03.png";
     }
-  }, 3000);
+  }, time);
 }
 
-function gifSwitchHat() {
+function gifSwitchHat(time) {
   if (document.querySelector("#userLlamaHat").src.includes("hat01.png")) {
     document.querySelector("#userLlamaHat").src =
       "images/pixel-llamas/hat01.gif";
@@ -102,7 +102,7 @@ function gifSwitchHat() {
       document.querySelector("#userLlamaHat").src =
         "images/pixel-llamas/hat03.png";
     }
-  }, 3000);
+  }, time);
 }
 
 const getPostButton = document.querySelectorAll(".llamaListener");
@@ -111,8 +111,8 @@ const sparkles = "images/pixel-llamas/sparkles.gif";
 getPostButton.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    gifSwitchLlama();
-    gifSwitchHat();
+    gifSwitchLlama(3000);
+    gifSwitchHat(3000);
     document.querySelector("#sparkles").src = sparkles;
     setTimeout(() => {
       document.querySelector("#sparkles").src =
