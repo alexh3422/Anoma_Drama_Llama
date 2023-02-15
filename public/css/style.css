@@ -703,10 +703,6 @@ progress::-webkit-progress-bar {
   height: 50%;
 }
 
-legend {
-  /* background-color: white; */
-}
-
 /* Mood Wheel */
 #moodWheel {
   margin: auto;
