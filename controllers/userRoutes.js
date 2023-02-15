@@ -42,7 +42,7 @@ router.post("/", (req, res) => {
 router.get("/currentUser", (req, res) => {
   Users.findOne({
     where: {
-      id: req.sessions.userId,
+      id: req.session.userId,
     },
     attributes: { exclude: ["password"] },
     include: [Posts, Comments],
