@@ -43,6 +43,11 @@ router.get("/home", (req, res) => {
   }
 });
 
+
+
+
+
+
 router.get("/journal", (req, res) => {
   if (!req.session.userId) {
     res.redirect("/login");
