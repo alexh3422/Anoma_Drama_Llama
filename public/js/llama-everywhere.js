@@ -109,16 +109,19 @@ const getPostButton = document.querySelectorAll(".llamaListener");
 const sparkles = "images/pixel-llamas/sparkles.gif";
 
 getPostButton.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    gifSwitchLlama(3000);
-    gifSwitchHat(3000);
-    document.querySelector("#sparkles").src = sparkles;
-    setTimeout(() => {
-      document.querySelector("#sparkles").src =
-        "images/pixel-llamas/no-hat.png";
-    }, 3000);
-  });
+  if (window.location.pathname === "/journal") {
+  } else {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      gifSwitchLlama(3000);
+      gifSwitchHat(3000);
+      document.querySelector("#sparkles").src = sparkles;
+      setTimeout(() => {
+        document.querySelector("#sparkles").src =
+          "images/pixel-llamas/no-hat.png";
+      }, 3000);
+    });
+  }
 });
 
 if (!document.querySelector("#speechBubble").innerHTML) {
