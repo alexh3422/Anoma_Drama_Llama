@@ -27,6 +27,7 @@
 - New users will be directed to the home page where they can see public and anonymous posts by other users. If you want to access the Llama virtual pet, Journal or Mood features you will need to sign in or create an account. Attempting these options will direct you to the login page where you can enter your credentials or create a new account.
 
 - Llama: If a new account has been created the user will be directed to the "Customize Your Llama" page. You'll need to give your new llama friend a name and choose their color and accessory. Once you have finished you can select "Submit" and you'll be taken to the Llama page where you can admire your new friend and view their happiness level.
+  <img width="322" alt="Screenshot 2023-02-14 at 9 36 15 PM" src="https://user-images.githubusercontent.com/115325648/218942134-f08f7d53-19aa-44fc-8af1-a66a0646d8b7.png">
 
   - Llama Happiness: Your llama will become happier and stay happy as long as you keep them fed by posting journal updates and tracking your mood. A journal post will increase happiness by two points, and a mood entry will increase it by one point. Happiness will decrease by one point every two hours.
 
@@ -39,8 +40,6 @@
 - Your Moods: Here you'll have two charts if you have logged any moods, along with your mood history listed below1. The first chart allows you to order by post, hour, day, week, month or year so that you can get a clear picture of your mood habits at a specific time span. The second shows an overall chart of your moods so you can see what is your most and least commonly logged emotion.
 
  <img width="1187" alt="Screenshot 2023-02-14 at 9 35 43 PM" src="https://user-images.githubusercontent.com/115325648/218942088-e65da350-8e64-4686-ae9d-573c13f68147.png">
-
-<img width="322" alt="Screenshot 2023-02-14 at 9 36 15 PM" src="https://user-images.githubusercontent.com/115325648/218942134-f08f7d53-19aa-44fc-8af1-a66a0646d8b7.png">
 
 ## Credits
 

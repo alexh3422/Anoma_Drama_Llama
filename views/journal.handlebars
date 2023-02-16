@@ -13,19 +13,19 @@
   </div>
   </form>
 
-  <div class="allPosts">
-    <h2>All Your Drama</h2>
-    {{#each userPosts}}
-    <div class="post-box" post-id={{id}}>
-      <p id="postUsername">Your Drama:</p>
-      <p id="title" post-id={{id}}>"{{title}}"</p>
-      <p id="text" post-id={{id}}>{{text}}</p>
-      <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
-      <button id="editBtn" post-id={{id}}>Edit</button>
-      <button id="deleteBtn" post-id={{id}}>Delete</button>
-    </div>
-    {{/each}}
+<div class="allPosts">
+  <h2>All Your Drama</h2>
+  {{#each userPosts}}
+  <div class="post-box" post-id={{id}}>
+    <p id="postUsername">Your Drama:</p>
+    <p id="title" post-id={{id}}>{{title}}</p>
+    <p id="text" post-id={{id}}>{{text}}</p>
+    <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
+    <button id="editBtn" post-id={{id}}>Edit</button>
+    <button id="deleteBtn" post-id={{id}}>Delete</button>
   </div>
+  {{/each}}
+</div>
 </div>
 
 <div class="modal">
