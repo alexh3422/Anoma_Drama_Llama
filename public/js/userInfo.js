@@ -9,6 +9,29 @@ fetch('/sessions', {
         }).then(res => {
             return res.json()
         }).then(data=>{
+            fetch('/api/users', {
+                method:"GET"
+              }).then(res => {
+                return res.json()
+              }).then(allUsers => {
+                let counter = 0
+                
+                allUsers.forEach(user => {
+                  console.log(user.currentMood)
+                  if(user.currentMood===data.currentMood){
+                    counter++
+                  }
+                })
+                if(counter>2){
+                  document.querySelector("#sameMood").textContent = `You and ${counter-1} other users are feeling ${data.currentMood}`
+                } else if (counter>1){
+                  document.querySelector("#sameMood").textContent = `You and ${counter-1} other user are feeling ${data.currentMood}`
+                } else {
+                  document.querySelector("#sameMood").textContent = ``
+                }
+              })
+
+
             const userNameandInfo = document.querySelector("#userPageUsername")
             const moodInfo = document.querySelector("#userPageCurrentMood")
             userNameandInfo.textContent = `Hi ${data.username}`

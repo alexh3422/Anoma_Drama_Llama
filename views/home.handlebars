@@ -1,13 +1,13 @@
 <div>
-  {{#if currentUserMood}}
-<div class="column {{currentUserMood}}Border">
- <div class="moodSelector {{currentUserMood}}">
+  {{#if currentUserMood.userUserMood}}
+  <div class="column {{currentUserMood.userUserMood}}Border">
+ <div class="moodSelector {{currentUserMood.userUserMood}}">
 {{else}}
 <div class="column">
  <div class="moodSelector default">
   {{/if}}
       {{>mood-wheel}} 
-      {{#if currentUserMood}}
+      {{#if currentUserMood.userUserMood}}
       <p id="sameMood">{{sameMood}}</p>
       {{else}}
       <p id="sameMood">You haven't set a current mood yet</p>
