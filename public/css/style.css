@@ -630,6 +630,11 @@ header button:not(:disabled):focus {
   position: absolute;
 }
 
+#sideLlamaCard img {
+  transform: scale(1.5);
+  margin-bottom: 50px;
+}
+
 #userLlamaPage {
   display: flex;
   align-items: center;
@@ -640,11 +645,17 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+#sideLlamaHappiness {
+}
+
+#userLlamaHappiness {
+  position: relative;
+}
+
 #userLlamaHappiness,
 #sideLlamaHappiness {
   height: 12px;
   display: block;
-  position: relative;
   background: var(--p1);
   padding: 1px;
 }
@@ -689,12 +700,13 @@ progress::-webkit-progress-bar {
   position: absolute;
   background: #eeeee8;
   border: 1px solid var(--p1);
-  max-width: 250px;
+  width: 230px;
   padding: 10px;
   margin: 10px;
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 5px;
-  bottom: 220px;
+  bottom: 300px;
+  right: 0vh;
 }
 
 .bubble:after,
