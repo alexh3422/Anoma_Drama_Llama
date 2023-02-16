@@ -284,29 +284,41 @@ editBtn.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.textContent === "Edit") {
       const previousEl = button.previousElementSibling;
-      const p = previousEl.previousElementSibling;
+      const pText = previousEl.previousElementSibling;
       const post = previousEl.previousElementSibling.innerHTML;
+
+      const titleEl= pText.previousElementSibling;
+      const title = pText.previousElementSibling.innerHTML;
+
       const newText = document.createElement("textarea");
+      const newTitle = document.createElement("textarea");
       const updateBtn = document.createElement("button");
       const deleteBtn = button.nextElementSibling;
 
-      deleteBtn.setAttribute("class", "hide");
       button.textContent = "Cancel";
-
+      deleteBtn.setAttribute("class", "hide");
+      
       newText.innerHTML = post;
       newText.setAttribute("id", "post-input");
-      p.replaceWith(newText);
+      pText.replaceWith(newText);
 
+      newTitle.innerHTML = title;
+      newTitle.setAttribute("id","title-input")
+      newTitle.setAttribute("class","newtitle-input")
+      titleEl.replaceWith(newTitle);
+        
       updateBtn.innerHTML = "Update";
       updateBtn.setAttribute("id", "updateBtn");
       button.parentElement.append(updateBtn);
 
       updateBtn.addEventListener("click", () => {
+        const titleTwo = document.querySelector(".newtitle-input")
         const id = button.getAttribute("post-id");
         const postObj = {
-          text: previousEl.previousElementSibling.value,
+          title: titleTwo.value,
+          text: previousEl.previousElementSibling.value, 
         };
-        console.log(postObj);
+          console.log(postObj)
         fetch(`/api/posts/${id}`, {
           method: "PUT",
           body: JSON.stringify(postObj),
