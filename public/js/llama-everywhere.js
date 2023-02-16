@@ -74,6 +74,11 @@ function gifSwitchLlama(time) {
   ) {
     document.querySelector("#userLlamaColor").src =
       "images/pixel-llamas/llama06.gif";
+  } else if (
+    document.querySelector("#userLlamaColor").src.includes("llama07.png")
+  ) {
+    document.querySelector("#userLlamaColor").src =
+      "images/pixel-llamas/llama07.gif";
   }
   setTimeout(() => {
     if (document.querySelector("#userLlamaColor").src.includes("llama01.gif")) {
@@ -104,6 +109,11 @@ function gifSwitchLlama(time) {
     ) {
       document.querySelector("#userLlamaColor").src =
         "images/pixel-llamas/llama06.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama07.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama07.png";
     }
   }, time);
 }
