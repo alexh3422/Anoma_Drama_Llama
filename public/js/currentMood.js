@@ -86,10 +86,10 @@ emotions.forEach((emotion) => {
   emotion.nameOnhover();
 });
 
-const backgroundCover = document.querySelector("#backgroundCover");
+const clickCover = document.querySelector("#clickCover");
 const moodWheel = document.querySelector("#moodWheelFullScreen");
 
-backgroundCover.addEventListener("click", (event) => {
+clickCover.addEventListener("click", (event) => {
   event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
@@ -110,14 +110,32 @@ let emotionsToTrack = [];
 let feelings = emotionsToTrack;
 
 const changeBoxColor = () => {
-  const boxes = document.querySelectorAll('.moodSelector')
-  boxes.forEach(box => {
-    box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
-  });
-  const boxBorder = document.querySelectorAll(".column")
-            boxBorder.forEach(border => {
-                border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
-            })
+  fetch('/sessions', {
+    method: "GET"
+}).then(res => {
+    return res.json()
+}).then(data => {
+  console.log(data.userUserMood)
+  if (emotionsToTrack.length > 0) {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+    border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
+    })
+  } else {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${data.userUserMood}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+      border.setAttribute("class", `column ${data.userUserMood}Border`)
+    })
+  }
+})
 }
 
 const trackEmotions = () => {

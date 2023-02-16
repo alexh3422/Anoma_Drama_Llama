@@ -130,13 +130,22 @@ main {
   margin-bottom: 100px;
 }
 
+#clickCover{
+  z-index: 19;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 #rightSide {
   width: 200px;
   /* background-color: var(--light); */
   position: fixed;
   right: 0;
   height: 100%;
-  z-index: 100;
+  z-index: 17;
 }
 
 footer {
@@ -155,8 +164,8 @@ footer {
 #emoji {
   position: absolute;
   right: 15px;
-  top: 5px;
-  font-size: 25px;
+  top: 15px;
+  font-size: 30px;
 }
 
 #deleteBtn,
@@ -335,22 +344,6 @@ header button:not(:disabled):focus {
   cursor: pointer;
 }
 
-/* ============================= Profile =========================== */
-
-#profileUsername,
-#userInfo {
-  /* background: var(--p2); */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 1% 1% 0% 1%;
-  min-height: 5vh;
-  min-width: 20vw;
-  border-radius: 5px;
-  text-align: center;
-  /* width: 90%; */
-}
-
 /* ============================= journal/posts =========================== */
 .row {
   display: flex;
@@ -387,8 +380,9 @@ header button:not(:disabled):focus {
   flex: 1;
   border-radius: 5px;
   align-items: flex-start;
-  width: 90%;
-  margin-left: 5%;
+  width: 95%;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .llamaColumn {
@@ -455,6 +449,10 @@ header button:not(:disabled):focus {
   color: var(--light);
   right: 20px;
   top: 10px;
+}
+
+#moodTitle {
+  color: var(--light);
 }
 
 .allPosts h2,
@@ -632,7 +630,7 @@ header button:not(:disabled):focus {
 
 #sideLlamaCard img {
   transform: scale(1.5);
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 #userLlamaPage {
@@ -645,8 +643,6 @@ header button:not(:disabled):focus {
   display: none;
 }
 
-#sideLlamaHappiness {
-}
 
 #userLlamaHappiness {
   position: relative;
@@ -662,7 +658,7 @@ header button:not(:disabled):focus {
 
 #sideLlamaHappiness {
   position: absolute;
-  bottom: 10;
+  bottom: 50px;
 }
 
 progress.green::-webkit-progress-value {
@@ -757,11 +753,11 @@ progress::-webkit-progress-bar {
   top: -1.2%;
   left: -3%;
   justify-content: center;
-  align-items: center;
+  /* align-items: flex-start; */
 }
 
 #moodWheel {
-  padding: auto;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -770,8 +766,11 @@ progress::-webkit-progress-bar {
   width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
-  z-index: 100;
+  z-index: 200;
   /* text-align: center; */
+  top: 50px;
+  margin: 0;
+  margin-right: 10%;
 }
 
 #innerWheel {
@@ -1331,7 +1330,15 @@ progress::-webkit-progress-bar {
   width: 100%;
 }
 
-#userPageUsername,
+#userPageUsername{
+  color: var(--light);
+}
+
+#UserPageInfo {
+  margin-right: 50px;
+}
+
+
 #userPageCurrentMood {
   color: var(--light);
   text-align: center;
@@ -1411,6 +1418,10 @@ progress::-webkit-progress-bar {
     height: 50px;
   }
 
+  .column{
+    margin: auto;
+  }
+
   main {
     margin: 10px;
     top: 80px;
@@ -1427,11 +1438,12 @@ progress::-webkit-progress-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 100;
   }
   #sideLlamaCard img {
     width: 150px;
-    bottom: 40px;
-    right: -25px;
+    bottom: 0;
+    right: 0;
   }
   #sideLlamaHappiness {
     bottom: 30px;
@@ -1450,9 +1462,9 @@ progress::-webkit-progress-bar {
   .bubble {
     max-width: 60vw;
     margin: 0px;
-    font-size: 10px;
-    bottom: 50px;
-    left: 20px;
+    font-size: 15px;
+    bottom: 100px;
+    right: 30%;
   }
   .bubble:after,
   .bubble:before {
