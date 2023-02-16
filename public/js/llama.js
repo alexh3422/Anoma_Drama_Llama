@@ -1,6 +1,10 @@
 const llamaGrey = "images/pixel-llamas/llama01.png";
 const llamaBrown = "images/pixel-llamas/llama02.png";
 const llamaWhite = "images/pixel-llamas/llama03.png";
+const llamaPink = "images/pixel-llamas/llama04.png";
+const llamaBlue = "images/pixel-llamas/llama05.png";
+const llamaGreen = "images/pixel-llamas/llama06.png";
+const llamaSalmon = "images/pixel-llamas/llama07.png";
 const hatCowboy = "images/pixel-llamas/hat01.png";
 const hatCrown = "images/pixel-llamas/hat02.png";
 const hatWizard = "images/pixel-llamas/hat03.png";
@@ -75,6 +79,14 @@ function chooseLlama() {
     llama.src = llamaBrown;
   } else if (colorOption.value == "white") {
     llama.src = llamaWhite;
+  } else if (colorOption.value == "pink") {
+    llama.src = llamaPink;
+  } else if (colorOption.value == "blue") {
+    llama.src = llamaBlue;
+  } else if (colorOption.value == "green") {
+    llama.src = llamaGreen;
+  } else if (colorOption.value == "salmon") {
+    llama.src = llamaSalmon;
   } else {
     console.log("no such color");
   }

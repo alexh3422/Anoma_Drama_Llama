@@ -19,23 +19,36 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  Posts.findAll({
-    include: [Users],
-  }).then((PostData) => {
-    const hbsPost = PostData.map((Post) => Post.toJSON());
-    const allPublicPosts = hbsPost.filter(
-      (post) => post.visibility === "public" || post.visibility === "anonymous"
-    );
-    allPublicPosts.map((post) => {
-      if (post.visibility === "anonymous") {
-        post.user["username"] = "Someone";
-      }
-      console.log(post.user);
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    Posts.findAll({
+      include: [
+        {
+          model: Users,
+          include: {
+            model: Llama,
+          },
+        },
+      ],
+    }).then((PostData) => {
+      console.log(PostData);
+      const hbsPost = PostData.map((Post) => Post.toJSON());
+      const allPublicPosts = hbsPost.filter(
+        (post) =>
+          post.visibility === "public" || post.visibility === "anonymous"
+      );
+      allPublicPosts.map((post) => {
+        if (post.visibility === "anonymous") {
+          post.user["username"] = "Someone";
+        }
+        console.log(post.user);
+      });
+      res.render("home", {
+        allPosts: allPublicPosts.reverse(),
+      });
     });
-    res.render("home", {
-      allPosts: allPublicPosts.reverse(),
-    });
-  });
+  }
 });
 
 router.get("/journal", (req, res) => {
