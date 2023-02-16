@@ -1,6 +1,6 @@
 <div class="column">
   <div id="userInfo" userId="{{user.id}}">
-    <h2>{{user.username}}</h2>
+    <h1>Welcome {{user.username}}</h1>
     {{#if user.currentMood}}
     <p>Your current mood is: {{user.currentMood}}</p>
     {{else}}
@@ -8,7 +8,9 @@
     {{/if}}
   </div>
 
-  {{> mood-wheel}}
+  <div class="moodSelector default">
+    {{> mood-wheel}}
+  </div>
 
   <div class="allPosts">
     <h2>Your Drama</h2>

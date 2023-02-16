@@ -65,7 +65,7 @@ const emotions = [
   new Emotion("annoyed", "color16"),
 ];
 
-const moodWheel = document.querySelector("#moodWheel");
+const moodWheel = document.querySelector("#moodWheelFullScreen");
 
 if (moodWheel.getAttribute("wheelMode") === "single") {
   emotions.forEach((emotion) => {

@@ -31,15 +31,21 @@ router.get("/home", (req, res) => {
           },
         },
       ],
-    }).then((PostData) => {
-      const hbsPost = PostData.map((Post) => Post.toJSON());
+    }).then((postData) => {
+      const hbsPost = postData.map((Post) => Post.toJSON());
       const allPublicPosts = hbsPost.filter(
         (post) =>
           post.visibility === "public" || post.visibility === "anonymous"
       );
       allPublicPosts.map((post) => {
         if (post.visibility === "anonymous") {
-          post.user["username"] = "Someone";
+            post.user["username"] = "Someone's";
+        } else {
+          if(post.user.username == req.session.userUsername){
+            post.user["username"] = "Your";
+          } else {
+            post.user["username"] = `${post.user.username}'s`;
+          }
         }
       });
       res.render("home", {
