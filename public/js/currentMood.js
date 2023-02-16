@@ -115,8 +115,8 @@ const changeBoxColor = () => {
 }).then(res => {
     return res.json()
 }).then(data => {
-  console.log(data)
-  if (emotions.length > 0) {
+  console.log(data.userUserMood)
+  if (emotionsToTrack.length > 0) {
     const boxes = document.querySelectorAll('.moodSelector')
     boxes.forEach(box => {
       box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
@@ -128,11 +128,11 @@ const changeBoxColor = () => {
   } else {
     const boxes = document.querySelectorAll('.moodSelector')
     boxes.forEach(box => {
-      box.setAttribute("class", `moodSelector ${data.currentMood}`)
+      box.setAttribute("class", `moodSelector ${data.userUserMood}`)
     });
     const boxBorder = document.querySelectorAll(".column")
     boxBorder.forEach(border => {
-      border.setAttribute("class", `column ${data.currentMood}Border`)
+      border.setAttribute("class", `column ${data.userUserMood}Border`)
     })
   }
 })

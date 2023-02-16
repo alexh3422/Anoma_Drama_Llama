@@ -57,7 +57,7 @@ router.get("/home", (req, res) => {
           }
         });
         let sameMoodText = "";
-        if (counter > 0) {
+        if (counter > 1) {
           sameMoodText = `You and ${counter - 1} other user are feeling ${
             req.session.userUserMood
           }`;

@@ -65,7 +65,8 @@ const emotions = [
   new Emotion("annoyed", "color16"),
 ];
 
-const moodWheel = document.querySelector("#moodWheelFullScreen");
+const moodWheel = document.querySelector("#moodWheel");
+const moodWheelScreen = document.querySelector("#moodWheelFullScreen");
 
 if (moodWheel.getAttribute("wheelMode") === "single") {
   emotions.forEach((emotion) => {
@@ -82,7 +83,7 @@ if (moodWheel.getAttribute("wheelMode") === "single") {
 const backgroundCover = document.querySelector("#backgroundCover");
 
 backgroundCover.addEventListener("click", () => {
-  moodWheel.style.display = "none";
+  moodWheelScreen.style.display = "none";
   trackEmotions();
   changeTitle();
   document.querySelector(".bubble").style.display = "none";
@@ -92,7 +93,7 @@ const trackMoodBtn = document.querySelector("#trackMoodBtn");
 
 trackMoodBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  moodWheel.style.display = "flex";
+  moodWheelFullScreen.style.display = "flex";
 });
 
 let emotionsToTrack = [];

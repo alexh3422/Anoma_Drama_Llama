@@ -136,7 +136,7 @@ main {
   position: fixed;
   right: 0;
   height: 100%;
-  z-index: 100;
+  
 }
 
 footer {
@@ -155,8 +155,8 @@ footer {
 #emoji {
   position: absolute;
   right: 15px;
-  top: 5px;
-  font-size: 25px;
+  top: 15px;
+  font-size: 30px;
 }
 
 #deleteBtn,
@@ -335,22 +335,6 @@ header button:not(:disabled):focus {
   cursor: pointer;
 }
 
-/* ============================= Profile =========================== */
-
-#profileUsername,
-#userInfo {
-  /* background: var(--p2); */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 1% 1% 0% 1%;
-  min-height: 5vh;
-  min-width: 20vw;
-  border-radius: 5px;
-  text-align: center;
-  /* width: 90%; */
-}
-
 /* ============================= journal/posts =========================== */
 .row {
   display: flex;
@@ -387,8 +371,9 @@ header button:not(:disabled):focus {
   flex: 1;
   border-radius: 5px;
   align-items: flex-start;
-  width: 90%;
-  margin-left: 5%;
+  width: 95%;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .llamaColumn {
@@ -455,6 +440,10 @@ header button:not(:disabled):focus {
   color: var(--light);
   right: 20px;
   top: 10px;
+}
+
+#moodTitle {
+  color: var(--light);
 }
 
 .allPosts h2,
@@ -695,6 +684,7 @@ progress::-webkit-progress-bar {
   font-size: 14px;
   border-radius: 5px;
   bottom: 220px;
+  z-index: 100;
 }
 
 .bubble:after,
@@ -1319,7 +1309,15 @@ progress::-webkit-progress-bar {
   width: 100%;
 }
 
-#userPageUsername,
+#userPageUsername{
+  color: var(--light);
+}
+
+#UserPageInfo {
+  margin-right: 50px;
+}
+
+
 #userPageCurrentMood {
   color: var(--light);
   text-align: center;
@@ -1399,6 +1397,10 @@ progress::-webkit-progress-bar {
     height: 50px;
   }
 
+  .column{
+    margin: auto;
+  }
+
   main {
     margin: 10px;
     top: 80px;
@@ -1415,9 +1417,10 @@ progress::-webkit-progress-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 100;
   }
   #sideLlamaCard img {
-    width: 150px;
+    /* width: 150px; */
     bottom: 40px;
     right: -25px;
   }
