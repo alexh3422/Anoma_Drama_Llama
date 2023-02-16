@@ -15,10 +15,14 @@ fetch('/sessions', {
             if(data.currentMood){
             moodInfo.textContent = `Your current mood is: ${data.currentMood}`
             const emoji = document.querySelector("#emoji")
-            const boxes = document.querySelectorAll('.row')
+            const boxes = document.querySelectorAll('.moodSelector')
             boxes.forEach(box => {
-                box.setAttribute("class", `row ${data.currentMood}`)
+                box.setAttribute("class", `moodSelector ${data.currentMood}`)
             });
+            const boxBorder = document.querySelectorAll(".column")
+            boxBorder.forEach(border => {
+                border.setAttribute("class", `column ${data.currentMood}Border`)
+            })
         
             if(data.currentMood==="tired"){
                 emoji.textContent = `😴`

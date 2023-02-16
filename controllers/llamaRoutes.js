@@ -76,6 +76,16 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-
+// Get loged in user Llama
+router.get("/current_llama", (req, res) => {
+  Users.findByPk(req.session.userId, {
+    include: [Llama],
+  })
+    .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ msg: "error occured", err });
+    });
+});
 
 module.exports = router;

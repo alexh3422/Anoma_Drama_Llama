@@ -1,6 +1,6 @@
 <div>
   <div class="column">
-    <div class="currentMood column">
+    <div class="moodSelector default">
       {{>mood-wheel}}
     </div>
 
@@ -15,7 +15,7 @@
         <img id="profileLlamaHat" src={{user.llama.llama_hat_image}} />
         {{/if}}
         </div>
-        <p>{{user.username}}'s drama:</p>
+        <p>{{user.username}} drama:</p>
         <p id="title">"{{title}}"</p>
         <p id="text">{{text}}</p>
         <p>Was feeling {{moodText}} on {{dateFormat createdAt}}</p>
