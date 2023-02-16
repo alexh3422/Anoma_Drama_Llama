@@ -39,9 +39,9 @@ router.get("/home", (req, res) => {
       );
       allPublicPosts.map((post) => {
         if (post.visibility === "anonymous") {
-            post.user["username"] = "Someone's";
+          post.user["username"] = "Someone's";
         } else {
-          if(post.user.username == req.session.userUsername){
+          if (post.user.username == req.session.userUsername) {
             post.user["username"] = "Your";
           } else {
             post.user["username"] = `${post.user.username}'s`;
@@ -56,9 +56,20 @@ router.get("/home", (req, res) => {
             counter++;
           }
         });
+        let sameMoodText = "";
+        if (counter > 0) {
+          sameMoodText = `You and ${counter - 1} other user are feeling ${
+            req.session.userUserMood
+          }`;
+        } else if (counter > 3) {
+          sameMoodText = `You and ${counter - 1} other users are feeling ${
+            req.session.userUserMood
+          }`;
+        }
         res.render("home", {
           allPosts: allPublicPosts.reverse(),
-          sameMood: counter,
+          sameMood: sameMoodText,
+          currentUserMood: req.session.userUserMood,
         });
       });
     });
