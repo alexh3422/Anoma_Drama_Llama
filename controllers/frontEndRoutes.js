@@ -65,11 +65,13 @@ router.get("/home", (req, res) => {
           sameMoodText = `You and ${counter - 1} other users are feeling ${
             req.session.userUserMood
           }`;
+        } else if (counter > 0) {
+          sameMoodText = ``
         }
         res.render("home", {
           allPosts: allPublicPosts.reverse(),
           sameMood: sameMoodText,
-          currentUserMood: req.session.userUserMood,
+          currentUserMood: req.session,
         });
       });
     });

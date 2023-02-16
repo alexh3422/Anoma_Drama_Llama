@@ -1200,7 +1200,7 @@ progress::-webkit-progress-bar {
 .mischievous #anonymous:checked:after,
 .mischievous #private:checked:after,
 .mischievous {
-  border: 1px solid #664072e3;
+  background-color:  #664072e3;
 }
 
 .mischievousBorder {
@@ -1363,16 +1363,39 @@ progress::-webkit-progress-bar {
   .moodMiddle {
     font-size: 5.5vw;
   }
+  
 }
 
 @media screen and (max-width: 750px) {
+  #privacySelect{
+    width: 90%;
+  }
+  #sameMood{
+    font-size: 10px;
+  }
+  #UserPageInfo {
+    margin-right: 10px;
+  }
+  #moodTitle{
+    font-size: 15px;
+  }
   #baseSection {
     flex-direction: column;
+  }
+  #userPageUsername{
+    font-size: 16px;
+  }
+  #userPageCurrentMood{
+    font-size: 10px;
+  }
+  #emoji {
+    font-size: 15px;
+    right: 5px;
+    top: 5px;
   }
   header {
     height: 50px;
     left: 0px;
-    padding-right: 30vw;
   }
   .loginBttn,
   #signUpBttn,
@@ -1380,10 +1403,11 @@ progress::-webkit-progress-bar {
   #trackMoodBtn,
   #submit-post,
   header button {
-    padding: 0;
-    font-size: 9px;
+    font-size: 12px;
     height: 25px;
-    width: 60px;
+    width: auto;
+    height: auto;
+    padding: 2%;
   }
 
   .row {
@@ -1395,7 +1419,7 @@ progress::-webkit-progress-bar {
   #leftSide {
     flex-direction: row;
     position: fixed;
-    height: 30px;
+    height: 10px;
     width: 100%;
     top: 50px;
     padding: 5%;
@@ -1409,10 +1433,11 @@ progress::-webkit-progress-bar {
 
   #leftSide p {
     position: fixed;
-    top: 45px;
+    top: 50px;
     width: 40px;
     left: 0;
     font-size: 30px;
+    margin: 0;
   }
 
   #leftSide a:hover {
@@ -1430,7 +1455,7 @@ progress::-webkit-progress-bar {
 
   main {
     margin: 10px;
-    top: 80px;
+    top: 100px;
   }
 
   footer {
@@ -1500,5 +1525,13 @@ progress::-webkit-progress-bar {
   #pieChart {
     margin-top: 10px;
     padding: 0;
+  }
+
+  .loginHeader{
+    font-size: 18px;
+  }
+
+  .loginCard, .signupCard{
+    width: 70%;
   }
 }

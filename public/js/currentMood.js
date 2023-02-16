@@ -295,6 +295,28 @@ validateBtn.addEventListener("click", (event) => {
         emoji.textContent = `🤩`
       }
 
+      fetch('/api/users', {
+        method:"GET"
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        let counter = 0
+        
+        data.forEach(user => {
+          console.log(user.currentMood)
+          if(user.currentMood===emotionsToTrack[0]){
+            counter++
+          }
+        })
+        if(counter>1){
+          document.querySelector("#sameMood").textContent = `You and ${counter} other users are feeling ${emotionsToTrack[0]}`
+        } else if (counter>0){
+          document.querySelector("#sameMood").textContent = `You and ${counter} other user are feeling ${emotionsToTrack[0]}`
+        } else {
+          document.querySelector("#sameMood").textContent = ``
+        }
+      })
+
       emotionsToTrack.forEach((emotion) => {
         const moodObj = {
           mood: emotion,
