@@ -74,8 +74,8 @@ timerInterval = setInterval(() => {
               case "scared":
                 scared();
                 break;
-              case "shocked":
-                scared();
+              case "excited":
+                happiness();
                 break;
             }
           }

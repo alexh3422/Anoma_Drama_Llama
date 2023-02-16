@@ -20,16 +20,55 @@ fetch('/sessions', {
                 box.setAttribute("class", `row ${data.currentMood}`)
             });
         
-            // if(data.currentMood==="happy"){
-            //     userNameandInfo.textContent = `Hi ${data.username} 😀`
-            //     // background.style.background = '#49adb4'
-            // } else if(data.currentMood==="sad"){
-            //     userNameandInfo.textContent = `Hi ${data.username} 😢`
-            //     // background.style.background = '#479b79'
-            // } else if(data.currentMood==="annoyed"){
-            //     userNameandInfo.textContent = `Hi ${data.username} 😒`
-            //     // background.style.background = '#47c14d'
-            // }
+            if(data.currentMood==="tired"){
+                userNameandInfo.textContent = `Hi ${data.username} 😴`
+                // background.style.background = '#49adb4'
+            } else if(data.currentMood==="happy"){
+                userNameandInfo.textContent = `Hi ${data.username} 😀`
+                // background.style.background = '#479b79'
+            } else if(data.currentMood==="annoyed"){
+                userNameandInfo.textContent = `Hi ${data.username} 😒`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="embarrassed"){
+                userNameandInfo.textContent = `Hi ${data.username} 😳`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="sad"){
+                userNameandInfo.textContent = `Hi ${data.username} 😢`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="calm"){
+                userNameandInfo.textContent = `Hi ${data.username} 😌`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="bored"){
+                userNameandInfo.textContent = `Hi ${data.username} 😐`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="disappointed"){
+                userNameandInfo.textContent = `Hi ${data.username} 😕`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="mischievous"){
+                userNameandInfo.textContent = `Hi ${data.username} 😈`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="angry"){
+                userNameandInfo.textContent = `Hi ${data.username} 😡`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="flirty"){
+                userNameandInfo.textContent = `Hi ${data.username} 😘`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="anxious"){
+                userNameandInfo.textContent = `Hi ${data.username} 😟`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="silly"){
+                userNameandInfo.textContent = `Hi ${data.username} 😛`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="scared"){
+                userNameandInfo.textContent = `Hi ${data.username} 😧`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="frustrated"){
+                userNameandInfo.textContent = `Hi ${data.username} 😫`
+                // background.style.background = '#47c14d'
+            } else if(data.currentMood==="excited"){
+                userNameandInfo.textContent = `Hi ${data.username} 🤩`
+                // background.style.background = '#47c14d'
+            }
            } 
         })
     }

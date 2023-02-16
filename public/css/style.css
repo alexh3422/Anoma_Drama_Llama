@@ -25,7 +25,7 @@ a {
 body {
   display: flex;
   flex-wrap: wrap;
-  background-color: rgb(223, 221, 219);
+  background-color: #dedadaea;
 }
 
 #baseSection {
@@ -840,7 +840,7 @@ progress::-webkit-progress-bar {
   left: -35%;
 }
 
-#shocked {
+#excited {
   top: 35%;
   left: -40%;
 }
@@ -1096,12 +1096,12 @@ progress::-webkit-progress-bar {
   border-color: #622d9f transparent transparent transparent;
 }
 
-.shocked{
+.excited{
   background-color: #6e528dbc;
   border: 1px solid #622d9f;
 }
 
-.shocked h3{
+.excited h3{
   color: var(--light);
 }
 
@@ -1339,8 +1339,4 @@ progress::-webkit-progress-bar {
     margin-top: 10px;
     padding: 0;
   }
-  /*
-#allCharts {
-  width: 100%;
-} */
 }

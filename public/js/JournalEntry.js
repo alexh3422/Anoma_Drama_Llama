@@ -59,7 +59,7 @@ const emotions = [
   new Emotion("flirty", "color10"),
   new Emotion("silly", "color11"),
   new Emotion("mischievous", "color12"),
-  new Emotion("shocked", "color13"),
+  new Emotion("excited", "color13"),
   new Emotion("bored", "color14"),
   new Emotion("sad", "color15"),
   new Emotion("annoyed", "color16"),
