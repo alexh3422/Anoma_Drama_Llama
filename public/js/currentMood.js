@@ -110,14 +110,32 @@ let emotionsToTrack = [];
 let feelings = emotionsToTrack;
 
 const changeBoxColor = () => {
-  const boxes = document.querySelectorAll('.moodSelector')
-  boxes.forEach(box => {
-    box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
-  });
-  const boxBorder = document.querySelectorAll(".column")
-            boxBorder.forEach(border => {
-                border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
-            })
+  fetch('/sessions', {
+    method: "GET"
+}).then(res => {
+    return res.json()
+}).then(data => {
+  console.log(data)
+  if (emotions.length > 0) {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+    border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
+    })
+  } else {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${data.currentMood}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+      border.setAttribute("class", `column ${data.currentMood}Border`)
+    })
+  }
+})
 }
 
 const trackEmotions = () => {
