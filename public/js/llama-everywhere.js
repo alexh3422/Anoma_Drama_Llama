@@ -132,6 +132,26 @@ function gifSwitchHat(time) {
   ) {
     document.querySelector("#userLlamaHat").src =
       "images/pixel-llamas/hat03.gif";
+  } else if (
+    document.querySelector("#userLlamaHat").src.includes("hat04.png")
+  ) {
+    document.querySelector("#userLlamaHat").src =
+      "images/pixel-llamas/hat04.gif";
+  } else if (
+    document.querySelector("#userLlamaHat").src.includes("hat05.png")
+  ) {
+    document.querySelector("#userLlamaHat").src =
+      "images/pixel-llamas/hat05.gif";
+  } else if (
+    document.querySelector("#userLlamaHat").src.includes("hat06.png")
+  ) {
+    document.querySelector("#userLlamaHat").src =
+      "images/pixel-llamas/hat06.gif";
+  } else if (
+    document.querySelector("#userLlamaHat").src.includes("hat07.png")
+  ) {
+    document.querySelector("#userLlamaHat").src =
+      "images/pixel-llamas/hat07.gif";
   }
   setTimeout(() => {
     if (document.querySelector("#userLlamaHat").src.includes("hat01.gif")) {
@@ -147,6 +167,26 @@ function gifSwitchHat(time) {
     ) {
       document.querySelector("#userLlamaHat").src =
         "images/pixel-llamas/hat03.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat04.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat04.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat05.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat05.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat06.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat06.png";
+    } else if (
+      document.querySelector("#userLlamaHat").src.includes("hat07.gif")
+    ) {
+      document.querySelector("#userLlamaHat").src =
+        "images/pixel-llamas/hat07.png";
     }
   }, time);
 }
