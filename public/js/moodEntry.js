@@ -85,6 +85,7 @@ const emotions = [
 ];
 
 const moodWheel = document.querySelector("#moodWheel");
+const moodWheelScreen = document.querySelector("#moodWheelFullScreen");
 
 if (moodWheel.getAttribute("wheelMode") === "single") {
   emotions.forEach((emotion) => {
@@ -98,11 +99,11 @@ if (moodWheel.getAttribute("wheelMode") === "single") {
   });
 }
 
-const backgroundCover = document.querySelector("#backgroundCover");
+const clickCover = document.querySelector("#clickCover");
 
-backgroundCover.addEventListener("click", (event) => {
+clickCover.addEventListener("click", (event) => {
   event.preventDefault();
-  moodWheel.style.display = "none";
+  moodWheelScreen.style.display = "none";
   trackEmotions();
   changeTitle();
   document.querySelector(".bubble").style.display = "none";
@@ -112,7 +113,7 @@ const trackMoodBtn = document.querySelector("#trackMoodBtn");
 
 trackMoodBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  moodWheel.style.display = "flex";
+  moodWheelScreen.style.display = "flex";
 });
 
 let emotionsToTrack = [];

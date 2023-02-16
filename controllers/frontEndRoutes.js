@@ -31,19 +31,46 @@ router.get("/home", (req, res) => {
           },
         },
       ],
-    }).then((PostData) => {
-      const hbsPost = PostData.map((Post) => Post.toJSON());
+    }).then((postData) => {
+      const hbsPost = postData.map((Post) => Post.toJSON());
       const allPublicPosts = hbsPost.filter(
         (post) =>
           post.visibility === "public" || post.visibility === "anonymous"
       );
       allPublicPosts.map((post) => {
         if (post.visibility === "anonymous") {
-          post.user["username"] = "Someone";
+          post.user["username"] = "Someone's";
+        } else {
+          if (post.user.username == req.session.userUsername) {
+            post.user["username"] = "Your";
+          } else {
+            post.user["username"] = `${post.user.username}'s`;
+          }
         }
       });
-      res.render("home", {
-        allPosts: allPublicPosts.reverse(),
+      Users.findAll().then((userData) => {
+        const hbsUser = userData.map((User) => User.toJSON());
+        let counter = 0;
+        hbsUser.forEach((user) => {
+          if (user.currentMood === req.session.userUserMood) {
+            counter++;
+          }
+        });
+        let sameMoodText = "";
+        if (counter > 1) {
+          sameMoodText = `You and ${counter - 1} other user are feeling ${
+            req.session.userUserMood
+          }`;
+        } else if (counter > 3) {
+          sameMoodText = `You and ${counter - 1} other users are feeling ${
+            req.session.userUserMood
+          }`;
+        }
+        res.render("home", {
+          allPosts: allPublicPosts.reverse(),
+          sameMood: sameMoodText,
+          currentUserMood: req.session.userUserMood,
+        });
       });
     });
   }
@@ -68,6 +95,7 @@ router.get("/journal", (req, res) => {
       res.render("journal", {
         user: hbsUser,
         userPosts: allJournalPosts,
+        currentUserMood: req.session.userUserMood
       });
     });
   }
@@ -89,6 +117,7 @@ router.get("/mood", (req, res) => {
     res.render("mood", {
       user: hbsUser,
       userPosts: allMoodPosts,
+      currentUserMood: req.session.userUserMood
     });
   });
 });
@@ -105,6 +134,7 @@ router.get("/profile", (req, res) => {
       res.render("profile", {
         user: hbsUser,
         userPosts: allUserPosts,
+        currentUserMood: req.session.userUserMood
       });
     });
   }

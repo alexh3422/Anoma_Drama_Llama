@@ -1,6 +1,12 @@
+{{#if currentUserMood}}
+<div class="column {{currentUserMood}}Border">
+ <div class="moodSelector {{currentUserMood}}">
+{{else}}
 <div class="column">
-
-  {{> mood-wheel}}
+ <div class="moodSelector default">
+  {{/if}}
+    {{> mood-wheel}}
+  </div>
 
   <label id="orderLabel" for="orderData">Order by:</label>
       <select name="orderData" id="orderData">

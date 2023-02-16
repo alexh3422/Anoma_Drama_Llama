@@ -1,14 +1,12 @@
+{{#if currentUserMood}}
+<div class="column {{currentUserMood}}Border">
+ <div class="moodSelector {{currentUserMood}}">
+{{else}}
 <div class="column">
-  <div id="userInfo" userId="{{user.id}}">
-    <h2>{{user.username}}</h2>
-    {{#if user.currentMood}}
-    <p>Your current mood is: {{user.currentMood}}</p>
-    {{else}}
-    <p>You haven't set a current mood yet</p>
-    {{/if}}
+ <div class="moodSelector default">
+  {{/if}}
+    {{> mood-wheel}}
   </div>
-
-  {{> mood-wheel}}
 
   <div class="allPosts">
     <h2>Your Drama</h2>

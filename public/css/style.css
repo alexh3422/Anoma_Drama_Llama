@@ -130,7 +130,14 @@ main {
   margin-bottom: 100px;
 }
 
-
+#clickCover{
+  z-index: 19;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
 
 #rightSide {
   width: 200px;
@@ -138,7 +145,7 @@ main {
   position: fixed;
   right: 0;
   height: 100%;
-  z-index: 100;
+  z-index: 17;
 }
 
 footer {
@@ -154,11 +161,11 @@ footer {
   background-color: rgb(223, 221, 219);
 }
 
-#emoji{
+#emoji {
   position: absolute;
   right: 15px;
-  top: 5px;
-  font-size: 25px;
+  top: 15px;
+  font-size: 30px;
 }
 
 #deleteBtn,
@@ -342,22 +349,6 @@ header button:not(:disabled):focus {
   cursor: pointer;
 }
 
-/* ============================= Profile =========================== */
-
-#profileUsername,
-#userInfo {
-  /* background: var(--p2); */
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 1% 1% 0% 1%;
-  min-height: 5vh;
-  min-width: 20vw;
-  border-radius: 5px;
-  text-align: center;
-  /* width: 90%; */
-}
-
 /* ============================= journal/posts =========================== */
 .row {
   display: flex;
@@ -390,15 +381,19 @@ header button:not(:disabled):focus {
 .column {
   display: flex;
   flex-direction: column;
-
   flex-basis: 100%;
   flex: 1;
+  border-radius: 5px;
   align-items: flex-start;
-  width: 100%;
+  width: 95%;
+  margin-left: 50px;
+  margin-top: 50px;
 }
 
 .llamaColumn {
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 #title-input {
@@ -441,13 +436,30 @@ header button:not(:disabled):focus {
   /* border: solid 1px var(--p1); */
   /* display: flex;
   flex-direction: column; */
-  padding: 10px;
-  margin: 1% 1% 1% 1%;
   height: 100%;
   border-radius: 5px;
   top: 0;
-  width: 90%;
+  width: 100%;
   position: relative;
+  padding: 1%;
+}
+
+.moodSelector {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+  position: relative;
+}
+
+#sameMood {
+  position: absolute;
+  color: var(--light);
+  right: 20px;
+  top: 10px;
+}
+
+#moodTitle {
+  color: var(--light);
 }
 
 .allPosts h2,
@@ -460,15 +472,16 @@ header button:not(:disabled):focus {
   border: var(--p1) solid 1px;
   border-radius: 5px;
   padding: 5px;
-  background-color: rgba(243, 232, 216, 0.677);
   box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
+  background-image: url(../images/notebookpaper50.png);
 }
 
 .post-box:hover,
 .post-box:focus {
   box-shadow: 0 0 0 3px rgba(44, 43, 43, 0.2),
     0 3px 10px 0 rgba(36, 36, 36, 0.15);
-  padding: 8px;
+  margin-right: 0%;
+  margin-left: 0%;
 }
 
 #title {
@@ -505,7 +518,7 @@ header button:not(:disabled):focus {
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: var(--p2);
+  /* background-color: ; */
   content: "";
   display: inline-block;
   visibility: visible;
@@ -622,6 +635,11 @@ header button:not(:disabled):focus {
   position: absolute;
 }
 
+#sideLlamaCard img {
+  transform: scale(1.5);
+  margin-bottom: 80px;
+}
+
 #userLlamaPage {
   display: flex;
   align-items: center;
@@ -632,18 +650,22 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+
+#userLlamaHappiness {
+  position: relative;
+}
+
 #userLlamaHappiness,
 #sideLlamaHappiness {
   height: 12px;
   display: block;
-  position: relative;
   background: var(--p1);
   padding: 1px;
 }
 
 #sideLlamaHappiness {
   position: absolute;
-  bottom: 10;
+  bottom: 50px;
 }
 
 progress.green::-webkit-progress-value {
@@ -681,12 +703,13 @@ progress::-webkit-progress-bar {
   position: absolute;
   background: #eeeee8;
   border: 1px solid var(--p1);
-  max-width: 250px;
+  width: 230px;
   padding: 10px;
   margin: 10px;
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 5px;
-  bottom: 220px;
+  bottom: 300px;
+  right: 0vh;
 }
 
 .bubble:after,
@@ -728,10 +751,21 @@ progress::-webkit-progress-bar {
 }
 
 /* Mood Wheel */
-#moodWheel {
-  margin: auto;
-  /* display: flex; */
+#moodWheelFullScreen {
   display: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 17;
+  position: absolute;
+  top: -1.2%;
+  left: -3%;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+
+#moodWheel {
+  padding: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -739,14 +773,16 @@ progress::-webkit-progress-bar {
   width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
-  z-index: 100;
-  align-self: center;
+  z-index: 200;
+  /* text-align: center; */
+  top: 50px;
+  margin: 0;
+  margin-right: 10%;
 }
 
 #innerWheel {
   height: 50%;
   width: 50%;
-  margin: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -909,11 +945,16 @@ progress::-webkit-progress-bar {
   transform: rotate(0deg);
   border-color: #49adb4 transparent transparent transparent;
 }
-
+.tired #public:checked:after,
+.tired #anonymous:checked:after,
+.tired #private:checked:after,
 .tired {
   background-color: #49adb49d;
-  border: 1px solid #49adb4;
   color: var(--p1);
+}
+
+.tiredBorder {
+  border: 1px solid #49adb49d;
 }
 
 #colorWheel span.color02 {
@@ -926,9 +967,15 @@ progress::-webkit-progress-bar {
   border-color: #479b79 transparent transparent transparent;
 }
 
+.happy #public:checked:after,
+.happy #anonymous:checked:after,
+.happy #private:checked:after,
 .happy {
   background-color: #3b9e4fb0;
-  border: 1px solid #479b79;
+}
+
+.happyBorder {
+  border: 1px solid #3b9e4fb0;
 }
 
 .happy h3 {
@@ -945,10 +992,15 @@ progress::-webkit-progress-bar {
   border-color: #47c14d transparent transparent transparent;
 }
 
+.calm #public:checked:after,
+.calm #anonymous:checked:after,
+.calm #private:checked:after,
 .calm {
   background-color: #6ead71d0;
-  border: 1px solid #47c14d;
-  color: var(--p1);
+}
+
+.calmBorder {
+  border: 1px solid #6ead71d0;
 }
 
 #colorWheel span.color04 {
@@ -961,10 +1013,15 @@ progress::-webkit-progress-bar {
   border-color: #a5e23b transparent transparent transparent;
 }
 
+.embarrassed #public:checked:after,
+.embarrassed #anonymous:checked:after,
+.embarrassed #private:checked:after,
 .embarrassed {
   background-color: #759c31b4;
-  border: 1px solid #90c03f;
-  color: var(--p1);
+}
+
+.embarrassedBorder {
+  border: 1px solid #759c31b4;
 }
 
 #colorWheel span.color05 {
@@ -977,9 +1034,15 @@ progress::-webkit-progress-bar {
   border-color: #e1f71e transparent transparent transparent;
 }
 
+.disappointed #public:checked:after,
+.disappointed #anonymous:checked:after,
+.disappointed #private:checked:after,
 .disappointed {
   background-color: #b8c44dc9;
-  border: 1px solid #e1f71e;
+}
+
+.disappointedBorder {
+  border: 1px solid #b8c44dc9;
 }
 
 #colorWheel span.color06 {
@@ -992,10 +1055,15 @@ progress::-webkit-progress-bar {
   border-color: #baa72e transparent transparent transparent;
 }
 
+.scared #public:checked:after,
+.scared #anonymous:checked:after,
+.scared #private:checked:after,
 .scared {
   background-color: #baa72e89;
-  border: 1px solid #baa72e;
-  color: var(--p1);
+}
+
+.scaredBorder {
+  border: 1px solid #baa72e89;
 }
 
 #colorWheel span.color07 {
@@ -1008,10 +1076,15 @@ progress::-webkit-progress-bar {
   border-color: #9a621d transparent transparent transparent;
 }
 
+.anxious #public:checked:after,
+.anxious #anonymous:checked:after,
+.anxious #private:checked:after,
 .anxious {
   background-color: #9a621d6a;
-  border: 1px solid #9a621d;
-  color: var(--p1);
+}
+
+.anxiousBorder {
+  border: 1px solid #9a621d6a;
 }
 
 #colorWheel span.color08 {
@@ -1024,9 +1097,15 @@ progress::-webkit-progress-bar {
   border-color: #6c422a transparent transparent transparent;
 }
 
+.frustrated #public:checked:after,
+.frustrated #anonymous:checked:after,
+.frustrated #private:checked:after,
 .frustrated {
   background-color: #6c422aab;
-  border: 1px solid #6c422a;
+}
+
+.frustratedBorder {
+  border: 1px solid #6c422aab;
 }
 
 .frustrated h3 {
@@ -1043,9 +1122,15 @@ progress::-webkit-progress-bar {
   border-color: #8e1d1d transparent transparent transparent;
 }
 
+.angry #public:checked:after,
+.angry #anonymous:checked:after,
+.angry #private:checked:after,
 .angry {
   background-color: #8e1d1dcd;
-  border: 1px solid #8e1d1d;
+}
+
+.angryBorder {
+  border: 1px solid #8e1d1dcd;
 }
 
 .angry h3 {
@@ -1062,9 +1147,15 @@ progress::-webkit-progress-bar {
   border-color: #a24676 transparent transparent transparent;
 }
 
+.flirty #public:checked:after,
+.flirty #anonymous:checked:after,
+.flirty #private:checked:after,
 .flirty {
   background-color: #a2467584;
-  border: 1px solid #a24676;
+}
+
+.flirtyBorder {
+  border: 1px solid #a2467584;
 }
 
 .flirty h3 {
@@ -1081,9 +1172,15 @@ progress::-webkit-progress-bar {
   border-color: #9f2d7b transparent transparent transparent;
 }
 
+.silly #public:checked:after,
+.silly #anonymous:checked:after,
+.silly #private:checked:after,
 .silly {
   background-color: #883c70cd;
-  border: 1px solid #9f2d7b;
+}
+
+.sillyBorder {
+  border: 1px solid #883c70cd;
 }
 
 .silly h3 {
@@ -1100,9 +1197,15 @@ progress::-webkit-progress-bar {
   border-color: #842d9f transparent transparent transparent;
 }
 
+.mischievous #public:checked:after,
+.mischievous #anonymous:checked:after,
+.mischievous #private:checked:after,
 .mischievous {
-  background-color: #664072e3;
-  border: 1px solid #842d9f;
+  border: 1px solid #664072e3;
+}
+
+.mischievousBorder {
+  border: 1px solid #664072e3;
 }
 
 .mischievous h3 {
@@ -1119,12 +1222,18 @@ progress::-webkit-progress-bar {
   border-color: #622d9f transparent transparent transparent;
 }
 
-.excited{
+.excited #public:checked:after,
+.excited #anonymous:checked:after,
+.excited #private:checked:after,
+.excited {
   background-color: #6e528dbc;
-  border: 1px solid #622d9f;
 }
 
-.excited h3{
+.excitedBorder {
+  border: 1px solid #6e528dbc;
+}
+
+.excited h3 {
   color: var(--light);
 }
 
@@ -1138,9 +1247,15 @@ progress::-webkit-progress-bar {
   border-color: #3c236f transparent transparent transparent;
 }
 
+.bored #public:checked:after,
+.bored #anonymous:checked:after,
+.bored #private:checked:after,
 .bored {
   background-color: #3c236fdf;
-  border: 1px solid #3c236f;
+}
+
+.boredBorder {
+  border: 1px solid #3c236fdf;
 }
 
 .bored h3 {
@@ -1157,9 +1272,15 @@ progress::-webkit-progress-bar {
   border-color: #2d5b9f transparent transparent transparent;
 }
 
+.sad #public:checked:after,
+.sad #anonymous:checked:after,
+.sad #private:checked:after,
 .sad {
   background-color: #2d5b9fc6;
-  border: 1px solid #2d5b9f;
+}
+
+.sadBorder {
+  border: 1px solid #2d5b9fc6;
 }
 
 .sad h3 {
@@ -1176,9 +1297,15 @@ progress::-webkit-progress-bar {
   border-color: #2d709f transparent transparent transparent;
 }
 
+.annoyed #public:checked:after,
+.annoyed #anonymous:checked:after,
+.annoyed #private:checked:after,
 .annoyed {
   background-color: #2d709f68;
-  border: 1px solid #2d709f;
+}
+
+.annoyedBorder {
+  border: 1px solid #2d709f68;
 }
 
 #validateBtn {
@@ -1210,7 +1337,15 @@ progress::-webkit-progress-bar {
   width: 100%;
 }
 
-#userPageUsername,
+#userPageUsername{
+  color: var(--light);
+}
+
+#UserPageInfo {
+  margin-right: 50px;
+}
+
+
 #userPageCurrentMood {
   color: var(--light);
   text-align: center;
@@ -1290,6 +1425,10 @@ progress::-webkit-progress-bar {
     height: 50px;
   }
 
+  .column{
+    margin: auto;
+  }
+
   main {
     margin: 10px;
     top: 80px;
@@ -1306,11 +1445,12 @@ progress::-webkit-progress-bar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 100;
   }
   #sideLlamaCard img {
     width: 150px;
-    bottom: 40px;
-    right: -25px;
+    bottom: 0;
+    right: 0;
   }
   #sideLlamaHappiness {
     bottom: 30px;
@@ -1329,9 +1469,9 @@ progress::-webkit-progress-bar {
   .bubble {
     max-width: 60vw;
     margin: 0px;
-    font-size: 10px;
-    bottom: 50px;
-    left: 20px;
+    font-size: 15px;
+    bottom: 100px;
+    right: 30%;
   }
   .bubble:after,
   .bubble:before {

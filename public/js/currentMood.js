@@ -86,9 +86,10 @@ emotions.forEach((emotion) => {
   emotion.nameOnhover();
 });
 
-const backgroundCover = document.querySelector("#backgroundCover");
+const clickCover = document.querySelector("#clickCover");
+const moodWheel = document.querySelector("#moodWheelFullScreen");
 
-backgroundCover.addEventListener("click", (event) => {
+clickCover.addEventListener("click", (event) => {
   event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
@@ -109,10 +110,32 @@ let emotionsToTrack = [];
 let feelings = emotionsToTrack;
 
 const changeBoxColor = () => {
-  const boxes = document.querySelectorAll('.row')
-  boxes.forEach(box => {
-    box.setAttribute("class", `row ${emotionsToTrack[0]}`)
-  });
+  fetch('/sessions', {
+    method: "GET"
+}).then(res => {
+    return res.json()
+}).then(data => {
+  console.log(data.userUserMood)
+  if (emotionsToTrack.length > 0) {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+    border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
+    })
+  } else {
+    const boxes = document.querySelectorAll('.moodSelector')
+    boxes.forEach(box => {
+      box.setAttribute("class", `moodSelector ${data.userUserMood}`)
+    });
+    const boxBorder = document.querySelectorAll(".column")
+    boxBorder.forEach(border => {
+      border.setAttribute("class", `column ${data.userUserMood}Border`)
+    })
+  }
+})
 }
 
 const trackEmotions = () => {
@@ -199,6 +222,26 @@ validateBtn.addEventListener("click", (event) => {
       ).format("MMM DD YYYY, HH:mm")}`;
       const postText = document.createElement("p");
       postText.setAttribute("id", "text");
+
+      if (window.location.pathname === "/home") {
+        fetch('/api/llamas/current_llama', {
+          method: "GET"
+        }).then(res => {
+          return res.json()
+        }).then(data => {
+          const llamadiv = document.createElement("div")
+          llamadiv.setAttribute("id", "profileLlama")
+          const llamaBase = document.createElement("img")
+          llamaBase.setAttribute("id", "profileLlamaColor")
+          llamaBase.setAttribute("src", data.llama.llama_image)
+          const llamaHat = document.createElement("img")
+          llamaHat.setAttribute("id", "profileLlamaHat")
+          llamaHat.setAttribute("src", data.llama.llama_hat_image)
+          llamadiv.appendChild(llamaBase)
+          llamadiv.appendChild(llamaHat)
+          thisPostDiv.insertBefore(llamadiv, thisPostDiv.children[0])
+        })
+      }
 
       thisPostDiv.append(postUser);
       thisPostDiv.append(postTitle);
