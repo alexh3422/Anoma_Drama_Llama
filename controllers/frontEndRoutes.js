@@ -42,8 +42,18 @@ router.get("/home", (req, res) => {
           post.user["username"] = "Someone";
         }
       });
-      res.render("home", {
-        allPosts: allPublicPosts.reverse(),
+      Users.findAll().then((userData) => {
+        const hbsUser = userData.map((User) => User.toJSON());
+        let counter = 0;
+        hbsUser.forEach((user) => {
+          if (user.currentMood === req.session.userUserMood) {
+            counter++;
+          }
+        });
+        res.render("home", {
+          allPosts: allPublicPosts.reverse(),
+          sameMood: counter,
+        });
       });
     });
   }
