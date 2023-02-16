@@ -87,6 +87,7 @@ emotions.forEach((emotion) => {
 });
 
 const backgroundCover = document.querySelector("#backgroundCover");
+const moodWheel = document.querySelector("#moodWheelFullScreen");
 
 backgroundCover.addEventListener("click", (event) => {
   event.preventDefault();
@@ -109,10 +110,14 @@ let emotionsToTrack = [];
 let feelings = emotionsToTrack;
 
 const changeBoxColor = () => {
-  const boxes = document.querySelectorAll('.row')
+  const boxes = document.querySelectorAll('.moodSelector')
   boxes.forEach(box => {
-    box.setAttribute("class", `row ${emotionsToTrack[0]}`)
+    box.setAttribute("class", `moodSelector ${emotionsToTrack[0]}`)
   });
+  const boxBorder = document.querySelectorAll(".column")
+            boxBorder.forEach(border => {
+                border.setAttribute("class", `column ${emotionsToTrack[0]}Border`)
+            })
 }
 
 const trackEmotions = () => {
@@ -199,6 +204,26 @@ validateBtn.addEventListener("click", (event) => {
       ).format("MMM DD YYYY, HH:mm")}`;
       const postText = document.createElement("p");
       postText.setAttribute("id", "text");
+
+      if (window.location.pathname === "/home") {
+        fetch('/api/llamas/current_llama', {
+          method: "GET"
+        }).then(res => {
+          return res.json()
+        }).then(data => {
+          const llamadiv = document.createElement("div")
+          llamadiv.setAttribute("id", "profileLlama")
+          const llamaBase = document.createElement("img")
+          llamaBase.setAttribute("id", "profileLlamaColor")
+          llamaBase.setAttribute("src", data.llama.llama_image)
+          const llamaHat = document.createElement("img")
+          llamaHat.setAttribute("id", "profileLlamaHat")
+          llamaHat.setAttribute("src", data.llama.llama_hat_image)
+          llamadiv.appendChild(llamaBase)
+          llamadiv.appendChild(llamaHat)
+          thisPostDiv.insertBefore(llamadiv, thisPostDiv.children[0])
+        })
+      }
 
       thisPostDiv.append(postUser);
       thisPostDiv.append(postTitle);

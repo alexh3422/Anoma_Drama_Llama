@@ -1,32 +1,32 @@
 <div class="column">
-  {{> mood-wheel}}
-  <div class="row default" id="journalRow">
-  <form id="new-post-form">
-  <textarea id="title-input" placeholder="Title"></textarea>
-  <textarea id="post-input" placeholder="Let off some steam here!"></textarea>
-  <button id="submit-post" class="llamaListener">Feed Llama</button>
+  <div class="moodSelector default">
+    {{> mood-wheel}}
+    <form id="new-post-form">
+      <textarea id="title-input" placeholder="Title"></textarea>
+      <textarea id="post-input" placeholder="Let off some steam here!"></textarea>
+      <button id="submit-post" class="llamaListener">Feed Llama</button>
   </div>
-</form>
+  </form>
 
-<div class="allPosts">
-  <h2>All Your Drama</h2>
-  {{#each userPosts}}
-  <div class="post-box" post-id={{id}}>
-    <p id="postUsername">Your Drama:</p>
-    <p id="title" post-id={{id}}>"{{title}}"</p>
-    <p id="text" post-id={{id}}>{{text}}</p>
-    <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
-    <button id="editBtn" post-id={{id}}>Edit</button>
-    <button id="deleteBtn" post-id={{id}}>Delete</button>
+  <div class="allPosts">
+    <h2>All Your Drama</h2>
+    {{#each userPosts}}
+    <div class="post-box" post-id={{id}}>
+      <p id="postUsername">Your Drama:</p>
+      <p id="title" post-id={{id}}>"{{title}}"</p>
+      <p id="text" post-id={{id}}>{{text}}</p>
+      <p>You felt {{moodText}} on {{dateFormat createdAt}}</p>
+      <button id="editBtn" post-id={{id}}>Edit</button>
+      <button id="deleteBtn" post-id={{id}}>Delete</button>
+    </div>
+    {{/each}}
   </div>
-  {{/each}}
-</div>
 </div>
 
 <div class="modal">
-<div id="journalModal">
-  <p class="modal-content"></p>
-</div>
+  <div id="journalModal">
+    <p class="modal-content"></p>
+  </div>
 </div>
 
 
