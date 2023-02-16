@@ -1,6 +1,11 @@
 <div>
-  <div class="column {{currentUserMood}}Border">
-    <div class="moodSelector {{currentUserMood}}">
+  {{#if currentUserMood}}
+<div class="column {{currentUserMood}}Border">
+ <div class="moodSelector {{currentUserMood}}">
+{{else}}
+<div class="column">
+ <div class="moodSelector default">
+  {{/if}}
       {{>mood-wheel}} 
       {{#if currentUserMood}}
       <p id="sameMood">{{sameMood}}</p>

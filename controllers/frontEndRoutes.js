@@ -95,6 +95,7 @@ router.get("/journal", (req, res) => {
       res.render("journal", {
         user: hbsUser,
         userPosts: allJournalPosts,
+        currentUserMood: req.session.userUserMood
       });
     });
   }
@@ -116,6 +117,7 @@ router.get("/mood", (req, res) => {
     res.render("mood", {
       user: hbsUser,
       userPosts: allMoodPosts,
+      currentUserMood: req.session.userUserMood
     });
   });
 });
@@ -132,6 +134,7 @@ router.get("/profile", (req, res) => {
       res.render("profile", {
         user: hbsUser,
         userPosts: allUserPosts,
+        currentUserMood: req.session.userUserMood
       });
     });
   }

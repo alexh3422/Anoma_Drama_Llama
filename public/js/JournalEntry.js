@@ -80,9 +80,9 @@ if (moodWheel.getAttribute("wheelMode") === "single") {
   });
 }
 
-const backgroundCover = document.querySelector("#backgroundCover");
+const clickCover = document.querySelector("#clickCover");
 
-backgroundCover.addEventListener("click", () => {
+clickCover.addEventListener("click", () => {
   moodWheelScreen.style.display = "none";
   trackEmotions();
   changeTitle();

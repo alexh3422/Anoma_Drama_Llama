@@ -130,13 +130,22 @@ main {
   margin-bottom: 100px;
 }
 
+#clickCover{
+  z-index: 19;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 #rightSide {
   width: 200px;
   /* background-color: var(--light); */
   position: fixed;
   right: 0;
   height: 100%;
-  
+  z-index: 17;
 }
 
 footer {
@@ -619,6 +628,11 @@ header button:not(:disabled):focus {
   position: absolute;
 }
 
+#sideLlamaCard img {
+  transform: scale(1.5);
+  margin-bottom: 80px;
+}
+
 #userLlamaPage {
   display: flex;
   align-items: center;
@@ -629,18 +643,22 @@ header button:not(:disabled):focus {
   display: none;
 }
 
+
+#userLlamaHappiness {
+  position: relative;
+}
+
 #userLlamaHappiness,
 #sideLlamaHappiness {
   height: 12px;
   display: block;
-  position: relative;
   background: var(--p1);
   padding: 1px;
 }
 
 #sideLlamaHappiness {
   position: absolute;
-  bottom: 10;
+  bottom: 50px;
 }
 
 progress.green::-webkit-progress-value {
@@ -678,13 +696,13 @@ progress::-webkit-progress-bar {
   position: absolute;
   background: #eeeee8;
   border: 1px solid var(--p1);
-  max-width: 250px;
+  width: 230px;
   padding: 10px;
   margin: 10px;
-  font-size: 14px;
+  font-size: 18px;
   border-radius: 5px;
-  bottom: 220px;
-  z-index: 100;
+  bottom: 300px;
+  right: 0vh;
 }
 
 .bubble:after,
@@ -735,11 +753,11 @@ progress::-webkit-progress-bar {
   top: -1.2%;
   left: -3%;
   justify-content: center;
-  align-items: center;
+  /* align-items: flex-start; */
 }
 
 #moodWheel {
-  padding: auto;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -748,8 +766,11 @@ progress::-webkit-progress-bar {
   width: 41.1vw;
   background-color: var(--p1);
   border-radius: 50%;
-  z-index: 100;
+  z-index: 200;
   /* text-align: center; */
+  top: 50px;
+  margin: 0;
+  margin-right: 10%;
 }
 
 #innerWheel {
@@ -1420,9 +1441,9 @@ progress::-webkit-progress-bar {
     z-index: 100;
   }
   #sideLlamaCard img {
-    /* width: 150px; */
-    bottom: 40px;
-    right: -25px;
+    width: 150px;
+    bottom: 0;
+    right: 0;
   }
   #sideLlamaHappiness {
     bottom: 30px;
@@ -1441,9 +1462,9 @@ progress::-webkit-progress-bar {
   .bubble {
     max-width: 60vw;
     margin: 0px;
-    font-size: 10px;
-    bottom: 50px;
-    left: 20px;
+    font-size: 15px;
+    bottom: 100px;
+    right: 30%;
   }
   .bubble:after,
   .bubble:before {

@@ -86,10 +86,10 @@ emotions.forEach((emotion) => {
   emotion.nameOnhover();
 });
 
-const backgroundCover = document.querySelector("#backgroundCover");
+const clickCover = document.querySelector("#clickCover");
 const moodWheel = document.querySelector("#moodWheelFullScreen");
 
-backgroundCover.addEventListener("click", (event) => {
+clickCover.addEventListener("click", (event) => {
   event.preventDefault();
   moodWheel.style.display = "none";
   trackEmotions();
