@@ -5,7 +5,7 @@ fetch("/sessions", {
     return res.json();
   })
   .then((sessionData) => {
-    if(sessionData.userId){
+    if (sessionData.userId) {
       fetch(`/api/llamas/user/${sessionData.userId}`, {
         method: "GET",
       })
@@ -59,6 +59,21 @@ function gifSwitchLlama(time) {
   ) {
     document.querySelector("#userLlamaColor").src =
       "images/pixel-llamas/llama03.gif";
+  } else if (
+    document.querySelector("#userLlamaColor").src.includes("llama04.png")
+  ) {
+    document.querySelector("#userLlamaColor").src =
+      "images/pixel-llamas/llama04.gif";
+  } else if (
+    document.querySelector("#userLlamaColor").src.includes("llama05.png")
+  ) {
+    document.querySelector("#userLlamaColor").src =
+      "images/pixel-llamas/llama05.gif";
+  } else if (
+    document.querySelector("#userLlamaColor").src.includes("llama06.png")
+  ) {
+    document.querySelector("#userLlamaColor").src =
+      "images/pixel-llamas/llama06.gif";
   }
   setTimeout(() => {
     if (document.querySelector("#userLlamaColor").src.includes("llama01.gif")) {
@@ -74,6 +89,21 @@ function gifSwitchLlama(time) {
     ) {
       document.querySelector("#userLlamaColor").src =
         "images/pixel-llamas/llama03.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama04.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama04.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama05.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama05.png";
+    } else if (
+      document.querySelector("#userLlamaColor").src.includes("llama06.gif")
+    ) {
+      document.querySelector("#userLlamaColor").src =
+        "images/pixel-llamas/llama06.png";
     }
   }, time);
 }
