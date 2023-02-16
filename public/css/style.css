@@ -543,7 +543,8 @@ header button:not(:disabled):focus {
 
 #llamaName,
 .colorSelect,
-.hatSelect {
+.hatSelect,
+#orderData {
   width: 100px;
   border-radius: 5px;
   border: 2px solid #8e8074;
@@ -551,7 +552,8 @@ header button:not(:disabled):focus {
 
 #llamaName:focus,
 .colorSelect:focus,
-.hatSelect:focus {
+.hatSelect:focus,
+#orderData:focus {
   outline: none;
 }
 
