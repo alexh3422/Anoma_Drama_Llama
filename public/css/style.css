@@ -130,8 +130,6 @@ main {
   margin-bottom: 100px;
 }
 
-
-
 #rightSide {
   width: 200px;
   /* background-color: var(--light); */
@@ -154,7 +152,7 @@ footer {
   background-color: rgb(223, 221, 219);
 }
 
-#emoji{
+#emoji {
   position: absolute;
   right: 15px;
   top: 5px;
@@ -382,7 +380,6 @@ header button:not(:disabled):focus {
   width: 90%;
 }
 
-
 .column {
   display: flex;
   flex-direction: column;
@@ -396,6 +393,8 @@ header button:not(:disabled):focus {
 
 .llamaColumn {
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 #title-input {
@@ -448,6 +447,14 @@ header button:not(:disabled):focus {
   width: 100%;
   height: 100%;
   padding: 1%;
+  position: relative;
+}
+
+#sameMood {
+  position: absolute;
+  color: var(--light);
+  right: 20px;
+  top: 10px;
 }
 
 .allPosts h2,
@@ -460,15 +467,16 @@ header button:not(:disabled):focus {
   border: var(--p1) solid 1px;
   border-radius: 5px;
   padding: 5px;
-  background-color: rgba(243, 232, 216, 0.677);
   box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
+  background-image: url(../images/notebookpaper50.png);
 }
 
 .post-box:hover,
 .post-box:focus {
   box-shadow: 0 0 0 3px rgba(44, 43, 43, 0.2),
     0 3px 10px 0 rgba(36, 36, 36, 0.15);
-  padding: 8px;
+  margin-right: 0%;
+  margin-left: 0%;
 }
 
 #title {
@@ -728,7 +736,7 @@ progress::-webkit-progress-bar {
 }
 
 /* Mood Wheel */
-#moodWheelFullScreen{
+#moodWheelFullScreen {
   display: none;
   width: 100vw;
   height: 100vh;
@@ -948,7 +956,7 @@ progress::-webkit-progress-bar {
   background-color: #3b9e4fb0;
 }
 
-.happyBorder{
+.happyBorder {
   border: 1px solid #3b9e4fb0;
 }
 
@@ -1103,7 +1111,7 @@ progress::-webkit-progress-bar {
   background-color: #8e1d1dcd;
 }
 
-.angryBorder{
+.angryBorder {
   border: 1px solid #8e1d1dcd;
 }
 
@@ -1178,7 +1186,7 @@ progress::-webkit-progress-bar {
   border: 1px solid #664072e3;
 }
 
-.mischievousBorder{
+.mischievousBorder {
   border: 1px solid #664072e3;
 }
 
@@ -1199,15 +1207,15 @@ progress::-webkit-progress-bar {
 .excited #public:checked:after,
 .excited #anonymous:checked:after,
 .excited #private:checked:after,
-.excited{
+.excited {
   background-color: #6e528dbc;
 }
 
-.excitedBorder{
+.excitedBorder {
   border: 1px solid #6e528dbc;
 }
 
-.excited h3{
+.excited h3 {
   color: var(--light);
 }
 
@@ -1278,7 +1286,7 @@ progress::-webkit-progress-bar {
   background-color: #2d709f68;
 }
 
-.annoyedBorder{
+.annoyedBorder {
   border: 1px solid #2d709f68;
 }
 
