@@ -32,7 +32,6 @@ router.get("/home", (req, res) => {
         },
       ],
     }).then((PostData) => {
-      console.log(PostData);
       const hbsPost = PostData.map((Post) => Post.toJSON());
       const allPublicPosts = hbsPost.filter(
         (post) =>
@@ -42,7 +41,6 @@ router.get("/home", (req, res) => {
         if (post.visibility === "anonymous") {
           post.user["username"] = "Someone";
         }
-        console.log(post.user);
       });
       res.render("home", {
         allPosts: allPublicPosts.reverse(),

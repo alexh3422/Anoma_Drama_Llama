@@ -132,7 +132,9 @@ fetch('/api/moods/user', {
     }];
 
     var layout = {
-        showlegend: false
+        showlegend: false,
+        paper_bgcolor: "#dedada00"
+        
     }
 
 const config2 = { responsive: true, scrollZoom: true }
@@ -145,8 +147,11 @@ var barLayout = {
     legend: {
         "orientation": "h",
         // x: 1,
-        y: 2
-    }
+        y: 2,
+    },
+    paper_bgcolor: "#dedada00",
+    plot_bgcolor: "#dedada00"
+
 };
 
 Plotly.newPlot('barChart', dataByEntry, barLayout, config);
