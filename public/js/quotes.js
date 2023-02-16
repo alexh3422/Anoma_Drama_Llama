@@ -74,8 +74,8 @@ timerInterval = setInterval(() => {
               case "scared":
                 scared();
                 break;
-              case "shocked":
-                scared();
+              case "excited":
+                happiness();
                 break;
             }
           }
@@ -160,27 +160,29 @@ timerInterval = setInterval(() => {
           .catch((err) => console.error(err));
       }
     });
-}, 200000);
+}, 20000);
 
 function speechBubbleFeature(quote) {
   document.querySelector("#speechBubble").innerHTML = quote;
   document.querySelector(".bubble").style.display = "block";
-  console.log(quote.length);
-  if (quote.length < 50) {
-    setTimeout(() => {
-      document.querySelector(".bubble").style.display = "none";
-    }, 6000);
-  } else if (quote.length < 100) {
-    setTimeout(() => {
-      document.querySelector(".bubble").style.display = "none";
-    }, 8000);
-  } else if (quote.length < 150) {
-    setTimeout(() => {
-      document.querySelector(".bubble").style.display = "none";
-    }, 10000);
-  } else if (quote.length < 200) {
-    setTimeout(() => {
-      document.querySelector(".bubble").style.display = "none";
-    }, 15000);
-  }
+  setTimeout(() => {
+    document.querySelector(".bubble").style.display = "none";
+  }, 10000);
+  // if (quote.length < 50) {
+  //   setTimeout(() => {
+  //     document.querySelector(".bubble").style.display = "none";
+  //   }, 6000);
+  // } else if (quote.length < 100) {
+  //   setTimeout(() => {
+  //     document.querySelector(".bubble").style.display = "none";
+  //   }, 8000);
+  // } else if (quote.length < 150) {
+  //   setTimeout(() => {
+  //     document.querySelector(".bubble").style.display = "none";
+  //   }, 10000);
+  // } else if (quote.length < 200) {
+  //   setTimeout(() => {
+  //     document.querySelector(".bubble").style.display = "none";
+  //   }, 15000);
+  // }
 }

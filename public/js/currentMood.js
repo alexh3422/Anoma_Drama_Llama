@@ -75,7 +75,7 @@ const emotions = [
   new Emotion("flirty", "color10"),
   new Emotion("silly", "color11"),
   new Emotion("mischievous", "color12"),
-  new Emotion("shocked", "color13"),
+  new Emotion("excited", "color13"),
   new Emotion("bored", "color14"),
   new Emotion("sad", "color15"),
   new Emotion("annoyed", "color16"),
@@ -110,8 +110,8 @@ let feelings = emotionsToTrack;
 
 const changeBoxColor = () => {
   const boxes = document.querySelectorAll('.row')
-    boxes.forEach(box => {
-        box.setAttribute("class", `row ${emotionsToTrack[0]}`)
+  boxes.forEach(box => {
+    box.setAttribute("class", `row ${emotionsToTrack[0]}`)
   });
 }
 
@@ -213,6 +213,43 @@ validateBtn.addEventListener("click", (event) => {
         allPostsDiv.insertBefore(thisPostDiv, allPostsDiv.children[1]);
       } else if (post.visibility == "private") {
         thisPostDiv.remove();
+      }
+      const emoji = document.querySelector("#emoji")
+      const moodInfo = document.querySelector("#userPageCurrentMood")
+      moodInfo.textContent = `Your current mood is: ${emotionsToTrack[0]}`
+
+      if (emotionsToTrack[0] === "tired") {
+        emoji.textContent = `😴`;
+      } else if (emotionsToTrack[0] === "happy") {
+        emoji.textContent = `😀`
+      } else if (emotionsToTrack[0] === "annoyed") {
+        emoji.textContent = `😒`
+      } else if (emotionsToTrack[0] === "embarrassed") {
+        emoji.textContent = `😳`
+      } else if (emotionsToTrack[0] === "sad") {
+        emoji.textContent = `😢`
+      } else if (emotionsToTrack[0] === "calm") {
+        emoji.textContent = `😌`
+      } else if (emotionsToTrack[0] === "bored") {
+        emoji.textContent = `😐`
+      } else if (emotionsToTrack[0] === "disappointed") {
+        emoji.textContent = `😕`
+      } else if (emotionsToTrack[0] === "mischievous") {
+        emoji.textContent = `😈`
+      } else if (emotionsToTrack[0] === "angry") {
+        emoji.textContent = `😡`
+      } else if (emotionsToTrack[0] === "flirty") {
+        emoji.textContent = `😘`
+      } else if (emotionsToTrack[0] === "anxious") {
+        emoji.textContent = `😟`
+      } else if (emotionsToTrack[0] === "silly") {
+        emoji.textContent = `😛`
+      } else if (emotionsToTrack[0] === "scared") {
+        emoji.textContent = `😧`
+      } else if (emotionsToTrack[0] === "frustrated") {
+        emoji.textContent = `😫`
+      } else if (emotionsToTrack[0] === "excited") {
+        emoji.textContent = `🤩`
       }
 
       emotionsToTrack.forEach((emotion) => {
