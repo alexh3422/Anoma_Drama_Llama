@@ -1382,7 +1382,7 @@ progress::-webkit-progress-bar {
   #leftSide {
     flex-direction: row;
     position: fixed;
-    height: 30px;
+    height: 10px;
     width: 100%;
     top: 50px;
     padding: 5%;
@@ -1400,6 +1400,7 @@ progress::-webkit-progress-bar {
     width: 40px;
     left: 0;
     font-size: 30px;
+    margin: 0;
   }
 
   #leftSide a:hover {
