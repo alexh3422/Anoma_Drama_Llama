@@ -30,6 +30,7 @@ router.post("/", (req, res) => {
       req.session.userId = dbUserData.id;
       req.session.userUsername = dbUserData.username;
       req.session.userEmail = dbUserData.email;
+
       email(req.body.email, req.body.username);
       res.json(dbUserData);
     })
@@ -108,23 +109,29 @@ router.post("/login", (req, res) => {
 });
 
 router.put("/", (req, res) => {
-  Users.update({
-    currentMood: req.body.currentMood
-  }, {
-    where: { id: req.session.userId }
-  }).then(data => {
-    if (data[0]) {
-      return res.json(data)
-    } else {
-      return res.status(404).json({ msg: "no such record" })
+  Users.update(
+    {
+      currentMood: req.body.currentMood,
+    },
+    {
+      where: { id: req.session.userId },
     }
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      msg: "an error occurred",
-      err: err
+  )
+    .then((data) => {
+      if (data[0]) {
+        req.session.userUserMood = req.body.currentMood;
+        return res.json(data);
+      } else {
+        return res.status(404).json({ msg: "no such record" });
+      }
     })
-  })
-})
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        msg: "an error occurred",
+        err: err,
+      });
+    });
+});
 
 module.exports = router;

@@ -1,7 +1,12 @@
 <div>
   <div class="column">
     <div class="moodSelector default">
-      {{>mood-wheel}}
+      {{>mood-wheel}} 
+      {{#if currentUserMood}}
+      <p id="sameMood">{{sameMood}}</p>
+      {{else}}
+      <p id="sameMood">You haven't set a current mood yet</p>
+      {{/if}}
     </div>
 
     <div class="allPosts">
