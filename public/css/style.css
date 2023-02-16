@@ -110,6 +110,7 @@ header {
   /* left: 50px; */
   /* padding-right: 250px; */
   z-index: 5;
+  box-shadow: 1px 1px 5px rgba(74, 74, 73, 0.81);
 }
 
 header button {
@@ -128,6 +129,8 @@ main {
   top: 10vh;
   margin-bottom: 100px;
 }
+
+
 
 #rightSide {
   width: 200px;
@@ -151,9 +154,12 @@ footer {
   background-color: rgb(223, 221, 219);
 }
 
-/* #UserPageInfo{
-  background-color: #00ff40;
-} */
+#emoji{
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-size: 25px;
+}
 
 #deleteBtn,
 #editBtn,
