@@ -10,25 +10,18 @@ let timerInterval;
 
 timerInterval = setInterval(() => {
   quoteCount++;
-  if (quoteCount > 2) {
+  if (quoteCount > 5) {
     clearInterval(timerInterval);
   }
-  fetch("/sessions", {
+  fetch("/api/users/currentUser", {
     method: "GET",
   })
     .then((res) => {
       return res.json();
     })
     .then((sessionData) => {
-      fetch("api/users", {
-        method: "GET",
-      })
-        .then((res) => {
-          return res.json();
-        })
-        .then((res) => {
           function quotes() {
-            switch (res[0].currentMood) {
+            switch (sessionData.currentMood) {
               case "happy":
                 happiness();
                 break;
@@ -159,30 +152,33 @@ timerInterval = setInterval(() => {
           .then((quote) => speechBubbleFeature(quote[0].quote))
           .catch((err) => console.error(err));
       }
-    });
-}, 20000);
+}, 30000);
 
 function speechBubbleFeature(quote) {
   document.querySelector("#speechBubble").innerHTML = quote;
   document.querySelector(".bubble").style.display = "block";
-  setTimeout(() => {
-    document.querySelector(".bubble").style.display = "none";
-  }, 10000);
-  // if (quote.length < 50) {
-  //   setTimeout(() => {
-  //     document.querySelector(".bubble").style.display = "none";
-  //   }, 6000);
-  // } else if (quote.length < 100) {
-  //   setTimeout(() => {
-  //     document.querySelector(".bubble").style.display = "none";
-  //   }, 8000);
-  // } else if (quote.length < 150) {
-  //   setTimeout(() => {
-  //     document.querySelector(".bubble").style.display = "none";
-  //   }, 10000);
-  // } else if (quote.length < 200) {
-  //   setTimeout(() => {
-  //     document.querySelector(".bubble").style.display = "none";
-  //   }, 15000);
-  // }
+  // setTimeout(() => {
+  //   document.querySelector(".bubble").style.display = "none";
+  // }, 10000);
+  if (quote.length < 50) {
+    setTimeout(() => {
+      document.querySelector(".bubble").style.display = "none";
+    }, 6000);
+  } else if (quote.length < 100) {
+    setTimeout(() => {
+      document.querySelector(".bubble").style.display = "none";
+    }, 8000);
+  } else if (quote.length < 150) {
+    setTimeout(() => {
+      document.querySelector(".bubble").style.display = "none";
+    }, 10000);
+  } else if (quote.length < 200) {
+    setTimeout(() => {
+      document.querySelector(".bubble").style.display = "none";
+    }, 15000);
+  } else {
+    setTimeout(() => {
+      document.querySelector(".bubble").style.display = "none";
+    }, 20000);
+  }
 }

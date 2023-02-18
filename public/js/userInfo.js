@@ -17,7 +17,6 @@ fetch('/sessions', {
                 let counter = 0
                 
                 allUsers.forEach(user => {
-                  console.log(user.currentMood)
                   if(user.currentMood===data.currentMood){
                     counter++
                   }
