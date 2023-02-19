@@ -160,7 +160,7 @@ timerInterval = setInterval(() => {
           .catch((err) => console.error(err));
       }
     });
-}, 20000);
+}, 60000);
 
 function speechBubbleFeature(quote) {
   document.querySelector("#speechBubble").innerHTML = quote;
