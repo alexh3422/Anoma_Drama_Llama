@@ -96,6 +96,7 @@ router.post("/login", (req, res) => {
           req.session.userId = userData.id;
           req.session.userUsername = userData.username;
           req.session.userEmail = userData.email;
+          req.session.userUserMood = userData.currentMood;
           return res.json(userData);
         } else {
           return res.status(401).json({ msg: "incorrect email or password" });

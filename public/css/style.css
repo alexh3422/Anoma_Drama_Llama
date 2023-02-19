@@ -823,6 +823,7 @@ progress::-webkit-progress-bar {
   position: fixed;
   top: 0;
   right: 0;
+  left: 0;
   opacity: 50%;
 }
 
@@ -1371,25 +1372,25 @@ progress::-webkit-progress-bar {
     width: 90%;
   }
   #sameMood{
-    font-size: 10px;
+    font-size: 2vw;
   }
   #UserPageInfo {
     margin-right: 10px;
   }
   #moodTitle{
-    font-size: 15px;
+    font-size: 3vw;
   }
   #baseSection {
     flex-direction: column;
   }
   #userPageUsername{
-    font-size: 16px;
+    font-size: 3vw;
   }
   #userPageCurrentMood{
-    font-size: 10px;
+    font-size: 2vw;
   }
   #emoji {
-    font-size: 15px;
+    font-size: 4vw;
     right: 5px;
     top: 5px;
   }
@@ -1403,7 +1404,7 @@ progress::-webkit-progress-bar {
   #trackMoodBtn,
   #submit-post,
   header button {
-    font-size: 12px;
+    font-size: 2vw;
     height: 25px;
     width: auto;
     height: auto;
@@ -1423,17 +1424,17 @@ progress::-webkit-progress-bar {
     width: 100%;
     top: 50px;
     padding: 5%;
-    justify-content: space-evenly;
+    justify-content: flex-end;
   }
   #leftSide a {
-    font-size: 12px;
-    margin: auto;
+    font-size: 3vw;
+    margin: 1% 10% 1% 5%;
     display: none;
   }
 
   #leftSide p {
     position: fixed;
-    top: 50px;
+    top: 45px;
     width: 40px;
     left: 0;
     font-size: 30px;
@@ -1441,7 +1442,7 @@ progress::-webkit-progress-bar {
   }
 
   #leftSide a:hover {
-    font-size: 15px;
+    font-size: 4vw;
   }
 
   #leftSide:hover {
@@ -1472,7 +1473,7 @@ progress::-webkit-progress-bar {
     z-index: 100;
   }
   #sideLlamaCard img {
-    width: 150px;
+    width: 35vw;
     bottom: 0;
     right: 0;
   }
@@ -1491,11 +1492,11 @@ progress::-webkit-progress-bar {
     height: 20%;
   }
   .bubble {
-    max-width: 60vw;
+    max-width: 55vw;
     margin: 0px;
-    font-size: 15px;
+    font-size: 3vw;
     bottom: 100px;
-    right: 30%;
+    right: 35%;
   }
   .bubble:after,
   .bubble:before {
@@ -1533,5 +1534,8 @@ progress::-webkit-progress-bar {
 
   .loginCard, .signupCard{
     width: 70%;
+  }
+  #Border {
+    border: var(--light) 10px solid;
   }
 }

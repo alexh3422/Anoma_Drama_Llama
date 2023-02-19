@@ -115,7 +115,6 @@ const changeBoxColor = () => {
 }).then(res => {
     return res.json()
 }).then(data => {
-  console.log(data.userUserMood)
   if (emotionsToTrack.length > 0) {
     const boxes = document.querySelectorAll('.moodSelector')
     boxes.forEach(box => {
@@ -162,7 +161,7 @@ const changeTitle = () => {
     validateBtn.style.display = "inline";
     privacySetting.style.display = "block";
   } else {
-    moodTitle.textContent = "How are you feeling right now?";
+    moodTitle.textContent = "What is your current mood?";
     trackMoodBtn.textContent = "Add Current Mood";
     document.querySelector("#validateBtn").style.display = "none";
     privacySetting.style.display = "none";
@@ -205,7 +204,6 @@ validateBtn.addEventListener("click", (event) => {
     })
     .then((post) => {
 
-      console.log(post);
       const allPostsDiv = document.querySelector(".allPosts");
 
       const thisPostDiv = document.createElement("div");
@@ -303,7 +301,6 @@ validateBtn.addEventListener("click", (event) => {
         let counter = 0
         
         data.forEach(user => {
-          console.log(user.currentMood)
           if(user.currentMood===emotionsToTrack[0]){
             counter++
           }
