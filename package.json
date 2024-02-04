@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/alexh3422/Anoma_Drama_Llama/issues"
   },
-  "homepage": "https://github.com/alexh3422/Anoma_Drama_Llama#readme",
+  "homepage": "https://alexh3422.github.io/anoma_drama_lama",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
